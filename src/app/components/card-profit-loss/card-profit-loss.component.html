@@ -1,0 +1,17 @@
+<div class="card card-transparent">
+  <div class="cards-revenues">
+    <div [class]="classProfit">
+      <div class="header-card">
+        <h2>
+          {{profit}}<small> {{profitType}}</small>
+        </h2>
+        <small>{{description}}</small>
+      </div>
+      <div style="height: 140px">
+        <canvas baseChart [chartType]="'line'" [datasets]="chartData" [labels]="chartLabels" [options]="options"
+          [legend]="true" (chartClick)="onChartClick($event)" [colors]="lineChartColors" [id]="idCanvas">
+        </canvas>
+      </div>
+    </div>
+  </div>
+</div>

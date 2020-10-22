@@ -1,0 +1,37 @@
+<!-- <div id="landing" *ngIf="viewId == 7" class="component">
+     <landing-app [path]="path"></landing-app>
+</div> -->
+
+<!-- <div id="home" *ngIf="viewId == 1" class="component">
+    <app-home [path]="path"></app-home>
+</div> -->
+<div id="profits" *ngIf="viewId == 2" class="component">
+    <app-profits [path]="path"></app-profits>
+</div>
+<!-- <div id="refferals" *ngIf="viewId == 3" class="component">
+    <app-referrals [path]="path"></app-referrals>
+</div> -->
+<div id="form" *ngIf="viewId == 4" class="component">
+    <app-form-refer [token]="token"></app-form-refer>
+</div>
+<div id="account" *ngIf="viewId == 5" class="component">
+    <app-active-account [token]="token"></app-active-account>
+</div>
+<div id="password" *ngIf="viewId == 6" class="component">
+    <app-forgot-password [token]="token"></app-forgot-password>
+</div>
+
+<app-landingTwo *ngIf="isProgressLanding"></app-landingTwo>
+<app-im-refer *ngIf="isProgressImRefer"></app-im-refer>
+<app-im-official *ngIf="isProgressImOfficial"></app-im-official>
+<app-homev2 *ngIf="isProgressHome"></app-homev2>
+<app-form-refer *ngIf="isProgressFormRefer" [token]="token"></app-form-refer>
+<app-form-tcd *ngIf="isProgressFormTcd"></app-form-tcd>
+
+
+
+
+<div id="calculatorCDT">
+    <app-calc-cdt></app-calc-cdt>
+</div>
+<!-- <router-outlet></router-outlet> -->

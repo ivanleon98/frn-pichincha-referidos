@@ -1,0 +1,297 @@
+//  .input input {
+//    position: relative;
+//    height: 45px;
+//    border: 2px solid rgba(30, 51, 152, 1);
+//    border-radius: 15px;
+//    width: 100%;
+//    padding-left: 20px;
+//    font-size: 17px;
+//    font-family: "Open-Sans", sans-serif;
+//    box-sizing: border-box;
+//  }
+// .input input:focus {
+//   outline: -webkit-focus-ring-color auto 0px;
+// }
+// .input input::placeholder {
+//   color: #C0C0C0;
+// }
+.container-general {
+    position: absolute;
+    z-index: 1;
+    display: none;
+    text-align: center;
+    padding: 12px;
+    width: 270px;
+    border: 1px solid rgba(218, 218, 218, 1);
+    border-radius: 16px;
+    margin-top: 0px;
+    background-color: rgba(250, 250, 250, 1);
+    -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+    &:focus {
+        outline: none;
+    }
+}
+
+.container-date {
+    display: inline-flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.calendar-content {
+    width: 100%;
+}
+
+.calendar-content .container-year {
+    width: 48%;
+    height: 40px;
+    background-color: rgba(30, 51, 152, 1);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.calendar-content .container-year .years {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row-reverse;
+    padding-top: 8px;
+    cursor: pointer;
+}
+
+.calendar-content .container-year span {
+    color: rgba(191, 191, 191, 1);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.calendar-content .container-year .years img {
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.calendar-content .container-year .years .actualYear {
+    color: rgba(255, 223, 122, 1);
+    font-size: 16px;
+    margin-top: 3px;
+    font-family: 'Montserrat';
+}
+
+div.arrow-down:nth-child(1) {
+    transform: rotate(90deg);
+}
+
+div.arrow-top:nth-child(6) {
+    transform: rotate(270deg);
+}
+
+.calendar-content .container-month {
+    display: flex;
+    width: 48%;
+    margin-left: 10px;
+    background-color: rgba(30, 51, 152, 1);
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    cursor: pointer;
+}
+
+.container-month .arrow-down {
+    width: 20px;
+    height: 20px;
+    margin: auto;
+    cursor: pointer;
+}
+
+.container-month span {
+    line-height: 35px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 16px;
+    color: rgba(191, 191, 191, 1);
+}
+
+.container-month .actualMonth {
+    color: rgba(255, 223, 122, 1);
+    font-size: 16px;
+    padding-left: 15px;
+    margin: 4px auto 0;
+    font-family: 'Montserrat';
+}
+
+.calendar-content>div:nth-child(4) {
+    display: none;
+}
+
+.name-day {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+    color: rgba(191, 191, 191, 1);
+    font-family: 'Montserrat';
+    cursor: none;
+}
+
+.number-days1 {
+    display: flex;
+    justify-content: space-around;
+}
+
+.number-day {
+    font-weight: 600;
+    height: 20px;
+    font-size: 14px;
+    width: 20px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-family: 'Montserrat-SemiBold';
+}
+
+.meses {
+    display: none;
+}
+
+.arrows {
+    display: flex;
+    justify-content: space-around;
+}
+
+.arrows img {
+    cursor: pointer;
+}
+
+.arrows>span:nth-child(1)>img:nth-child(1) {
+    transform: rotate(-270deg);
+}
+
+.arrows>span:nth-child(2) {
+    transform: rotate(-90deg);
+}
+
+.row1 {
+    display: inline-flex;
+}
+
+.row1 span {
+    margin: 16px;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: 'Montserrat-SemiBold';
+    color: rgba(30, 51, 152, 1);
+    width: 35px;
+    font-weight: 600;
+}
+
+.month-enable {
+    margin: 16px !important;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: 'Montserrat-SemiBold';
+    color: rgba(30, 51, 152, 1);
+    width: 35px;
+    font-weight: 600;
+}
+
+.month-disable {
+    margin: 16px !important;
+    cursor: default !important;
+    font-size: 15px;
+    font-family: 'Montserrat-SemiBold';
+    width: 35px;
+    font-weight: 600;
+    color: rgba(189, 189, 189, 1) !important;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+    appearance: none;
+    -moz-appearance: none;
+    -ms-progress-appearance: none;
+    -webkit-appearance: none;
+    text-transform: uppercase;
+    background: none;
+    color: #000;
+    font-size: 17px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #c6c6c6;
+}
+
+input:focus {
+    outline: none;
+}
+
+input:valid~label {
+    top: -14px;
+    font-size: 15px;
+    color: rgb(76, 175, 80) !important;
+    transition: 300ms ease all !important;
+}
+
+input:valid {
+    border-bottom: 1px solid rgb(76, 175, 80) !important;
+}
+
+input:focus~label {
+    top: -14px;
+    font-size: 15px;
+    color: rgb(76, 175, 80);
+    transition: 300ms ease all !important;
+}
+
+.small {
+    color: #f44336;
+    display: none;
+}
+
+input:focus~.bar:before {
+    width: 100%;
+}
+
+input:required {
+    box-shadow: none;
+}
+
+input[type="password"] {
+    letter-spacing: 0.3em;
+}
+
+input[type="date"] {
+    color: #bdbdbd;
+}
+
+label {
+    color: #999;
+    font-size: 15px !important;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+}
+
+.bar {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.bar:before {
+    content: "";
+    height: 1px;
+    width: 0;
+    bottom: 0px;
+    position: absolute;
+    background: #03a9f4;
+    transition: 300ms ease all;
+    left: 0%;
+}
+
+@media screen and (max-width: 760px) {
+    .container-general {
+        margin: auto;
+    }
+}

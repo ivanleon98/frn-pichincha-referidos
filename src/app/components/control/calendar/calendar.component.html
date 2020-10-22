@@ -1,0 +1,101 @@
+<div class="input" id="{{id}}-container">
+    <input type="text" id="{{id}}" (click)="showCalendar(true)" value="{{value}}" readonly>
+    <span class="bar"></span>
+    <label id="labelinput">{{placeholder}}</label>
+    <div class="container-general" id="{{id}}-general">
+        <div id="calendar-content" class="calendar-content">
+            <div class="container-date">
+                <div id="{{id}}-box-year" class="container-year">
+                    <span class="years" (click)="selectYear()">
+            <span class="actualYear">{{year}}</span>
+                    <div class="arrow-down"><img src="./assets/img/arrow-point-to-right1.svg" alt="">
+                    </div>
+                    </span>
+                </div>
+                <div class="container-month" id="{{id}}-box-month" (click)="selectMonth()">
+                    <span class="actualMonth">{{changeMonthName(undefined)}}</span>
+                    <div class="arrow-down"><img src="./assets/img/arrow-point-to-right1.svg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="name-day" id="{{id}}-name-day">
+                <span id="0">D</span><span id="1">L</span><span id="2">M</span><span id="3">M</span><span id="4">J</span><span id="5">V</span><span id="6">S</span>
+            </div>
+            <div id="{{id}}-number-day">
+                <div class="number-days1">
+                    <span class="number-day" id="0"></span><span class="number-day" id="1"></span><span class="number-day" id="2"></span><span class="number-day" id="3"></span><span class="number-day" id="4"></span><span class="number-day" id="5"></span>
+                    <span class="number-day" id="6"></span>
+                </div>
+                <div class="number-days1">
+                    <span class="number-day" id="0"></span><span class="number-day" id="1"></span><span class="number-day" id="2"></span><span class="number-day" id="3"></span><span class="number-day" id="4"></span><span class="number-day" id="5"></span>
+                    <span class="number-day" id="6"></span>
+                </div>
+                <div class="number-days1">
+                    <span class="number-day" id="0"></span><span class="number-day" id="1"></span><span class="number-day" id="2"></span><span class="number-day" id="3"></span><span class="number-day" id="4"></span><span class="number-day" id="5"></span>
+                    <span class="number-day" id="6"></span>
+                </div>
+                <div class="number-days1">
+                    <span class="number-day" id="0"></span><span class="number-day" id="1"></span><span class="number-day" id="2"></span><span class="number-day" id="3"></span><span class="number-day" id="4"></span><span class="number-day" id="5"></span>
+                    <span class="number-day" id="6"></span>
+                </div>
+                <div class="number-days1">
+                    <span class="number-day" id="0"></span><span class="number-day" id="1"></span><span class="number-day" id="2"></span><span class="number-day" id="3"></span><span class="number-day" id="4"></span><span class="number-day" id="5"></span>
+                    <span class="number-day" id="6"></span>
+                </div>
+                <div class="number-days1">
+                    <span class="number-day" id="0"></span><span class="number-day" id="1"></span><span class="number-day" id="2"></span><span class="number-day" id="3"></span><span class="number-day" id="4"></span><span class="number-day" id="5"></span>
+                    <span class="number-day" id="6"></span>
+                </div>
+            </div>
+            <!-- <div></div> -->
+            <div class="container-years-2" id="{{id}}-fixed-years">
+                <div class="arrows">
+                    <span (click)="nextYear(12)"><img src="./assets/img/arrow-point-to-right.svg"></span>
+                    <span (click)="nextYear(-12);"> <img src="./assets/img/arrow-point-to-right.svg"></span>
+                </div>
+                <div>
+                    <div class="row1">
+                        <span (click)="paintYear(11)">{{year - 11}}</span>
+                        <span (click)="paintYear(10)">{{year - 10}}</span>
+                        <span (click)="paintYear(9)">{{year - 9}}</span>
+                        <span (click)="paintYear(8)">{{year - 8}}</span>
+                    </div>
+                    <div class="row1">
+                        <span (click)="paintYear(7)">{{year - 7}}</span>
+                        <span (click)="paintYear(6)">{{year - 6}}</span>
+                        <span (click)="paintYear(5)">{{year - 5}}</span>
+                        <span (click)="paintYear(4)">{{year - 4}}</span>
+                    </div>
+                    <div class="row1">
+                        <span (click)="paintYear(3)">{{year - 3}}</span>
+                        <span (click)="paintYear(2)">{{year - 2}}</span>
+                        <span (click)="paintYear(1)">{{year - 1}}</span>
+                        <span (click)="paintYear(0)">{{year}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="meses" id="{{id}}-fixed-month">
+                <div class="row1">
+                    <span (click)="paintMonth(0)" [class]="actualMonthEnable(0) ? 'month-enable' : 'month-disable'">{{monthName(0)}}</span>
+                    <span (click)="paintMonth(1)" [class]="actualMonthEnable(1) ? 'month-enable' : 'month-disable'">{{monthName(1)}}</span>
+                    <span (click)="paintMonth(2)" [class]="actualMonthEnable(2) ? 'month-enable' : 'month-disable'">{{monthName(2)}}</span>
+                    <span (click)="paintMonth(3)" [class]="actualMonthEnable(3) ? 'month-enable' : 'month-disable'">{{monthName(3)}}</span>
+                </div>
+                <div class="row1">
+                    <span (click)="paintMonth(4)" [class]="actualMonthEnable(4) ? 'month-enable' : 'month-disable'">{{monthName(4)}}</span>
+                    <span (click)="paintMonth(5)" [class]="actualMonthEnable(5) ? 'month-enable' : 'month-disable'">{{monthName(5)}}</span>
+                    <span (click)="paintMonth(6)" [class]="actualMonthEnable(6) ? 'month-enable' : 'month-disable'">{{monthName(6)}}</span>
+                    <span (click)="paintMonth(7)" [class]="actualMonthEnable(7) ? 'month-enable' : 'month-disable'">{{monthName(7)}}</span>
+                </div>
+                <div class="row1">
+                    <span (click)="paintMonth(8)" [class]="actualMonthEnable(8) == true ? 'month-enable' : 'month-disable'">{{monthName(8)}}</span>
+                    <span (click)="paintMonth(9)" [class]="actualMonthEnable(9) == true ? 'month-enable' : 'month-disable'">{{monthName(9)}}</span>
+                    <span (click)="paintMonth(10)" [class]="actualMonthEnable(10) == true ? 'month-enable' : 'month-disable'">{{monthName(10)}}</span>
+                    <span (click)="paintMonth(11)" [class]="actualMonthEnable(11) == true ? 'month-enable' : 'month-disable'">{{monthName(11)}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

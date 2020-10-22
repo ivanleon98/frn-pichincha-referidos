@@ -1,0 +1,28 @@
+.div-canvas-1,
+.div-canvas-2 {
+  background-color: #fff;
+  text-align: left;
+  padding: 10px 25px;
+  width: 230px;
+  height: 270px;
+  border-radius: 10px;
+  border: 1px solid #73a839;
+  border-bottom: 3px solid #73a839;
+  margin: auto; 
+}
+
+.div-canvas-2 {
+  border: 1px solid #FC8C06;
+  border-bottom: 3px solid #FC8C06;
+}
+.cards-revenues {
+  display: flex;
+}
+
+small{
+  color: rgba(73, 80, 87, 0.6);
+}
+
+canvas {
+  margin-top: 40px;
+}

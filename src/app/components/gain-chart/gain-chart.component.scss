@@ -1,0 +1,114 @@
+.div-info {
+    display: flex;
+}
+
+.div-canvas {
+    border-bottom: 1px solid #c5c5c5;
+    width: 600px;
+}
+
+.total {
+    vertical-align: middle;
+    width: 40%;
+}
+
+
+/* Estilos div inferior barra de proceso  */
+
+.box {
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    .container {
+        width: 600px;
+    }
+}
+
+.container-details {
+    display: flex;
+    align-items: center;
+}
+
+.details-text {
+    display: flex;
+    flex: 1;
+    position: relative;
+    align-items: center;
+    display: inline-block;
+}
+
+.points {
+    font-size: 20px;
+    color: #0F265C;
+    font-family: 'OpenSans-Bold';
+}
+
+.details-text,
+.details-progress-bar {
+    color: #E0E0E0;
+    font-family: 'OpenSans-Bold';
+    font-size: 16px;
+}
+
+.title-progress-bar {
+    font-family: 'OpenSans-Bold';
+    font-size: 20px;
+    margin-top: 28px;
+    margin-bottom: 5px;
+    color: #0F265C;
+}
+
+.description-progress-bar,
+.details-progress-bar {
+    color: #666666;
+    font-family: 'OpenSans-Regular';
+    font-size: 16px;
+}
+
+.details-progress-bar {
+    display: inline-block;
+    margin-top: 0.33333333rem;
+    opacity: 0.5;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+.progress-bar-backgroud {
+    display: flex;
+    height: 1rem;
+    overflow: hidden;
+    font-size: 0.75rem;
+    background-color: #e9ecef;
+    border-radius: 0.25rem;
+    margin: 10px 0 0 0;
+}
+
+.progress-bar-color {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #033c73;
+    transition: width 0.6s ease;
+}
+
+.share {
+    margin-left: auto;
+}
+
+.container-canvas {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Fin Estilos div inferior barra de proceso  */
+
+@media screen and (max-width: 720px) {
+    .card {
+        width: 100%;
+    }
+}

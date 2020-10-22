@@ -1,0 +1,99 @@
+.container {
+    position: relative;
+    background-color: #fff;
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    .circle {
+        height: 555px;
+        width: 950px;
+        border-radius: 500px 500px 0 0;
+        background-color: #10133F;
+        transform: rotate(180deg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .text {
+            transform: rotate(180deg);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .title {
+                margin-top: 85px;
+                font-size: 46px;
+                color: #fd0;
+                text-align: center;
+                margin-bottom: 20px;
+                font-family: 'Montserrat-Bold';
+            }
+            .subtitle {
+                text-align: center;
+                font-size: 40px;
+                color: #fff;
+                font-family: 'Montserrat-Medium';
+                margin-bottom: 20px;
+            }
+            .smallTitle {
+                color: #fff;
+                text-align: center;
+                font-size: 16px;
+                margin-bottom: 40px;
+                font-family: 'OpenSans-Regular';
+            }
+            .buttons {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-pack: space-evenly;
+                -ms-flex-pack: space-evenly;
+                justify-content: space-evenly;
+            }
+            .buttons button {
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 43px 57px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                &:hover {
+                    border: 1px solid #FFDD00;
+                }
+                span {
+                    margin-top: 12px;
+                    font-size: 18px;
+                    color: #fff;
+                    line-height: 23.1px;
+                }
+            }
+        }
+    }
+}
+
+#cdt {
+    width: 255px;
+}
+
+#cdt>img:nth-child(1) {
+    width: 65px;
+}
+
+#tdc>img:nth-child(1) {
+    width: 80px;
+}
+
+.triangle-top>img:nth-child(1) {
+    width: 694px;
+    height: 450px;
+    position: absolute;
+    left: -9%;
+    top: -40px;
+}
+
+.triangle-below>img:nth-child(1) {
+    position: absolute;
+    width: 800px;
+    right: -180px;
+    bottom: 0;
+}

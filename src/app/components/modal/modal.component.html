@@ -1,0 +1,124 @@
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" id="modal-content">
+        <div class="close" id="close" (click)="closeModal(); clearFields()">
+            <img src="./../../../assets/img/close-icon.png" alt="">
+        </div>
+
+        <div class="form-log-in" id="form-log-in">
+            <div class="header-log-in">
+                <h3>Iniciar Sesión</h3>
+            </div>
+            <div class="inputs-log-in">
+                <div class="container-avatar"> <img src="./assets/img/imgsesion.png" alt=""> </div>
+                <div class="group session"> <input type="text" id="correo-referido-log-in" class="correo" autocomplete="off" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" (keyup)="validateInputText('correo-referido-log-in');validateLogInFields();disabledButton('log-in-service')"
+                        required> <span class="bar"></span> <label class="label-input">Correo
+            electrónico</label> <small class="small">Ingresa un correo valido</small> </div>
+                <div class="group session"> <input type="password" id="password-referido-log-in" class="password" minlength="1" maxlength="25" autocomplete="off" (keyup)="disabledButton('log-in-service'); validateLogInFields(); disabledButton('log-in-service')" required> <span class="bar"></span>                    <label>Password</label> <small class="small">Verifica tu correo
+            electrónico y contraseña</small> </div>
+                <div class="forgot-pass">
+                    <p (click)="showForwardPassword()">¿Olvidaste tu contraseña?</p>
+                </div>
+                <div class="buttonSesion">
+                    <button id="log-in-service" (click)="loginService();">Iniciar Sesión</button>
+                </div>
+            </div>
+        </div>
+        <!-- Forward Password -->
+        <div class="container-password" id="container-password">
+            <div class="group cont-img">
+                <img src="./assets/img/undraw_envelope_n8lc.svg" alt="">
+            </div>
+            <div class="group">
+                <input type="text" id="forgot-email" (keyup)="validateEmailForPassword();disabledButton('confirm-password-email'); validateInputText('forgot-email')" (input)="disabledButton('confirm-password-email');" class="correo" autocomplete="off" required>
+                <span class="bar"></span>
+                <label>Correo electrónico</label>
+                <small class="small">Ingresa un correo valido</small>
+            </div>
+            <div class="group">
+                <button id="confirm-password-email" (click)="sendEmailforgotPasswordService()">Restaurar contraseña</button>
+            </div>
+        </div>
+        <!-- _---SIGN-UP---_ -->
+        <div class="form-sign-up" id="form-sign-up">
+            <div class="header-sign-up">
+                <h3>Completa los datos</h3>
+            </div>
+            <div class="form">
+                <div class="group">
+                    <input type="text" id="nombre-referido" class="texto" autocomplete="off" pattern="[a-zA-Z]*" (keyup)="validateInputText('nombre-referido');validateSignUpFiels(); disabledButton('registrar'); quitStyleInput('nombre-referido')" required>
+                    <span class="bar"></span>
+                    <label>Nombre completo</label>
+                    <small class="small">Ingresa un nombre valido</small>
+                </div>
+
+                <div class="input-middle">
+                    <div class="group">
+                        <input type="text" id="identificacion-referido" class="numero" autocomplete="off" pattern="[0-9]*" maxlength="10" (keyup)="validateInputText('identificacion-referido');validateSignUpFiels();saveData();disabledButton('registrar');quitStyleInput('identificacion-referido')"
+                            required>
+                        <span class="bar"></span>
+                        <label>Número de identificación</label>
+                        <small class="small">Ingresa un número de
+              identificación valido</small>
+                    </div>
+                    <div class="group">
+                        <input type="text" id="celular-referido" class="numero" autocomplete="off" pattern="[0-9]*" maxlength="12" (keyup)="validateInputText('celular-referido');validateSignUpFiels(); saveData();disabledButton('registrar'); quitStyleInput('celular-referido')"
+                            required>
+                        <span class="bar"></span>
+                        <label>Celular</label>
+                        <small class="small">Ingresa un celular valido</small>
+                    </div>
+                </div>
+                <div class="group">
+                    <input type="password" class="contraseña" id="password-referido-new" (input)="validatePassword()" (keyup)="validateInputText('password-referido-new');validatePassword();validateSignUpFiels(); saveData();disabledButton('registrar'); quitStyleInput('password-referido-new')"
+                        autocomplete="off" required>
+                    <span class="bar"></span>
+                    <label>Contraseña</label>
+                    <!-- <small class="small">Ingresa una contraseña valida</small> -->
+                </div>
+                <div class="group">
+                    <input type="password" class="contraseña" id="confirm-password-referido-new-confirmation" (input)="validatePassword()" (keyup)="validateInputText('confirm-password-referido-new-confirmation');validatePassword();validateSignUpFiels(); saveData();disabledButton('registrar'); quitStyleInput('confirm-password-referido-new-confirmation')"
+                        autocomplete="off" required>
+                    <span class="bar"></span>
+                    <label>Confirmar contraseña</label>
+                    <small class="small" id="no-coincide">Las contraseñas no coinciden</small>
+                </div>
+            </div>
+
+            <div class="group">
+                <label class="container">Soy funcionario del Banco Pichincha y doy autorización con el fin de participar en la campaña de amigos pichincha.
+          <input type="checkbox">
+          <span class="checkmark"></span>
+        </label>
+            </div>
+            <div class="recaptcha">
+                <re-captcha (resolved)="resolved($event)" (click)="validateSignUpFiels();" (change)="validateSignUpFiels();" id="recaptcha" siteKey="6LfBcLUUAAAAAN8D6OmMjbc7M2sJrvCUnA5A6FtO">
+                </re-captcha>
+            </div>
+            <div class="container-button">
+                <button id="registrar" (click)="saveData();addPersonService();">REGISTRARME</button>
+            </div>
+        </div>
+        <div class="send-mail" id="sendemail">
+            <div>
+                <img src="./assets/img/undraw_message_sent_1030.svg" alt="email">
+            </div>
+            <p>
+                Hemos enviado un mail a tu correo corporativo para la activación de la cuenta.
+            </p>
+            <button (click)="clearFields();closeModal();">CONFIRMAR</button>
+        </div>
+        <!-- <div class="modal-redimir" id="modal-redimir">
+            <div class="header-redimir">
+                <img src="./assets/img/m-avatar-ryan.png" alt="">
+                <div>
+                    <h3>Iván León</h3>
+                    <small>últ. vez 23/09/2019</small>
+                </div>
+            </div>
+            <div class="body-redimir">
+                <app-opt></app-opt>
+            </div>
+        </div> -->
+    </div>

@@ -1,0 +1,230 @@
+.title-input-datalist {
+    width: 100%;
+    position: relative;
+    font: 13px OpenSans-Regular;
+    letter-spacing: 0px;
+    color: #8C8C8C;
+    padding-left: 10px;
+    text-align: left;
+    padding-top: 20px;
+    padding-bottom: 7px;
+    line-height: 19.5px;
+    float: left;
+}
+
+.title-input-datalist.invalid {
+    color: #FB2E2E !important;
+}
+
+.triangle-error {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 4.5px 7px 4.5px;
+    border-color: transparent transparent #FB2E2E transparent;
+    position: absolute;
+    z-index: 3;
+    top: 34px;
+    left: 5px;
+}
+
+.validation-error {
+    background: #FB2E2E 0% 0% no-repeat padding-box;
+    border-radius: 5px;
+    text-align: left;
+    font: 10px OpenSans-Regular;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    line-height: 16px;
+    position: absolute;
+    z-index: 4;
+    top: 40px;
+    padding: 4px 8px 4px 8px;
+    left: -2px;
+    max-width: 98%;
+}
+
+// Estilo bordes azules y fondo blanco
+.box-input-datalist-style {
+    box-sizing: border-box;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1.5px solid #0F265C;
+    border-radius: 10px;
+    width: 99%;
+    height: 48px;
+    float: left;
+    position: relative;
+}
+
+.box-input-datalist-style.invalid {
+    border: 1.5px solid #FB2E2E;
+}
+
+.datalist-input-style {
+    cursor: pointer;
+    text-align: left;
+    font: 18px/20px OpenSans-Regular;
+    letter-spacing: 0px;
+    color: #343434;
+    border: 0;
+    height: 40px;
+    width: 80%;
+    text-overflow: ellipsis;
+    margin-left: 20PX;
+    margin-top: 1px;
+    border-radius: 8px;
+    position: relative;
+    right: 6%;
+}
+
+.datalist-input-style::placeholder {
+    color: #E0E0E0;
+}
+
+.datalist-input-style:-ms-input-placeholder {
+    color: #E0E0E0 !important;
+}
+
+.datalist-input-style:-moz-placeholder {
+    color: #E0E0E0 !important;
+}
+
+.icon-arrow {
+    cursor: pointer;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    transition: transform 0.2s ease;
+    background-repeat: no-repeat;
+    width: 60px;
+    height: 46px;
+    background-position-y: center;
+    background-position-x: center;
+    background-size: 18px 10px;
+}
+
+.activeImg {
+    transform: rotate(180deg);
+}
+
+.icon-arrow {
+    background-image: url(../../../../assets/img/angle-arrow-down@2x.png);
+}
+
+.icon-arrow.invalid {
+    background-image: url(../../../../assets/img/angle-arrow-down-red@2x.png);
+}
+
+// Diseño detalle ul
+.datalist-ul {
+    position: absolute;
+    margin: 5px 0 0 0;
+    padding: 0;
+    width: 125%;
+    max-height: 200px;
+    top: 90%;
+    left: 0;
+    list-style: none;
+    overflow: hidden;
+    overflow-y: auto;
+    z-index: 5;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 10px #74747429;
+    border: 1px solid #E8E8E8;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+.datalist-ul li {
+    display: block;
+    text-align: left;
+    padding: 6px 10px 6px 21px;
+    color: #343434;
+    cursor: pointer;
+    font: 18px/20px OpenSans-Regular;
+    letter-spacing: 0px;
+}
+
+.datalist-ul li:hover {
+    background: #0f265c 0% 0% no-repeat padding-box;
+    color: #FFFFFF;
+}
+
+//estilos tooltip
+
+/*tooltip*/
+
+
+/* Tooltip container */
+
+.tooltipclient {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+
+/* Tooltip text */
+
+.tooltipclient .tooltiptext {
+    visibility: hidden;
+    width: 172px;
+    background-color: #555555 no-repeat;
+    border-radius: 5px;
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    /*top: -10px;*/
+    left: 30px;
+    /* max-height: 35px; */
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+
+/* Tooltip text */
+
+.tooltipclient .tooltiptext p {
+    width: 135px;
+    color: #ffffff;
+    text-align: left;
+    padding: 5px 5px 5px 5px;
+    margin-left: 5px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 10px;
+    line-height: normal;
+    height: 100%;
+}
+
+
+/* Tooltip arrow */
+
+.tooltipclient .tooltiptext ::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    right: 100%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #0F265C transparent transparent;
+}
+
+
+/* Show the tooltip text when you mouse over the tooltip container */
+
+.tooltipclient:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    background: #0F265C no-repeat;
+    box-shadow: 0px 3px 6px #00000033;
+}
+
+
+/*fin tooltip*/
+
+.marginLeftClean {
+    margin-left: 0 !important;
+}

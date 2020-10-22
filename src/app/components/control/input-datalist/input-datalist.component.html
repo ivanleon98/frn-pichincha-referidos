@@ -1,0 +1,34 @@
+<form *ngIf="formGroup != undefined && controlName != undefined" [formGroup]="formGroup != undefined ? formGroup : ''">
+    <div [class]="'title-input-datalist ' + ((!isValid && control != undefined && control.invalid ) || ( !isValid && control == undefined) ? 'invalid' : '')">
+        {{title}}
+        <div *ngIf="tooltipActive" class="tooltipclient"><img src="assets/img/question.svg" class="question" alt="tooltip"><span class="tooltiptext"><p>{{textTooltip}}</p></span></div>
+    </div>
+    <div [class]="'box-input-datalist-style ' + ((!isValid && control != undefined && control.invalid ) || ( !isValid && control == undefined) ? 'invalid' : '')">
+        <input [id]="id" [class]="'datalist-input-style '  + (cleanMarginLeft!=false?'marginLeftClean':'')" [placeholder]="placeHolderText" (focusout)="focusOut()" [formControlName]="controlName" autocomplete="off" (keyup)="focusValidator()" type="text" (click)="activate($event)">
+        <div [class]="'icon-arrow ' + ( showList ? 'activeImg' : '') + ((!isValid && control != undefined && control.invalid ) || ( !isValid && control == undefined) ? ' invalid' : '')" (click)="activate($event)"></div>
+        <ul *ngIf="showList" class="datalist-ul">
+            <li (click)="selectElement($event)" *ngFor="let obj of listCustom" id="{{obj.id}}">{{ showId ? obj.id + ' - ' : ''}}{{obj.value.substring(0, 1).toUpperCase() + obj.value.substring(1).toLowerCase()}}</li>
+        </ul>
+        <div *ngIf="errorText != undefined && (!isValid && control != undefined && control.invalid ) || ( !isValid && control == undefined)">
+            <div class="triangle-error"></div>
+            <div class="validation-error">{{errorText}}</div>
+        </div>
+    </div>
+</form>
+<div *ngIf="formGroup == undefined || controlName == undefined">
+    <div [class]="'title-input-datalist ' + ((!isValid && control != undefined && control.invalid ) || ( !isValid && control == undefined) ? 'invalid' : '')">
+        {{title}}
+        <div *ngIf="tooltipActive" class="tooltipclient"><img src="assets/img/question.svg" class="question" alt="tooltip"><span class="tooltiptext"><p>{{textTooltip}}</p></span></div>
+    </div>
+    <div [class]="'box-input-datalist-style ' + ((!isValid && control != undefined && control.invalid ) || ( !isValid && control == undefined) ? 'invalid' : '')">
+        <input [id]="id" [class=]="'datalist-input-style '  + (cleanMarginLeft!=false?'marginLeftClean':'')" [placeholder]="placeHolderText" (focusout)="focusOut()" autocomplete="off" (keyup)="focusValidator()" type="text" (click)="activate($event)">
+        <div [class]="'icon-arrow ' + ( showList ? 'activeImg' : '') + ((!isValid && control != undefined && control.invalid ) || ( !isValid && control == undefined) ? ' invalid' : '')" (click)="activate($event)"></div>
+        <ul *ngIf="showList" class="datalist-ul">
+            <li (click)="selectElement($event)" *ngFor="let obj of listCustom" id="{{obj.id}}">{{ showId ? obj.id + ' - ' : ''}}{{obj.value.substring(0, 1).toUpperCase() + obj.value.substring(1).toLowerCase()}}</li>
+        </ul>
+        <div *ngIf="errorText != undefined && (!isValid && control != undefined && control.invalid ) || ( !isValid && control == undefined)">
+            <div class="triangle-error"></div>
+            <div class="validation-error">{{errorText}}</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    border-bottom: none;
+}
+
+.container-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    position: relative;
+    margin-left: 25px;
+}
+
+.img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 43px 0 -32px 70px;
+}
+
+.menu {
+    padding-left: 75px;
+    margin-top: 30px;
+}
+
+.components {
+    width: 100%;
+}

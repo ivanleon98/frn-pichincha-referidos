@@ -1,0 +1,165 @@
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 117px;
+            padding: 0px 50px 10px 100px;
+            background-color: #fff;
+            border-bottom: 1px solid #707070;
+            box-shadow: 0px 3px 6px #00000029;
+        }
+        
+        .brand-image {
+            width: 40%;
+            margin-top: 30px;
+        }
+        
+        .container-text {
+            width: 70%;
+            height: 100%;
+            display: flex;
+            text-align: right;
+            .text-code {
+                width: 42%;
+                margin-right: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                b {
+                    font-family: 'Montserrat-Bold';
+                    font-size: 20px;
+                    color: #0F265C;
+                    margin-top: 30px;
+                }
+                p {
+                    font-family: 'OpenSans-Regular';
+                    letter-spacing: 0.16px;
+                    color: #0F265C;
+                    margin-bottom: 15px;
+                }
+            }
+            .circle {
+                height: 111px;
+                width: 190px;
+                border-radius: 500px 500px 0 0;
+                background-color: #10133F;
+                transform: rotate(180deg);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                p {
+                    font-family: 'OpenSans-Bold';
+                    font-size: 30px;
+                    color: #fd0;
+                    transform: rotate(180deg);
+                }
+            }
+            .log-out {
+                width: 15%;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                margin-left: 50px;
+                a {
+                    text-decoration: underline;
+                    color: #10133f;
+                    font-size: 14px;
+                    font-family: 'OpenSans-Regular';
+                }
+            }
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #313337;
+            font-size: 12px;
+        }
+        
+        .titleNavbar {
+            color: #fff;
+            margin-bottom: 9px;
+            font-weight: 600;
+            font-size: 17px;
+        }
+        
+        nav input {
+            // border: none;
+            color: #0f265c;
+            background-color: #f3f3f3;
+            font-size: 14px;
+            width: 117px;
+            height: 35px;
+            border-radius: 18px;
+            border: 2px solid #0f265c;
+            cursor: pointer;
+            font-weight: 500;
+            &:hover {
+                color: #ffffff !important;
+                background-color: #0f265c !important;
+            }
+        }
+        
+        #sign-in {
+            border: 2px solid #0f265c;
+        }
+        
+        .sign-in:hover {
+            background-color: #d8d8d8 !important;
+        }
+        
+        .log-in {
+            color: #0f265c;
+            background-color: #f3f3f3;
+            border: 2px solid #0f265c;
+            &:hover {
+                color: #ffffff !important;
+                background-color: #0f265c !important;
+                border: 2px solid #0f265c;
+            }
+        }
+        
+        .redeem {
+            color: #0f265c !important;
+            background-color: #fd0 !important;
+        }
+        
+        .log-out {
+            color: #0f265c;
+            background-color: transparent;
+            border: 2px solid #fff;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+        
+        nav ul li {
+            padding-left: 20px;
+            list-style: none;
+        }
+        
+        .brand-image-query {
+            display: none;
+        }
+        
+        .imgCalculator {
+            cursor: pointer;
+        }
+        
+        @media screen and (min-width: 0px) and (max-width: 768px) {
+            .brand-image-query {
+                display: block;
+                width: 45px;
+            }
+            .brand_image {
+                display: none;
+            }
+            .titleNavbar {
+                font-size: 14px;
+                text-align: center;
+            }
+            nav {
+                padding: 16px 20px;
+            }
+        }

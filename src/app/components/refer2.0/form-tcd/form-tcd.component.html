@@ -1,0 +1,55 @@
+<modal-app></modal-app>
+<div class="wrapper">
+    <div class="triangleTop">
+        <img src="./../../../../../assets/img/triangletop.svg" alt="">
+    </div>
+    <div class="triangleBottom">
+        <img src="./../../../assets/img/FIGURA-04-04.svg" alt="">
+    </div>
+    <div class="boxForm">
+        <div class="container-form">
+            <div class="imgHeader">
+                <img src="./../../../assets/img/logo-amari.svg" alt="">
+            </div>
+            <div class="title">
+                <h3>Ayúdanos diligenciando la siguiente información</h3>
+            </div>
+            <div class="form">
+                <div class="row-full">
+                    <div class="group">
+                        <input type="text" class="texto" id="name-refered-tdc" (keyup)="validateInputText('name-refered-tdc');disabledButton(); onlyLetters($event)" autocomplete="off" maxlength="45" required>
+                        <span class="bar"></span>
+                        <label>Nombres completos</label>
+                        <small class="small">Nombres inválido</small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="group">
+                        <input type="text" class="numero" id="document-tdc" (keyup)="validateInputText('document-tdc');disabledButton();onlyNumbers($event)" autocomplete="off" maxlength="12" required>
+                        <span class="bar"></span>
+                        <label>Número de documento</label>
+                        <small class="small">Número de documento inválido</small>
+                    </div>
+                    <div class="group">
+                        <app-calendar id="calendar" placeholder="Fecha de expedición" (change)="getValue($event)">
+                        </app-calendar>
+                    </div>
+                </div>
+                <div class="row-full">
+                    <div class="group">
+                        <input type="text" id="codePromTdc" (keyup)="validateInputText('codePromTdc'); disabledButton()" maxlength="5" autocomplete="off" required>
+                        <span class="bar"></span>
+                        <label>Código de referido</label>
+                    </div>
+                </div>
+                <div class="button">
+                    <button id="registrar-refered-tdc">Enviar</button>
+                </div>
+            </div>
+        </div>
+        <div class="imgFriends">
+            <img src="./../../../assets/img/imgformcdt.png" alt="">
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

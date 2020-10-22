@@ -1,0 +1,34 @@
+<form [class]="inputStyleType.type" *ngIf="formGroup != undefined && controlName != undefined" [formGroup]="formGroup != undefined ? formGroup : ''">
+    <div [class]="'title-input ' + ((!isValid && control != undefined && control.invalid ) || ( !isValid && control == undefined) ? 'invalid' : '')">{{title}}
+        <div *ngIf="tooltipActive" class="tooltipclient"><img src="assets/img/question.svg" class="question" alt="tooltip"><span class="tooltiptext"><p>{{textTooltip}}</p></span></div>
+    </div>
+    <div [id]="id" [class]="'box-input-style ' + (disabledControl ? 'disabled ':'') + ((!isValid && control != undefined && control.invalid ) || ( !isValid && control == undefined) ? 'invalid' : '')">
+        <div *ngIf="details != null" [class]="'details-input-style ' + (disabledControl ? 'disabled ':'') + ((!isValid && control != undefined && control.invalid ) || ( !isValid && control == undefined) ? 'invalid' : '')">
+            {{details}}
+        </div>
+        <input type="text" [maxlength]="maxLength" [minlength]="minLength" [class]="'text-input-style ' + (details != null ? 'input-details' : '') + (cleanMarginLeft!=false?'marginLeftClean':'')" [placeholder]="placeHolderText != undefined ? placeHolderText : ''"
+            [formControlName]="controlName" (keyup)="mask($event)" (focusout)="focusOut($event)">
+        <div *ngIf="errorText != undefined && (!isValid && control != undefined && control.invalid ) || ( !isValid && control == undefined)">
+            <div class="triangle-error"></div>
+            <div class="validation-error">{{errorText}}</div>
+        </div>
+    </div>
+</form>
+
+<!-- 
+<div [class]="inputStyleType.type" *ngIf="formGroup == undefined || controlName == undefined">
+    <div [class]="'title-input ' + ((!isValid && control != undefined && control.invalid ) || ( !isValid && control == undefined) ? 'invalid' : '')">{{title}}
+        <div *ngIf="tooltipActive" class="tooltipclient"><img src="assets/img/question.svg" class="question" alt="tooltip"><span class="tooltiptext"><p>{{textTooltip}}</p></span></div>
+    </div>
+    <div [class]="'box-input-style ' + (disableControl ? 'disabled ':'') + ((!isValid && control != undefined && control.invalid ) || ( !isValid && control == undefined) ? 'invalid' : '')">
+        <div *ngIf="details != null" [class]="'details-input-style ' + (disabledControl ? 'disabled ':'') + ((!isValid && control != undefined && control.invalid ) || ( !isValid && control == undefined) ? 'invalid' : '')">
+            {{details}}
+        </div>
+        <input type="text" [class]="'text-input-style ' + (details != null ? 'input-details' : '') + (cleanMarginLeft!=false?'marginLeftClean':'')" [placeholder]="placeHolderText != undefined ? placeHolderText : ''" (keyup)="mask($event)" [max]="maxLength" [min]="minLength"
+            (focusout)="focusOut($event)">
+        <div *ngIf="errorText != undefined && (!isValid && control != undefined && control.invalid ) || ( !isValid && control == undefined)">
+            <div class="triangle-error"></div>
+            <div class="validation-error">{{errorText}}</div>
+        </div>
+    </div>
+</div> -->

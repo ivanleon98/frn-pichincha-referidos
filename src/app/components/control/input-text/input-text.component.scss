@@ -1,0 +1,298 @@
+.title-input {
+    width: 100%;
+    position: relative;
+    padding-left: 10px;
+    text-align: left;
+    font: 13px OpenSans-Regular;
+    letter-spacing: 0px;
+    color: #8C8C8C;
+    padding-top: 20px;
+    padding-bottom: 7px;
+    line-height: 19.5px;
+    float: left;
+}
+
+.title-input.invalid {
+    color: #FB2E2E !important;
+}
+
+.triangle-error {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 4.5px 7px 4.5px;
+    border-color: transparent transparent #FB2E2E transparent;
+    /* position: absolute; */
+    z-index: 3;
+    /* top: 80px;
+    left: 7px; */
+    position: relative;
+    top: -10px;
+    left: 7px;
+}
+
+.validation-error {
+    background: #FB2E2E 0% 0% no-repeat padding-box;
+    border-radius: 5px;
+    text-align: left;
+    font: 10px OpenSans-Regular;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    line-height: 16px;
+    /* position: absolute; */
+    z-index: 4;
+    /* top: 86px; */
+    padding: 4px 8px 4px 8px;
+    /* left: 0; */
+    /* max-width: 98%; */
+    max-width: fit-content;
+    position: relative;
+    top: -10px;
+}
+
+// Estilo bordes azules y fondo blanco
+.blue-white {
+    .box-input-style {
+        box-sizing: border-box;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        border: 1.5px solid #0F265C;
+        border-radius: 10px;
+        width: 99%;
+        height: 48px;
+        float: left;
+    }
+    .box-input-style.invalid {
+        border: 1.5px solid #FB2E2E;
+    }
+    .box-input-style.disabled {
+        background: #E0E0E0 0% 0% no-repeat padding-box;
+    }
+    .details-input-style {
+        margin-top: -1px;
+        box-sizing: border-box;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        border: 1.5px solid transparent;
+        border-right: 1.5px solid #0F265C;
+        border-radius: 10px 0px 0px 10px;
+        height: 46px;
+        float: left;
+        text-align: center;
+        font: 18px/38px OpenSans-Regular;
+        letter-spacing: 0px;
+        color: #0F265C;
+        width: 47.5px;
+        padding-top: 5px;
+        margin-left: 1px;
+    }
+    .details-input-style.invalid {
+        border-right: 1.5px solid #FB2E2E;
+        color: #FB2E2E;
+    }
+    .details-input-style.disabled {
+        background: #E0E0E0 0% 0% no-repeat padding-box;
+        color: #9D9D9D;
+    }
+    .text-input-style {
+        text-align: left;
+        font: 18px/20px OpenSans-Regular;
+        letter-spacing: 0px;
+        color: #343434;
+        border: 0;
+        height: 40px;
+        width: 88%;
+        margin-left: 20PX;
+        margin-top: 1px;
+        border-radius: 8px;
+    }
+    .text-input-style::placeholder {
+        color: #E0E0E0;
+    }
+    .text-input-style:-ms-input-placeholder {
+        color: #E0E0E0 !important;
+    }
+    .text-input-style:-moz-placeholder {
+        color: #E0E0E0 !important;
+    }
+    .text-input-style.input-details {
+        width: 68%;
+        margin: 0!important;
+        padding-left: 20px;
+    }
+    .text-input-style:disabled {
+        background: #E0E0E0 0% 0% no-repeat padding-box;
+        color: #9D9D9D;
+    }
+}
+
+// Estilo gris
+.grey {
+    .box-input-style {
+        box-sizing: border-box;
+        background: #F8F8F8 0% 0% no-repeat padding-box;
+        border: 1.5px solid #F8F8F8;
+        border-radius: 10px;
+        width: 99%;
+        height: 48px;
+        float: left;
+    }
+    .box-input-style.invalid {
+        border: 1.5px solid #FB2E2E;
+    }
+    .box-input-style.disabled {
+        background: #F8F8F8 0% 0% no-repeat padding-box;
+    }
+    .details-input-style {
+        margin-top: -1px;
+        box-sizing: border-box;
+        background: #F8F8F8 0% 0% no-repeat padding-box;
+        border: 1.5px solid transparent;
+        border-right: 1.5px solid #F8F8F8;
+        border-radius: 10px 0px 0px 10px;
+        height: 45px;
+        float: left;
+        text-align: center;
+        font: 18px/38px Montserrat-Medium;
+        letter-spacing: 0px;
+        color: #0F265C;
+        width: 47.5px;
+        padding-top: 2px;
+        margin-left: 1px;
+    }
+    .details-input-style.invalid {
+        border-right: 1.5px solid #FB2E2E;
+        color: #FB2E2E;
+    }
+    .details-input-style.disabled {
+        text-align: left;
+        font: 30px/43px Montserrat-SemiBold;
+        letter-spacing: 0px;
+        color: #0F265C;
+    }
+    .text-input-style {
+        background: #F8F8F8 0% 0% no-repeat padding-box;
+        text-align: left;
+        font: 18px/20px OpenSans-Regular;
+        letter-spacing: 0px;
+        color: #343434;
+        border: 0;
+        height: 40px;
+        width: 88%;
+        margin-left: 20PX;
+        margin-top: 1px;
+    }
+    .text-input-style::placeholder {
+        color: #E0E0E0;
+    }
+    .text-input-style:-ms-input-placeholder {
+        color: #E0E0E0 !important;
+    }
+    .text-input-style:-moz-placeholder {
+        color: #E0E0E0 !important;
+    }
+    .text-input-style.input-details {
+        width: 68%;
+    }
+    .text-input-style:disabled {
+        text-align: left;
+        font: 30px/43px Montserrat-SemiBold;
+        letter-spacing: 0px;
+        color: #0F265C;
+    }
+}
+
+//estilos tooltip
+
+/*tooltip*/
+
+
+/* Tooltip container */
+
+.tooltipclient {
+    position: absolute;
+    display: inline-block;
+    margin-left: 10px;
+    bottom: 5px;
+}
+
+
+/* Tooltip text */
+
+.tooltipclient .tooltiptext {
+    visibility: hidden;
+    width: 172px;
+    background-color: #555555 no-repeat;
+    border-radius: 5px;
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    /*top: -10px;*/
+    left: 30px;
+    /* max-height: 35px; */
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+
+/* Tooltip text */
+
+.tooltipclient .tooltiptext p {
+    width: 135px;
+    color: #ffffff;
+    text-align: left;
+    padding: 5px 5px 5px 5px;
+    margin-left: 5px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 10px;
+    line-height: normal;
+    height: 100%;
+}
+
+
+/* Tooltip arrow */
+
+.tooltipclient .tooltiptext ::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    right: 100%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #0F265C transparent transparent;
+}
+
+
+/* Show the tooltip text when you mouse over the tooltip container */
+
+.tooltipclient:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    background: #0F265C no-repeat;
+    box-shadow: 0px 3px 6px #00000033;
+}
+
+
+/*fin tooltip*/
+
+.marginLeftClean {
+    margin-left: 0 !important;
+}
+
+.invalidText {
+    width: 75%;
+    border: 1.5px solid #FB2E2E !important;
+}
+
+@media screen and (max-width: 768px) {
+    .blue-white .text-input-style.input-details {
+        width: 75%;
+    }
+    .tooltipclient {
+        bottom: 4px;
+    }
+    .tooltipclient:hover .tooltiptext {
+        top: -5px;
+    }
+}

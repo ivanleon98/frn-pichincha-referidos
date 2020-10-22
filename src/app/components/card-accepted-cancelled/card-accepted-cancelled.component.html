@@ -1,0 +1,28 @@
+<div class="card card-transparent">
+  <div class="cards-revenues">
+    <div class="div-canvas-1">
+      <div class="header-card">
+        <h2>
+          217
+        </h2>
+        <small>Referidos aceptados en los últimos 6 meses</small>
+      </div>
+      <div style="height: 140px">
+        <canvas baseChart [chartType]="'line'" [datasets]="chartData" [labels]="chartLabels" [options]="options"
+          [legend]="true" (chartClick)="onChartClick($event)" [colors]="lineChartColorsGreen">
+        </canvas>
+      </div>
+    </div>
+    <div class="div-canvas-2">
+      <h2>
+        9
+      </h2>
+      <small>Referidos negados en los últimos 6 meses</small>
+      <div style="height: 140px">
+        <canvas baseChart [chartType]="'line'" [datasets]="chartData" [labels]="chartLabels" [options]="options"
+          [legend]="true" (chartClick)="onChartClick($event)" [colors]="lineChartColorsRed">
+        </canvas>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="container-form">
+        <div class="title">
+            Elige el producto a referir
+        </div>
+        <div class="products">
+            <div class="img">
+                <img id="im1" src="./../../../../assets/img/cdt.png" (click)="selectProduct($event)" width="43px" alt="">
+                <p id="p1" class="smallImg">CDT</p>
+            </div>
+
+            <div class="img">
+                <img id="im2" (click)="selectProduct($event)" src="./../../../../assets/img/tarjeta-de-credito.png" width="53px" alt="">
+                <p id="p2" class="smallImg">Tarjeta de Crédito</p>
+            </div>
+            <div class="img">
+                <img id="im3" (click)="selectProduct($event)" src="./../../../../assets/img/libranza.png" alt="">
+                <p id="p3" class="smallImg">Libranza</p>
+            </div>
+        </div>
+        <div class="form">
+            <div class="row">
+                <div class="form-group">
+                    <input-text [isValid]="isValid" [title]="'Número de documento del referido'" [details]="'CC'" [errorText]="'Tu celular parece no estar bien'" [control]="f.controls.documentPerson" [controlName]="'documentPerson'" [formGroup]="formRefer" [maxLength]="10"
+                        [minLength]="10" [placeHolderText]="'Ej. 1014624713'">
+                    </input-text>
+                </div>
+                <div class="form-group">
+                    <label class="label" for="listOffice">Elige la oficina</label>
+                    <select id="selectOffice"></select>
+                </div>
+            </div>
+            <div class="check">
+                <input type="checkbox" id="newRefer">
+                <label class="labelChk" for="newRefer">¿Es la primera vez que refieres este usuario para el producto?</label>
+            </div>
+        </div>
+        <div class="buttons">
+            <button>Calcula tu CDT</button>
+            <button>Referir</button>
+        </div>
+    </div>
+</div>

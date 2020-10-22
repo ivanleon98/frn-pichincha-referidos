@@ -1,0 +1,97 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url(assets/fonts/Montserrat-Bold/Montserrat-Bold.eot?#iefix) format("embedded-opentype"), url(assets/fonts/Montserrat-Bold/Montserrat-Bold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url(assets/fonts/Montserrat-Regular/Montserrat-Regular.eot?#iefix) format("embedded-opentype"), url(assets/fonts/Montserrat-Regular/Montserrat-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Medium';
+    src: url(assets/fonts/Montserrat-Medium/Montserrat-Medium.eot?#iefix) format("embedded-opentype"), url(assets/fonts/Montserrat-Medium/Montserrat-Medium.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-SemiBold';
+    src: url(assets/fonts/Montserrat-SemiBold/Montserrat-SemiBold.eot?#iefix) format("embedded-opentype"), url(assets/fonts/Montserrat-SemiBold/Montserrat-SemiBold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'OpenSans-Regular';
+    src: url(assets/fonts/OpenSans-Regular/OpenSans-Regular.eot?#iefix) format("embedded-opentype"), url(assets/fonts/OpenSans-Regular/OpenSans-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'OpenSans-SemiBold';
+    src: url(assets/fonts/OpenSans-SemiBold/OpenSans-SemiBold.eot?#iefix) format("embedded-opentype"), url(assets/fonts/OpenSans-SemiBold/OpenSans-SemiBold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'OpenSans-Bold';
+    src: url(assets/fonts/OpenSans-Bold/OpenSans-Bold.eot?#iefix) format("embedded-opentype"), url(assets/fonts/OpenSans-Bold/OpenSans-Bold.ttf) format('truetype');
+}
+
+* {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    min-width: 100%;
+}
+
+body {
+    background-color: #ffffff;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.card-title {
+    font-family: 'OpenSans-Bold';
+    font-size: 20px;
+    line-height: 26.1px;
+    color: #0F265C;
+    margin-top: 42px;
+    padding: 0 225px;
+    /* border-bottom: 1px solid #c5c5c5; */
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    margin-left: -60px;
+}
+
+.card-extensive {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px;
+}
+
+*/ .card-transparent {
+    background-color: transparent;
+}
+
+
+/* input[type="button"]:focus {
+    outline: 0;
+} */
+
+.group {
+    position: relative;
+    margin: 28px 0;
+}
+
+#canvas-earnings-growth {
+    width: 600px;
+    height: 271px;
+}
