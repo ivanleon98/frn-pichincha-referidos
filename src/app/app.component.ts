@@ -49,30 +49,11 @@ export class AppComponent {
       this.url = (document.getElementById('pathVariable') as HTMLInputElement).value;
     } catch (error) {
     }
-    
-    if (this.url != null && this.url != undefined && this.url.indexOf("home")!=-1) {
-      this.path = "home";
+     if (this.url != null && this.url != undefined && this.url.indexOf("active-account")!=-1) {
       return 1;
     }
-    else if (this.url != null && this.url != undefined && this.url.indexOf("ganancias")!=-1) {
-      this.path = "ganancias";
-      return 2;
-    }
-    else if (this.url != null && this.url != undefined && this.url.indexOf("referidos")!=-1) {
-      this.path = "referidos"
-      return 3;
-    }
-    else if (this.url != null && this.url != undefined && this.url.indexOf("form-refer")!=-1) {
-      return 4;
-    }
-    else if (this.url != null && this.url != undefined && this.url.indexOf("active-account")!=-1) {
-      return 5;
-    }
     else if (this.url != null && this.url != undefined && this.url.indexOf("reset-password")!=-1){
-      return 6;
-    }
-    else {
-      return 7;      
+      return 2;
     }
   }
 }

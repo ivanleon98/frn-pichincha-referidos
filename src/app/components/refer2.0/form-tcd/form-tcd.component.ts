@@ -44,7 +44,8 @@ export class FormTcdComponent implements OnInit {
   private callBackAcceptRefer(){
     this.rspAccept = this.apiService.response;
     if (this.rspAccept[0].status == true) {
-      this.route.assign(environment.endPointRedirectTcd);
+      document.getElementById('myModal').style.display = 'block';
+      // this.route.assign(environment.endPointRedirectTcd);
     } else{
       alert(this.rspAccept[0].response);
     }
@@ -165,5 +166,7 @@ export class FormTcdComponent implements OnInit {
     const input = event.target as HTMLInputElement;
     input.value = input.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚ ]/g, '');
   }
-
+  public redirectTcd(){
+    this.route.assign(environment.endPointRedirectTcd);
+  }
 }

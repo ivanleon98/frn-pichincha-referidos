@@ -14,18 +14,21 @@ export class ForgotPasswordComponent implements OnChanges {
   @Input() token: string;
   generatedToken: any;
   statusEmail: boolean = true;
+  route: Location;
   constructor(private referidoService: ReferidoService, private log: LoggerService, private apiService: ApiGeneralService, private generalRequest: GeneralRequest) {
+  this.route = location
   }
+
 
   ngOnChanges(changes: SimpleChanges): void {
     
   }
 
   redirectHome(){
-    document.location.href = environment.endpointRedirectS3;
+    this.route.reload();
   }
 
-  public validatePassword(myId) {
+  public validatePassword() {
     if((document.getElementById('new-password') as HTMLInputElement).value !== (document.getElementById('confirm-new-password') as HTMLInputElement).value){
       document.querySelector('small').style.display = 'block';
       (document.getElementById('password-btn') as HTMLButtonElement).disabled = true;

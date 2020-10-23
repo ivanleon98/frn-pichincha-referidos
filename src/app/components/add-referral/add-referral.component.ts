@@ -75,16 +75,13 @@ export class AddReferralComponent implements OnInit, OnChanges {
   ngOnInit() {
     (document.getElementById('refer') as HTMLButtonElement).disabled = true;
     this.loadCities();
-    this.getCode();
   }
   ngOnChanges(changes: SimpleChanges): void {
     //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
     //Add '${implements OnChanges}' to the class.
   }
 
-  public getCode() {
-    this.code = this.storage.getItem('code');
-  }
+ 
 
   public consumeService(){
     if (this.flagService == 1) {

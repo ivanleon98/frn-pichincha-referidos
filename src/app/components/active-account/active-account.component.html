@@ -1,48 +1,51 @@
 <div class="wrapper">
-  <div class="container-general">
-       <div class="cont-true" id="account-true">
-      <div class="container-img">
-        <img src="../../assets/img/undraw_order_confirmed_1m3v.svg" alt="">
-      </div>
-      <div class="container-text">
-        <div class="title">
-          <h3>¡Tu cuenta ha sido activada!</h3>
-        </div>
-        <div class="parrafo">
-          <p>¡Felicitaciones! Tu cuenta ha sido activada. A partir de ahora puedes comenzar a hacer uso de los servicios
-            ofrecidos en la plataforma.</p>
-        </div>
-        <div class="button">
-          <a (click)="redirectHome()" target="_blank">INICIAR</a>
-        </div>
-      </div>
-    </div> 
-    <div class="cont-false" id="account-false">
-      <div class="container-img">
-        <img src="../../assets/img/undraw_cancel_u1it.svg" alt="Error">
-      </div>
-      <div class="container-text">
-        <div class="title">
-          <h3>!Oops¡...</h3>
-        </div>
-        <div class="parrafo">
-          <p>Al parecer el link de confirmación ha expirado, te volveremos a enviar un nuevo link a tu correo corporativo.</p>
-          <div class="group">
-            <input type="text" id="documentUser" class="numero" maxlength="15"  autocomplete="off"
-              pattern="[0-9]*" (keyup)="validateInputText('documentUser');" required>
-            <span class="bar"></span>
-            <label>Ingrese la cédula</label>
-            <small class="small">Este campo solo acepta valores numéricos</small>
-          </div>
-        </div>
-        <div class="button">
-          <button  (click)="sendEmailConfirmationService()">Reenviar</button>
-        </div>
-        <div class="msg-resend">
-          <small id="msg-resend">¡Se ha reenviado el link de activación de cuenta!</small>
-        </div>
-      </div>
+    <div class="navImagen">
+        <img src="./../../../assets/img/logo-amari.svg" alt="">
     </div>
-  </div>
-
+    <div class="container-general">
+        <div class="form">
+            <div class="cont-true" id="account-true">
+                <div class="image">
+                    <img src="./../../../assets/img/activeaccount.png" alt="">
+                </div>
+                <div class="title">
+                    ¡Felicitaciones!
+                </div>
+                <div class="subtitle">
+                    ¡Tu cuenta ha sido activada!
+                </div>
+                <div class="text">
+                    A partir de ahora puedes comenzar a hacer uso de los servicios ofrecidos en la plataforma.
+                </div>
+                <div class="button true">
+                    <button (click)="redirectHome()">Iniciar</button>
+                </div>
+            </div>
+            <div class="cont-false" id="account-false">
+                <div class="image">
+                    <img src="./../../../assets/img/expirado.png" alt="">
+                </div>
+                <div class="title">
+                    ¡Opss!...
+                </div>
+                <div class="subtitle">
+                    El link de confirmación ha expirado
+                </div>
+                <div class="text">
+                    Volveremos a enviar el enlace a tu correo corporativo.
+                </div>
+                <div class="input">
+                    <div class="group">
+                        <input type="text" id="documentUser" class="numero" maxlength="15" autocomplete="off" pattern="[0-9]*" (keyup)="validateInputText('documentUser', $event);" required>
+                        <span class="bar"></span>
+                        <label>Ingresar cédula</label>
+                    </div>
+                </div>
+                <div class="button false">
+                    <button id="resend" (click)="sendEmailConfirmationService()">Reenviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<app-footer></app-footer>

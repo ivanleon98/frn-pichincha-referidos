@@ -307,7 +307,10 @@ export class ModalComponent {
             this.graphicalDataService();
             this.getRefferalService();
             setTimeout(()=>{
-                this.route.assign(environment.endpointRedirectS3 + 'home');
+                // this.route.assign(environment.endpointRedirectS3 + 'home');
+                this.containerComponent.isProgressImOfficial = false;
+                this.containerComponent.isProgressHome = true;
+                this.closeModal();
                 //this.route.assign('/home');
             }, 2000)
         }
@@ -321,22 +324,19 @@ export class ModalComponent {
     }
 
     public loginService() {
-        this.containerComponent.isProgressImOfficial = false;
-        this.containerComponent.isProgressHome = true;
-        this.closeModal();
-        // this.generalRequest.email = (document.getElementById('correo-referido-log-in') as HTMLInputElement).value.toLocaleLowerCase();
-        // this.generalRequest.password = (document.getElementById('password-referido-log-in') as HTMLInputElement).value;
-        // try {
-        //     this.apiService.invokePostRequest<GeneralRequest, boolean>(
-        //         environment.endpointLogin + "",
-        //         this.generalRequest,
-        //         (rsp: boolean) => {
-        //             this.callbackLogin();
-        //         }
-        //     );
-        // } catch (err) {
-        //     this.log.error(this, "Error consumiendo el servicio login: " + err);
-        // }
+        this.generalRequest.email = (document.getElementById('correo-referido-log-in') as HTMLInputElement).value.toLocaleLowerCase();
+        this.generalRequest.password = (document.getElementById('password-referido-log-in') as HTMLInputElement).value;
+        try {
+            this.apiService.invokePostRequest<GeneralRequest, boolean>(
+                environment.endpointLogin + "",
+                this.generalRequest,
+                (rsp: boolean) => {
+                    this.callbackLogin();
+                }
+            );
+        } catch (err) {
+            this.log.error(this, "Error consumiendo el servicio login: " + err);
+        }
     }
 
     private callbackGraphicalData(): Array<string> {

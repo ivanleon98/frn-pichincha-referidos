@@ -10,11 +10,17 @@ import { environment } from 'src/environments/environment';
 export class NavBarComponent implements OnChanges {
   @Input() path: string;
   showView: number;
-  storage: any
+  storage: any;
+  code: any;
   constructor() {
     this.storage = window.sessionStorage;
   }
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.getCode();
 
+  }
   ngOnChanges(changes: SimpleChanges): void {
     if (this.path == 'home') {
       this.showView = 1;
@@ -53,6 +59,11 @@ export class NavBarComponent implements OnChanges {
       document.body.style.position = "fixed";
       document.body.style.overflow = "hidden";
     }
+  }
+
+  private getCode() {
+    this.code = this.storage.getItem('code');
+    console.log('code: ' + this.code);
   }
   public openRedimid() {
     // document.getElementById('myModal').style.display = 'flex';

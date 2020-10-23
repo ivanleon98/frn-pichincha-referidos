@@ -4,6 +4,7 @@ import { LoggerService } from 'src/app/service/common/logger.service';
 import { ApiGeneralService } from 'src/app/service/common/api-general.service';
 import { GeneralRequest } from 'src/app/model/general.request';
 import { environment } from 'src/environments/environment';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-active-account',
@@ -15,20 +16,27 @@ export class ActiveAccountComponent implements OnChanges {
   generatedToken: boolean;
   rspSendEmailConfirmation;
   route: Location;
-  
-  constructor(private referidoService: ReferidoService, private log: LoggerService, private apiService: ApiGeneralService, private generalRequest: GeneralRequest) {
-  
+
+  constructor(private referidoService: ReferidoService,
+    private log: LoggerService, private apiService:
+      ApiGeneralService, private generalRequest: GeneralRequest,
+    private containerComponenent: AppComponent) {
+      this.route = location;
   }
 
-
-  redirectHome(){
-    document.location.href = environment.endpointRedirectS3;
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    (document.getElementById('resend') as HTMLButtonElement).disabled = true;
   }
+
 
   ngOnChanges(changes: SimpleChanges): void {
     this.sendTokenConfirmationService();
   }
-
+  public redirectHome() {
+    this.route.reload();
+  }
   public sendTokenConfirmationService() {
     let request = new GeneralRequest();
     try {
@@ -47,7 +55,7 @@ export class ActiveAccountComponent implements OnChanges {
   private callbackSendTokenConfirmation(): Boolean {
     this.generatedToken = this.apiService.response;
     if (this.generatedToken == true) {
-      document.getElementById('account-true').style.display = 'flex';
+      document.getElementById('cont-true').style.display = 'flex';
     } else {
       document.getElementById('account-false').style.display = 'flex';
     }
@@ -79,7 +87,9 @@ export class ActiveAccountComponent implements OnChanges {
     return this.rspSendEmailConfirmation;
   }
 
-  public validateInputText(myId) {
+  public validateInputText(myId, event) {
+    this.onlyNumbers(event);
+    this.validateData();
     var obj = (<HTMLInputElement>document.getElementById(myId));
     var objValue = (<HTMLInputElement>document.getElementById(myId)).value;
     var valor = objValue;
@@ -143,6 +153,20 @@ export class ActiveAccountComponent implements OnChanges {
         (<HTMLElement>labelName).style.top = "-14px";
         (<HTMLElement>mensaje).style.display = "none";
       }
+    }
+  }
+
+  public onlyNumbers(event: KeyboardEvent) {
+    const input = event.target as HTMLInputElement;
+    input.value = input.value.replace(/[^0-9]/g, '');
+
+  }
+  private validateData() {
+    let docUser = (document.getElementById('documentUser') as HTMLInputElement).value;
+    if (docUser != "") {
+      (document.getElementById('resend') as HTMLButtonElement).disabled = false;
+    } else {
+      (document.getElementById('resend') as HTMLButtonElement).disabled = true;
     }
   }
 }
