@@ -35,6 +35,9 @@
             align-items: center;
             cursor: pointer;
         }
+        .img.imageDisabled {
+            cursor: not-allowed;
+        }
         .smallImg {
             font-size: 13px;
             font-family: 'OpenSans-Bold';

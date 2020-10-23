@@ -79,15 +79,21 @@ export class AddReferComponent implements OnInit {
     this.loadOffices();
     this.formRefer = new FormGroup({
       documentPerson: new FormControl("", [Validators.required]),
+      documentPersonTcd: new FormControl("", Validators.required),
       office: new FormControl("", Validators.required),
-    })
+
+    }),
+      (document.getElementById('buttonReffer') as HTMLButtonElement).disabled = true;
     document.getElementById('im1').setAttribute("src", "./assets/img/cdtblue.png");
     document.getElementById('p1').style.color = '#72787A';
   }
   get documentPerson() {
     return this.formRefer.get('documentPerson');
   }
-  get office(){
+  get documentPersonTcd() {
+    return this.formRefer.get('documentPersonTcd')
+  }
+  get office() {
     return this.formRefer.get('office');
   }
   get f() { return this.formRefer }
@@ -97,7 +103,7 @@ export class AddReferComponent implements OnInit {
       this.addReferCdtService();
     }
     if (this.flagService == 2) {
-      // this.addReferTdcService();
+      this.addReferTdcService();
     }
   }
   public addReferCdtService() {
@@ -108,8 +114,24 @@ export class AddReferComponent implements OnInit {
     console.log('office: ' + this.PersonRefered.office);
     try {
       this.apiService.invokePostRequest<PersonRefered, any>(
-        // environment.endPointAddReferCdt,
-        "",
+        environment.endPointAddReferCdt,
+        this.PersonRefered,
+        (rsp: any) => {
+          this.callbackSendInvitationRefer();
+        }
+      );
+    } catch (err) {
+      this.log.error(this, "Error consumiendo el servicio agregar/registro persona: " + err);
+    }
+  }
+
+  public addReferTdcService() {
+    this.PersonRefered.token = sessionStorage.getItem('rspToken');
+    this.PersonRefered.document = this.documentPersonTcd.value;
+    this.PersonRefered.productRefer = this.selectTcd == true ? 'TCD' : '';
+    try {
+      this.apiService.invokePostRequest<PersonRefered, any>(
+        environment.endPointAddReferTdc,
         this.PersonRefered,
         (rsp: any) => {
           this.callbackSendInvitationRefer();
@@ -130,6 +152,7 @@ export class AddReferComponent implements OnInit {
       // (document.getElementById('tarjeta-credito') as HTMLInputElement).checked == false;
       // (document.getElementById('selectOffice') as HTMLInputElement).value = "";
       // (document.getElementById('newRefer') as HTMLInputElement).checked == false;
+
     } else if (this.rspSendInvitation[0].status == false) {
       alert(this.rspSendInvitation[0].response);
     }
@@ -148,7 +171,7 @@ export class AddReferComponent implements OnInit {
       formtcd.style.display = 'none';
       this.selectCdt = true;
       this.selectTcd = false;
-
+      this.flagService = 1;
     }
     if (element.id == "im2") {
       element.setAttribute("src", "./assets/img/tcdblue.png");
@@ -157,6 +180,7 @@ export class AddReferComponent implements OnInit {
       formtcd.style.display = 'flex';
       this.selectCdt = false;
       this.selectTcd = true;
+      this.flagService = 2;
     }
 
     if (element.id == "im3") {
@@ -164,17 +188,26 @@ export class AddReferComponent implements OnInit {
       document.getElementById('p3').style.color = '#10133F';
     }
   }
-  public validateForm(){
-    let office = (document.getElementById('selectOffice') as HTMLSelectElement)
+  public validateForm() {
+    let office = (document.getElementById('selectOffice') as HTMLSelectElement);
+    let documentPersonCdt = (document.getElementById('documentPerson') as HTMLInputElement);
+    let documentPersonTcd = (document.getElementById('documentPersonTcd') as HTMLInputElement);
     if (this.flagService == 1) {
-      if (this.documentPerson.value !="" && office.value !="") {
-        this.isDisabled = !this.isDisabled;
-      } else{
-        this.isDisabled = true;
+      if (documentPersonCdt.value != "" && office.value != "") {
+        (document.getElementById('buttonReffer') as HTMLButtonElement).disabled = false;
+      } else {
+        (document.getElementById('buttonReffer') as HTMLButtonElement).disabled = true;
       }
     }
- 
+    if (this.flagService == 2) {
+      if (documentPersonTcd.value != "") {
+        (document.getElementById('buttonReffer') as HTMLButtonElement).disabled = false;
+      } else {
+        (document.getElementById('buttonReffer') as HTMLButtonElement).disabled = true;
+      }
+    }
   }
+
   private loadOffices() {
     let slcCities = (document.getElementById('selectOffice') as HTMLSelectElement);
     for (let i = 0; i < this.listOffices.length; i++) {
