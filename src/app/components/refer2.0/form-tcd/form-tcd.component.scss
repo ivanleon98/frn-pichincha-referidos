@@ -59,14 +59,14 @@
 
 .title h3 {
     font-family: 'OpenSans-Bold';
-    font-size: 28px;
     font-weight: 700;
     letter-spacing: 0.08px;
-    line-height: 42.8px;
     padding-bottom: 26px;
-    color: #1c2565;
     width: 494px;
     text-align: left;
+    font-size: 30px;
+    line-height: 36px;
+    color: #0f265c;
 }
 
 .row {
@@ -106,6 +106,10 @@ input:focus {
     outline: none;
 }
 
+input:focus~.bar:before {
+    width: 100% !important;
+}
+
 
 /* 
 input:invalid~label {
@@ -123,18 +127,21 @@ input:invalid {
 input:valid~label {
     top: -14px;
     font-size: 15px;
-    color: rgb(76, 175, 80);
+    // color: rgb(76, 175, 80);
+    color: #0000f3;
     transition: 300ms ease all !important;
 }
 
 input:valid {
-    border-bottom: 1px solid rgb(76, 175, 80);
+    // border-bottom: 1px solid rgb(76, 175, 80);
+    border-bottom: 1px solid #c0c0c0;
 }
 
 input:focus~label {
     top: -14px;
     font-size: 15px;
-    color: rgb(76, 175, 80);
+    // color: rgb(76, 175, 80);
+    color: #0000f3;
     transition: 300ms ease all !important;
 }
 
@@ -166,7 +173,7 @@ label {
     width: 0;
     bottom: 0px;
     position: absolute;
-    background: #03a9f4;
+    background: #0000f3;
     transition: 300ms ease all;
     left: 0%;
 }
@@ -259,10 +266,10 @@ button:disabled {
 .titleTcd {
     font-family: 'OpenSans-Bold';
     width: 400px;
-    line-height: 46.1px;
-    font-size: 40px;
     text-align: left;
-    color: #0F265C;
+    font-size: 30px;
+    line-height: 36px;
+    color: #0f265c;
 }
 
 .buttonModal {
@@ -284,5 +291,46 @@ button:disabled {
         position: absolute;
         bottom: 0;
         right: 0;
+    }
+}
+
+@media screen and (max-width: 670px) {
+    .container-form {
+        width: 100%;
+        height: 100%;
+        padding: 0 10px;
+    }
+    .title h3 {
+        width: auto;
+        text-align: center;
+        font-size: 25px;
+    }
+    .row {
+        flex-direction: column;
+    }
+    .group {
+        width: 100%;
+    }
+    .button button {
+        margin-bottom: 50px;
+    }
+}
+
+@media screen and (max-width: 1320px) {
+    .triangleTop {
+        display: none;
+    }
+    .triangleBottom {
+        display: none;
+    }
+    .imgFriends {
+        display: none;
+    }
+    .boxForm {
+        justify-content: center;
+        padding: 10px;
+    }
+    .container-form {
+        margin-left: 0 !important;
     }
 }

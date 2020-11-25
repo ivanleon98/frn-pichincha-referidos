@@ -27,7 +27,9 @@
                 </div>
                 <div class="form-group" [formGroup]="formRefer">
                     <label class="label" for="listOffice">Elige la oficina</label>
-                    <select id="selectOffice" formControlName="office" control="f.controls.office" (click)="validateForm()"></select>
+                    <select id="selectOffice" formControlName="office" control="f.controls.office" placeholder="Armeniaa" (click)="validateForm()">
+                        <option class="placeholder" value="" disabled>Seleccione...</option>
+                    </select>
                 </div>
             </div>
             <div class="row-full" id="formtcd">

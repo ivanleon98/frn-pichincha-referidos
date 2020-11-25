@@ -18,7 +18,7 @@
             <div class="form">
                 <div class="row-full">
                     <div class="group">
-                        <input type="text" class="texto" id="name-refered" (keyup)="validateInputText('name-refered');validateData();disabledButton(); onlyLetters($event)" autocomplete="off" maxlength="45" required>
+                        <input type="text" class="texto" id="name-refered" (keyup)="validateData();disabledButton(); onlyLetters($event)" autocomplete="off" maxlength="45" required>
                         <span class="bar"></span>
                         <label>Nombres completos</label>
                         <small class="small">Nombre inválido</small>
@@ -26,7 +26,7 @@
                 </div>
                 <div class="row">
                     <div class="group">
-                        <input type="text" class="numero" id="numdocumentrefered" (keyup)="validateInputText('numdocumentrefered');validateData();disabledButton();onlyNumbers($event)" autocomplete="off" maxlength="12" required>
+                        <input type="text" class="numero" id="numdocumentrefered" (keyup)="validateData();disabledButton();onlyNumbers($event)" autocomplete="off" maxlength="12" required>
                         <span class="bar"></span>
                         <label>Número de documento</label>
                         <small class="small">Número de documento inválido</small>
@@ -101,7 +101,7 @@
                     <small class="small">Dirección de residencia inválida</small>
                 </div>
                 <div class="group">
-                    <input type="text" class="correo" id="emailrefered" (keyup)="validateInputText('emailrefered');validateData(); disabledButton()" autocomplete="off" required>
+                    <input type="text" class="correo" id="emailrefered" (keyup)="validateData(); disabledButton()" autocomplete="off" required>
                     <span class="bar"></span>
                     <label>Correo electrónico</label>
                     <small class="small">Correo electrónico inválido</small>
@@ -109,13 +109,13 @@
             </div>
             <div class="row">
                 <div class="group">
-                    <input type="text" class="numero" id="numcelrefered" (keyup)="validateInputText('numcelrefered');validateData(); disabledButton(); onlyNumbers($event)" autocomplete="off" maxlength="15" required>
+                    <input type="text" class="numero" id="numcelrefered" (keyup)="validateData(); disabledButton(); onlyNumbers($event)" autocomplete="off" maxlength="15" required>
                     <span class="bar"></span>
                     <label>Número de celular</label>
                     <small class="small">Número de celular inválido</small>
                 </div>
                 <div class="group">
-                    <input type="text" id="codeProm" (keyup)="validateInputText('codeProm');validateData(); disabledButton()" maxlength="5" autocomplete="off" required>
+                    <input type="text" id="codeProm" (keyup)="validateData(); disabledButton()" maxlength="5" autocomplete="off" required>
                     <span class="bar"></span>
                     <label>Código de referido</label>
                 </div>

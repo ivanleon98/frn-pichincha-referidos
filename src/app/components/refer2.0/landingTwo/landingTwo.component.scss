@@ -41,12 +41,13 @@
         font-family: 'Montserrat-Bold';
     }
     .container-btns {
-        width: 42.3%;
         display: flex;
-        justify-content: space-between;
         margin-bottom: -35px;
         position: absolute;
         bottom: 90px;
+        width: 100%;
+        justify-content: center;
+        gap: 4.5%;
     }
     .container-btns button {
         width: 255px;
@@ -67,5 +68,40 @@
         color: #fff;
         border: 2px solid #FFFFFF;
         background-color: #10133F;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .section-blue {
+        justify-content: flex-start;
+        padding-top: 70px;
+        img {
+            width: 305px;
+            left: auto;
+            bottom: 20.4rem;
+            height: auto;
+        }
+        .text {
+            width: auto;
+            font-size: 25px;
+        }
+        .container-btns {
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            height: 80%;
+            bottom: 0;
+        }
+    }
+    .section-white .logo {
+        padding: 45px 0 0 30px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1256px) {
+    .section-blue>img:nth-child(1) {
+        width: 405px;
+        height: auto;
+        bottom: 19.2rem;
     }
 }

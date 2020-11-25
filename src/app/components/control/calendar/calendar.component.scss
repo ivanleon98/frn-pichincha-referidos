@@ -227,18 +227,21 @@ input:focus {
 input:valid~label {
     top: -14px;
     font-size: 15px;
-    color: rgb(76, 175, 80) !important;
+    // color: rgb(76, 175, 80);
+    color: #0000f3;
     transition: 300ms ease all !important;
 }
 
 input:valid {
-    border-bottom: 1px solid rgb(76, 175, 80) !important;
+    // border-bottom: 1px solid rgb(76, 175, 80);
+    border-bottom: 1px solid #c0c0c0;
 }
 
 input:focus~label {
     top: -14px;
     font-size: 15px;
-    color: rgb(76, 175, 80);
+    // color: rgb(76, 175, 80);
+    color: #0000f3;
     transition: 300ms ease all !important;
 }
 
@@ -285,7 +288,7 @@ label {
     width: 0;
     bottom: 0px;
     position: absolute;
-    background: #03a9f4;
+    background: #0000f3;
     transition: 300ms ease all;
     left: 0%;
 }

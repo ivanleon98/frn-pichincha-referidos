@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
 import { DataService } from 'src/app/service/data.service';
+import { Homev2Component } from '../refer2.0/homev2/homev2.component';
 
 @Component({
   selector: 'app-timeline',
@@ -14,7 +16,7 @@ export class TimelineComponent implements OnInit {
   public notify;
   public refferal = new Array();
   public storage; 
-//   public list = [
+//   public listNotifications = [
 //   'Felicitaciones Martha Cecilia Gómez adquirió CDT',
 //   'Has invitado a 51897452', 
 //   'Felicitaciones Juan Pablo Rodríguez adquirió TC', 
@@ -23,15 +25,30 @@ export class TimelineComponent implements OnInit {
 //   'Felicitaciones Cindy López adquirió TC222',
 // ];
   public notifications = [];
+  public isEmpty: boolean;
   public listNotifications = new Array<string>();
-  constructor(private infoData: DataService) {
+  constructor(private infoData: DataService, private containerComponent: AppComponent, private homeComponent: Homev2Component) {
     this.titleTimeLine = "Notificaciones";
     this.storage = window.sessionStorage;
    }
 
    ngOnInit() {
      this.listNotifications = JSON.parse(this.storage.getItem("notificationsTimeline"));
+     let msg = (document.getElementById('messageWelcome') as HTMLDivElement);
+     if(this.listNotifications.length == 0){
+       msg.style.display = 'block';
+     }
+     if (this.listNotifications.length != 0) {
+      msg.style.display = 'none';
+     }
   } 
+
+  public viewAddRefer(){
+    this.homeComponent.isProgressWelcome = false;
+    this.homeComponent.isProgressAddRefer = true;
+    document.getElementById('s2').classList.add('active');
+    document.getElementById('s1').classList.remove('active');
+  }
 
    public getList(){
     return this.ngOnInit();

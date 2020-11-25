@@ -211,7 +211,7 @@ export class CalendarComponent implements OnInit {
         var padre = document.getElementById(idObj).parentNode;
         var hijos = padre.childNodes; 
         var labelName = hijos[-2];
-        (<HTMLElement>obj).style.color = "#4caf50";
+        (<HTMLElement>obj).style.color = "#0000f3";
         (<HTMLElement>obj).style.top = "-14px";
       }
 }

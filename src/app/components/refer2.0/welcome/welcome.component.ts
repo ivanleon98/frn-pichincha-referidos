@@ -24,7 +24,7 @@ export class WelcomeComponent implements OnInit {
   private getNegReferrals(){
     let cancelreffer = sessionStorage.getItem('referralsPending');
     let total = cancelreffer.split(",").map(function (el) {  return + el; });
-    this.totalNeg = total;
+    this.totalNeg = String(total.reduce((a, b) => a + b));
   }
   
 }

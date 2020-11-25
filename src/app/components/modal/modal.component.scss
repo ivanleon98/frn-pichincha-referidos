@@ -259,6 +259,13 @@ div.group:nth-child(7) {
     font-size: 20px;
 }
 
+#sendemail {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 #sendemail>p:nth-child(2) {
     text-align: center;
     font-size: 22px;
@@ -560,19 +567,21 @@ input:invalid {
 input:valid~label {
     top: -14px;
     font-size: 15px;
-    color: rgb(76, 175, 80);
-    ;
+    // color: rgb(76, 175, 80);
+    color: #0000f3;
     transition: 300ms ease all !important;
 }
 
 input:valid {
-    border-bottom: 1px solid rgb(76, 175, 80);
+    // border-bottom: 1px solid rgb(76, 175, 80);
+    border-bottom: 1px solid #c0c0c0;
 }
 
 input:focus~label {
     top: -14px;
     font-size: 15px;
-    color: rgb(76, 175, 80);
+    // color: rgb(76, 175, 80);
+    color: #0000f3;
     transition: 300ms ease all !important;
 }
 
@@ -580,40 +589,6 @@ input:focus~label {
     color: #f44336;
     display: none;
 }
-
-
-/* input:valid {
-    border-bottom: 1px solid green;
-} */
-
-
-/* input:focus~.bar::before {
-    background: #8bc34a;
-    width: 100%;
-}
-
-input::before:valid~.bar::before {
-    background: #8bc34a;
-    width: 100%;
-} */
-
-
-/* input:required:invalid~label ::after {
-    font-size: 15px;
-    color: red;
-    top: -14px;
-}
-
-input:invalid::after~label {
-    font-size: 15px;
-    color: red;
-    top: -14px;
-}
-
-input:norequired:invalid::before~label {
-    background: red;
-    width: 100%;
-} */
 
 input:focus~.bar:before {
     width: 100%;
@@ -653,7 +628,7 @@ label {
     width: 0;
     bottom: 0px;
     position: absolute;
-    background: #03a9f4;
+    background: #0000f3;
     transition: 300ms ease all;
     left: 0%;
 }
@@ -667,10 +642,10 @@ label {
 
 @media screen and (max-width: 568px) {
     .modal-content {
-        height: 98%;
+        height: 100%;
         margin: 20px 0;
         padding: 0 24px;
-        width: 90%;
+        width: 100%;
         overflow-y: auto !important;
     }
     .modal {
@@ -681,6 +656,24 @@ label {
     }
     .input-middle {
         display: block;
+    }
+    .form-log-in {
+        height: 100%;
+    }
+    .header-log-in {
+        margin-top: 20px !important;
+    }
+    #close>img:nth-child(1) {
+        width: 27px;
+        position: absolute;
+        top: 10px;
+    }
+    .header-log-in h3 {
+        font-size: 25px;
+    }
+    .container-avatar img {
+        width: 200px;
+        height: 200px;
     }
 }
 
@@ -704,6 +697,22 @@ label {
     }
     .container-avatar {
         margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width:960px) {
+    .header-log-in {
+        margin-top: 10px !important;
+        margin-bottom: 20px !important;
+    }
+    .container-avatar {
+        margin-bottom: 40px;
+    }
+    .form-log-in {
+        justify-content: initial;
+    }
+    .group {
+        margin: 0 0 40px !important;
     }
 }
 

@@ -6,6 +6,7 @@ import { ApiGeneralService } from 'src/app/service/common/api-general.service';
 import { LoggerService } from 'src/app/service/common/logger.service';
 import { ReferidoService } from 'src/app/service/referido.service';
 import { environment } from 'src/environments/environment';
+import { Homev2Component } from '../homev2/homev2.component';
 
 @Component({
   selector: 'app-addRefer',
@@ -18,7 +19,6 @@ export class AddReferComponent implements OnInit {
   public maskTypeNames: MaskTypeInterface = MaskTypes.find(m => m.type == "names"); // Indica el tipo de mascara a   utilizar en el input-text
   public maskTypeNumber: MaskTypeInterface = MaskTypes.find(m => m.type == "number"); // Indica el tipo de mascara a   utilizar en el 
   public listOffices = [
-    '',
     'ARMENIA',
     'BARRANQUILLA - CALLE 72',
     'BARRANQUILLA - CENTRO',
@@ -72,7 +72,8 @@ export class AddReferComponent implements OnInit {
   public selectTcd: boolean = false;
   public rspSendInvitation: any;
   public isDisabled = true;
-  constructor(private log: LoggerService, private apiService: ApiGeneralService, private PersonRefered: PersonRefered) {
+  constructor(private log: LoggerService, private apiService: ApiGeneralService, 
+    private PersonRefered: PersonRefered, private containerComponent: Homev2Component) {
   }
 
   ngOnInit() {
@@ -148,6 +149,8 @@ export class AddReferComponent implements OnInit {
       // this.graphicalDataService();
       // this.getRefferalService();
       alert(this.rspSendInvitation[0].response);
+      this.containerComponent.isProgressAddRefer = false;
+      this.containerComponent.isProgressWelcome = true;
       // (document.getElementById('add-document-referido') as HTMLInputElement).value = "";
       // (document.getElementById('tarjeta-credito') as HTMLInputElement).checked == false;
       // (document.getElementById('selectOffice') as HTMLInputElement).value = "";

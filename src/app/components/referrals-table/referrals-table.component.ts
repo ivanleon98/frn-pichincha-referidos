@@ -179,7 +179,7 @@ export class ReferralsTableComponent implements OnInit {
       this.porcentaje = 100;
       return this.porcentaje + '%';
     }
-    else if (status == "" || status == null) {
+    else if (status == "" || status == null){
       this.porcentaje = 0;
       return this.porcentaje + '%';
     }
@@ -192,7 +192,7 @@ export class ReferralsTableComponent implements OnInit {
       }
       if (this.porcentaje >= 67 && this.porcentaje <= 100) {
         if (this.statusPr == "ace") {
-          return "progress-color " + "badge-completed";
+          return "progress-color " + "badge-completed";        
         }
         if (this.statusPr == "neg") {
           return "progress-color " + "badge-canceled";
@@ -210,10 +210,10 @@ export class ReferralsTableComponent implements OnInit {
       for (let j = 0; j < product.length; j++) {
         if (product[j].confirmationState == "neg") {
           return "badge " + "badge-canceled";
-        }
+        } 
         else if (product[i].confirmationState == "ges") {
           return "badge " + "badge-pendient";
-        }
+        } 
         else if (product[j].confirmationState == "") {
           return "badge " + "badge-in-process";
         }
@@ -221,6 +221,8 @@ export class ReferralsTableComponent implements OnInit {
           return "badge " + "badge-completed";
         }
       }
+      
+
     }
   }
 }
