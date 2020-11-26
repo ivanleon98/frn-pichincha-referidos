@@ -154,7 +154,7 @@ h3 {
 .form-sign-up {
     display: none;
     flex-direction: column;
-    height: 100%;
+    height: auto;
     justify-content: center;
 }
 
@@ -662,6 +662,19 @@ label {
     }
     .header-log-in {
         margin-top: 20px !important;
+    }
+    .header-sign-up {
+        h3 {
+            font-size: 25px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    }
+    .container-button {
+        margin-bottom: 50px;
+    }
+    .input-middle {
+        margin: 0 !important;
     }
     #close>img:nth-child(1) {
         width: 27px;

@@ -30,3 +30,16 @@
 .components {
     width: 100%;
 }
+
+@media screen and (max-width: 1120px) {
+    .img {
+        display: none;
+    }
+    .menu {
+        padding-left: 0;
+        margin-top: 0;
+    }
+    .container-menu {
+        margin-left: 0 !important;
+    }
+}

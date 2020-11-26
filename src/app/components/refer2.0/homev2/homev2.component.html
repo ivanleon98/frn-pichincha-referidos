@@ -1,12 +1,15 @@
 <app-nav-bar></app-nav-bar>
 <div class="container">
     <div class="container-menu">
-        <div class="img">
-            <img src="./assets/img/img-menu.png" alt="">
+        <div class="contain-menu">
+            <div class="img">
+                <img src="./assets/img/img-menu.png" alt="">
+            </div>
+            <div class="menu">
+                <app-control-menu></app-control-menu>
+            </div>
         </div>
-        <div class="menu">
-            <app-control-menu></app-control-menu>
-        </div>
+
     </div>
     <div class="components">
         <app-welcome *ngIf="isProgressWelcome"></app-welcome>

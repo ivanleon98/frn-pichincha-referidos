@@ -33,3 +33,19 @@
         }
     }
 }
+
+.container-query {
+    display: none;
+}
+
+@media screen and (max-width: 1120px) {
+    .container {
+        display: none;
+    }
+    .container-query {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+}
