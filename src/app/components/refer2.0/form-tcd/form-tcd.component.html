@@ -17,7 +17,7 @@
             <div class="form">
                 <div class="row-full">
                     <div class="group">
-                        <input type="text" class="texto" id="name-refered-tdc" (keyup)="disabledButton(); onlyLetters($event)" autocomplete="off" maxlength="45" required>
+                        <input type="text" class="texto" id="name-refered-tdc" (keyup)="validateData($event)" autocomplete="off" maxlength="45" required>
                         <span class="bar"></span>
                         <label>Nombres completos</label>
                         <small class="small">Nombres inválido</small>
@@ -25,7 +25,7 @@
                 </div>
                 <div class="row">
                     <div class="group">
-                        <input type="text" class="numero" id="document-tdc" (keyup)="disabledButton();onlyNumbers($event)" autocomplete="off" maxlength="12" required>
+                        <input type="text" class="numero" id="document-tdc" (keyup)="validateData($event)" autocomplete="off" maxlength="10" required>
                         <span class="bar"></span>
                         <label>Número de documento</label>
                         <small class="small">Número de documento inválido</small>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="row-full">
                     <div class="group">
-                        <input type="text" id="codePromTdc" (keyup)="disabledButton()" maxlength="5" autocomplete="off" required>
+                        <input type="text" id="codePromTdc" (keyup)="validateData($event)" maxlength="5" autocomplete="off" required>
                         <span class="bar"></span>
                         <label>Código de referido</label>
                     </div>

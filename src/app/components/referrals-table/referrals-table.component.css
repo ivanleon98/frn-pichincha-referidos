@@ -131,32 +131,17 @@ th.head:nth-child(7) {
     cursor: pointer;
 }
 
-.button-delete-table {
-    width: 50%;
-    min-width: 54px;
-    font-size: 12px;
-    color: white;
-    border-radius: 5px;
-    background-color: #c71c22;
+.treport {
+    display: flex;
 }
 
-.button-delete-table:hover {
-    background-color: rgb(223, 54, 60);
-}
-
-.button-view-complete-report {
-    border: 2px solid #f2d621;
-    font-weight: 500;
-    border-radius: 16px;
-    padding: 10px;
-    display: block;
-    width: 170px;
-    color: #1b2d54;
-    text-align: center;
-}
-
-.button-view-complete-report:hover {
-    background-color: #0f265cd6;
-    border: 1px solid #1a103e;
-    color: #f2d621;
+.report {
+    font-family: 'OpenSans-Bold';
+    font-size: 13px;
+    color: #0F265C;
+    width: 100%;
+    text-align: right;
+    padding-right: 65px;
+    margin-top: 30px;
+    cursor: pointer;
 }

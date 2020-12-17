@@ -26,7 +26,7 @@
                 </div>
                 <div class="row">
                     <div class="group">
-                        <input type="text" class="numero" id="numdocumentrefered" (keyup)="validateData();disabledButton();onlyNumbers($event)" autocomplete="off" maxlength="12" required>
+                        <input type="text" class="numero" id="numdocumentrefered" (keyup)="validateData();disabledButton();onlyNumbers($event)" autocomplete="off" maxlength="10" required>
                         <span class="bar"></span>
                         <label>Número de documento</label>
                         <small class="small">Número de documento inválido</small>
@@ -145,19 +145,44 @@
   </div> -->
 
     <!-- The Modal -->
-    <div id="ModalTerms" class="modal">
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
         <div class="modal-content">
-            <div class="cont-close">
-                <span class="close" (click)="closeModal();validateData();">&times;</span>
-            </div>
-            <h2>Términos y condiciones</h2>
-            <div class="container-text">
-                <embed src="./assets/pdf/Aceptación de Términos y Condiciones.pdf" type="">
-            </div>
-            <div class="btn">
-                <button (click)="closeModalWithCheck()">Acepto</button>
+            <div class="box">
+                <div class="background-blue">
+                    <div class="container-title">
+                        <div class="titleModal">
+                            ¡Gracias!
+                        </div>
+                        <div class="subtitle">
+                            Tus datos han sido enviados, pronto nos contactaremos.
+                        </div>
+                    </div>
+
+                </div>
+                <div class="body">
+                    <div class="container-body">
+                        <div class="prox">
+                            Próximamente
+                        </div>
+                        <div class="textProx">
+                            desde la comodidad de tu casa u oficina podrás solicitar tu
+                        </div>
+                        <div class="titleCdt">
+                            CDT Digital.
+                        </div>
+                        <div class="button">
+                            <button>Inicio</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="background-yellow"></div>
+                <div class="image">
+                    <img src="./assets/img/img-cdt.png" alt="">
+                </div>
             </div>
         </div>
+
     </div>
 </div>
 <app-footer></app-footer>

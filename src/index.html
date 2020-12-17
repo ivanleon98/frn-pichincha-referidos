@@ -2,24 +2,28 @@
 <html lang="es">
 
 <head>
-  <meta charset="utf-8">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap" rel="stylesheet">
-  <title>Amigos Pichincha</title>
-  <base href="./">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/materialize.min.css">
+    <title>Amigos Pichincha</title>
+    <base href="./">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
 </head>
 
 <body>
-  <app-root></app-root>
-  <script>
-    function getPathVariable() {
-      return document.getElementById('pathVariable').value;
-    }
-    function getTokenVariable() {
-      return document.getElementById('tokenVariable').value;
-    }
-  </script>
+    <app-root></app-root>
+    <script src="./assets/js/jquery.js"></script>
+    <script src="./assets/js/materialize.min.js"></script>
+    <script>
+        function getPathVariable() {
+            return document.getElementById('pathVariable').value;
+        }
+
+        function getTokenVariable() {
+            return document.getElementById('tokenVariable').value;
+        }
+    </script>
 </body>
 
 </html>

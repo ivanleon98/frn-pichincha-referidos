@@ -50,23 +50,26 @@ export class FormTcdComponent implements OnInit {
       alert(this.rspAccept[0].response);
     }
   }
-  public validateData() {
-    let name = (document.getElementById('name-refered-tdc') as HTMLInputElement).value;
-    let documentPerson = (document.getElementById('document-tdc') as HTMLInputElement).value;
-    if (name!="" && documentPerson !="") {
+  public validateData(event) {
+    let e = event.currentTarget as HTMLElement;
+    let name = (document.getElementById('name-refered-tdc') as HTMLInputElement);
+    let documentPerson = (document.getElementById('document-tdc') as HTMLInputElement);
+  
+    if(e.id == "name-refered-tdc" && name.classList.contains("texto") == true)  {
+      alert('1');
+      this.onlyLetters(event);
+    }
+    if (documentPerson.classList.contains("numero") == true) {
+      alert('2');
+      this.onlyNumbers(event);
+    }
+    if (name.value!="" && documentPerson.value !="") {
       (document.getElementById('registrar-refered-tdc') as HTMLButtonElement).disabled = false;
     } else{
       (document.getElementById('registrar-refered-tdc') as HTMLButtonElement).disabled = true;
     }
   }
-  public disabledButton() {
-    let smll = document.querySelectorAll('small');
-    smll.forEach(small => {
-      if (small.style.display == 'block') {
-        (document.getElementById('registrar-refered') as HTMLButtonElement).disabled = true;
-      }
-    });
-  }
+
   public viewModal() {
     if ((document.getElementById('accept-terms-refered-tcd') as HTMLInputElement).checked == true) {
       document.getElementById('ModalTerms').style.display = 'block';

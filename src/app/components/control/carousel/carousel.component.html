@@ -1,0 +1,28 @@
+<div class="carousel-item" *ngFor="let item of carosulItems">
+    <div class="container-img">
+        <img id="{{item.id}}" (click)="onSubmit($event)" src="{{item.src}}" alt="">
+    </div>
+    <div class="title">{{item.title}} </div>
+</div>
+<!-- <div class="carousel">
+
+    <div class="carousel-item">
+        <img src="./assets/img/cdt-1.png" style="width:100%">
+        <div class="text">Cdt</div>
+    </div>
+
+    <div class="carousel-item">
+        <img src="./assets/img/tarjeta-1.png" style="width:100%">
+        <div class="text">Tarjeta de Crédito</div>
+    </div>
+
+    <div class="carousel-item">
+        <img src="./assets/img/educativo-1.png" style="width:100%">
+        <div class="text">Crédito educativo</div>
+    </div>
+
+
+    <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
+    <a class="next" (click)="plusSlides(1)">&#10095;</a>
+</div>
+<br> -->

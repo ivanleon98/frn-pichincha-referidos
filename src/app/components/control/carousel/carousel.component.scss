@@ -1,0 +1,24 @@
+.container-img {
+    width: -webkit-min-content;
+    width: -moz-min-content;
+    width: min-content;
+}
+
+.title {
+    display: none;
+    font-family: 'OpenSans-Regular';
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    width: 145px;
+    margin-top: 14px;
+}
+
+.active {
+    width: -webkit-min-content;
+    width: -moz-min-content;
+    width: min-content;
+    .title {
+        display: block;
+    }
+}

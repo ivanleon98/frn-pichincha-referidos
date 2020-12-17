@@ -21,25 +21,35 @@ export class ControlMenuComponent implements OnInit {
       this.containerComponent.isProgressAddRefer = false;
       this.containerComponent.isProgressMyReferrals = false;
       this.containerComponent.isProgressMyIncrease = false
+      this.containerComponent.isProgressReedem = false;
     }
     if (element.id == "s2") {
       this.containerComponent.isProgressAddRefer = true;
       this.containerComponent.isProgressWelcome = false;
       this.containerComponent.isProgressMyReferrals = false;
       this.containerComponent.isProgressMyIncrease = false
+      this.containerComponent.isProgressReedem = false;
     }
     if (element.id == "s3") {
       this.containerComponent.isProgressMyReferrals = true;
       this.containerComponent.isProgressWelcome = false;
       this.containerComponent.isProgressAddRefer = false;
       this.containerComponent.isProgressMyIncrease = false;
+      this.containerComponent.isProgressReedem = false;
     }
     if (element.id == "s4") {
       this.containerComponent.isProgressMyIncrease = true;
       this.containerComponent.isProgressWelcome = false;
       this.containerComponent.isProgressMyReferrals = false;
       this.containerComponent.isProgressAddRefer = false;
-
+      this.containerComponent.isProgressReedem = false;
+    }
+    if (element.id == "s5") {
+      this.containerComponent.isProgressReedem = true;
+      this.containerComponent.isProgressWelcome = false;
+      this.containerComponent.isProgressMyReferrals = false;
+      this.containerComponent.isProgressAddRefer = false;
+      this.containerComponent.isProgressMyIncrease = false;
     }
     if (id !== '0') {
       document.getElementById(id).classList.remove('active');
@@ -52,5 +62,6 @@ export class ControlMenuComponent implements OnInit {
     document.getElementById('s2').classList.remove('active');
     document.getElementById('s3').classList.remove('active');
     document.getElementById('s4').classList.remove('active');
+    document.getElementById('s5').classList.remove('active');
   }
 }

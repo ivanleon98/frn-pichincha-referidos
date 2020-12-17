@@ -1,14 +1,14 @@
 <app-nav-bar></app-nav-bar>
 <div class="container">
     <div class="container-menu">
-        <div class="contain-menu">
-            <div class="img">
-                <img src="./assets/img/img-menu.png" alt="">
-            </div>
-            <div class="menu">
-                <app-control-menu></app-control-menu>
-            </div>
+        <!-- <div class="contain-menu"> -->
+        <div class="img">
+            <img src="./assets/img/img-menu.png" alt="">
         </div>
+        <div class="menu">
+            <app-control-menu></app-control-menu>
+        </div>
+        <!-- </div> -->
 
     </div>
     <div class="components">
@@ -16,6 +16,7 @@
         <app-addRefer *ngIf="isProgressAddRefer"></app-addRefer>
         <app-myReferrals *ngIf="isProgressMyReferrals"></app-myReferrals>
         <app-myIncrease *ngIf="isProgressMyIncrease"></app-myIncrease>
+        <app-redeem *ngIf="isProgressReedem"></app-redeem>
     </div>
 </div>
 <app-footer></app-footer>

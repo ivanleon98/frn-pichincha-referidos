@@ -42,88 +42,12 @@ export class ModalComponent {
         (document.getElementById('log-in-service') as HTMLButtonElement).disabled = true;
     }
 
-     private stringToArray(data: string){
-         let tmp = new Array<any>();
-         let aux = data.split(",");
-         for (let i=0; i<aux.length; i++) {
-             tmp.push( aux[i] );
-         }
-         return tmp;
-     }
-
     public getReferidoService(): ReferidoService {
         return this.referidoService;
     }
 
     resolved(captchaResponse: string) {
         this.validateSignUpFiels();
-    }
-
-    public validateInputText(myId) {
-        // var obj = (<HTMLInputElement>document.getElementById(myId));
-        // var objValue = (<HTMLInputElement>document.getElementById(myId)).value;
-        // var valor = objValue;
-        // var idObj = obj.getAttribute("id");
-        // var padre = document.getElementById(idObj).parentNode;
-        // var hijos = padre.childNodes;
-        // var progressBar = hijos[3];
-        // var labelName = hijos[2];
-        // var mensaje = hijos[3];
-        //     if (obj.getAttribute("class") == "texto") {
-        //         if (/[0-9\-+.]/.test(objValue)) {
-        //             obj.style.color = "red";
-        //             obj.style.borderBottom = "1px solid #f44336";
-        //             (<HTMLElement>progressBar).style.display = "none";
-        //             (<HTMLElement>labelName).style.color = "#0000f3";
-        //             (<HTMLElement>mensaje).style.display = "block";
-        //             (<HTMLElement>mensaje).style.color = "block";
-        //             (<HTMLElement>labelName).style.top = "-14px";
-        //         } else {
-        //             obj.style.color = "#000";
-        //             obj.style.borderBottom = "1px solid #4CAF50";
-        //             (<HTMLElement>progressBar).style.display = "block";
-        //             (<HTMLElement>labelName).style.color = "#4CAF50";
-        //             (<HTMLElement>labelName).style.top = "-14px";
-        //             (<HTMLElement>mensaje).style.display = "none";
-        //         }
-        //     }
-        //     if (obj.getAttribute("class") == "correo") {
-        //         if (/[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}/.test(objValue)) {
-        //             obj.style.color = "#000";
-        //             obj.style.borderBottom = "1px solid #4CAF50";
-        //             (<HTMLElement>progressBar).style.display = "block";
-        //             (<HTMLElement>labelName).style.color = "#4CAF50";
-        //             (<HTMLElement>mensaje).style.display = "none";
-
-        //         } else {
-        //             obj.style.color = "red";
-        //             obj.style.borderBottom = "1px solid #f44336";
-        //             (<HTMLElement>progressBar).style.display = "none";
-        //             (<HTMLElement>labelName).style.color = "#f44336";
-        //             (<HTMLElement>mensaje).style.display = "block";
-        //             (<HTMLElement>mensaje).style.color = "block";
-        //             (<HTMLElement>labelName).style.top = "-14px";
-        //         }
-        //     }
-        //     if (obj.getAttribute("class") == "numero") {
-        //         if (/[a-zA-Z]/.test(objValue)) {
-        //             obj.style.color = "red";
-        //             obj.style.borderBottom = "1px solid #f44336";
-        //             (<HTMLElement>progressBar).style.display = "none";
-        //             (<HTMLElement>labelName).style.color = "#f44336";
-        //             (<HTMLElement>mensaje).style.display = "block";
-        //             (<HTMLElement>mensaje).style.color = "block";
-        //             (<HTMLElement>labelName).style.top = "-14px";
-        //         } else {
-        //             obj.style.color = "#000";
-        //             obj.style.borderBottom = "1px solid #4CAF50";
-        //             (<HTMLElement>progressBar).style.display = "block";
-        //             (<HTMLElement>labelName).style.color = "#4CAF50";
-        //             (<HTMLElement>labelName).style.top = "-14px";
-        //             (<HTMLElement>mensaje).style.display = "none";
-        //         }
-        //     }
-        
     }
 
     public disabledButton(idbtn) {
@@ -236,16 +160,12 @@ export class ModalComponent {
     /* Service Add New Person */
     private callbackAddNewPerson(): JSON {
         this.rspAddPerson = this.apiService.response;
-        if (this.rspAddPerson[0].status == true && this.rspAddPerson[0].response == "El usuario fue creado, debe ser activado") {
+        if (this.rspAddPerson[0].status == true) {
             this.sendEmailConfirmationService();
-            this.viewSuccess();
+        } else{
+            this.rspAddPerson[0].response
+            alert(this.rspAddPerson[0].response);
         }
-        if (this.rspAddPerson[0].status == false && this.rspAddPerson[0].response == "No estás habilitado para participar")
-            alert('No estás habilitado para participar');
-        if (this.rspAddPerson[0].status == false && this.rspAddPerson[0].response == "El correo ya está registrado")
-            alert('El correo ya está registrado');
-        if (this.rspAddPerson[0].status == false && this.rspAddPerson[0].response == "El documento ya está registrado")
-            alert('El documento ya está registrado');
         return this.rspAddPerson;
     }
 
@@ -254,6 +174,7 @@ export class ModalComponent {
         this.generalRequest.document = (document.getElementById('identificacion-referido') as HTMLInputElement).value;
         this.generalRequest.cellphone = (document.getElementById('celular-referido') as HTMLInputElement).value;
         this.generalRequest.password = (document.getElementById('password-referido-new') as HTMLInputElement).value;
+        this.generalRequest.email = (document.getElementById('email-register') as HTMLInputElement).value;
         try {
             this.apiService.invokePostRequest<GeneralRequest, any>(
                 environment.endpointAddPerson,
@@ -289,9 +210,9 @@ export class ModalComponent {
         }
     }
 
-    private callbackLogin(): JSON {
+    private callbackLogin() {
         this.rspLogin = this.apiService.response;
-        if (this.rspLogin[0].response == "Usuario y contraseña correctos") {
+        if (this.rspLogin[0].status == true) {
             this.rspToken = this.rspLogin[0].token;
             this.rspForCc = this.rspLogin[0].document;
             this.rspTimeLine = this.rspLogin[0].notificationsTimeline;
@@ -308,14 +229,9 @@ export class ModalComponent {
                 this.closeModal();
                 //this.route.assign('/home');
             }, 2000)
+        } else{
+            alert(this.rspLogin[0].response);
         }
-        if (this.rspLogin[0].status == false && this.rspLogin[0].response == "Usuario y/o contraseña incorrectos")
-            alert('Usuario y/o contraseña incorrectos');
-        if (this.rspLogin[0].status == false && this.rspLogin[0].response == "El usuario debe activarse")
-            alert('El usuario no ha sido activado.');
-        if (this.rspLogin[0].status == false && this.rspLogin[0].response == "El usuario no existe")
-            alert('No se ha encontrado una cuenta asociada al correo electrónico')
-        return this.rspLogin;
     }
 
     public loginService() {
@@ -333,19 +249,22 @@ export class ModalComponent {
             this.log.error(this, "Error consumiendo el servicio login: " + err);
         }
     }
-
     private callbackGraphicalData(): Array<string> {
         this.rspGraphical = this.apiService.response;
             
-        this.storage.setItem('month', this.stringToArray(this.rspGraphical[0].recentMonths));
-        this.storage.setItem('increase', this.stringToArray(this.rspGraphical[0].lastEarnings));
-        this.storage.setItem('totalEarning', this.stringToArray(this.rspGraphical[0].totalEarnings));
-        this.storage.setItem('profitGoal', this.stringToArray(this.rspGraphical[0].profitGoal));
-        this.storage.setItem('acceptedReferrals', this.stringToArray(this.rspGraphical[0].acceptedReferrals));
-        this.storage.setItem('referralsPending', this.stringToArray(this.rspGraphical[0].referralsPending));
-        this.storage.setItem('revenueExpectation', this.stringToArray(this.rspGraphical[0].revenueExpectation));
-        this.storage.setItem('outstandingIncome', this.stringToArray(this.rspGraphical[0].outstandingIncome));
-        this.storage.setItem('notificationsTimeline', this.rspGraphical[0].notificationsTimeline);
+        sessionStorage.setItem('month', (this.rspGraphical[0].graphicDateIndicator));
+        sessionStorage.setItem('lastEarningsCDT', (this.rspGraphical[0].lastEarningsCDT));
+        sessionStorage.setItem('lastEarningsTCD', (this.rspGraphical[0].lastEarningsTCD));
+        sessionStorage.setItem('lastEarningsCE', (this.rspGraphical[0].lastEarningsCE));
+        sessionStorage.setItem('totalEarningsCOP', (this.rspGraphical[0].totalEarningsCOP));
+        sessionStorage.setItem('totalEarningsPoints', (this.rspGraphical[0].totalEarningsPoints));
+        sessionStorage.setItem('profitGoal', (this.rspGraphical[0].profitGoal));
+        sessionStorage.setItem('acceptedReferrals', (this.rspGraphical[0].acceptedReferrals));
+        sessionStorage.setItem('referralsPending', (this.rspGraphical[0].pendingReferrals));
+        sessionStorage.setItem('deniedReferrals',  (this.rspGraphical[0].deniedReferrals))
+        sessionStorage.setItem('revenueExpectation', (this.rspGraphical[0].revenueExpectation));
+        sessionStorage.setItem('outstandingIncome', (this.rspGraphical[0].outstandingIncome));
+        sessionStorage.setItem('notificationsTimeline', this.rspGraphical[0].notificationsTimeline);
 
         return this.rspGraphical;
       } 

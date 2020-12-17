@@ -21,6 +21,11 @@
 }
 
 @font-face {
+    font-family: 'Montserrat-Light';
+    src: url(assets/fonts/Montserrat-Light.ttf) format('truetype');
+}
+
+@font-face {
     font-family: 'OpenSans-Regular';
     src: url(assets/fonts/OpenSans-Regular/OpenSans-Regular.eot?#iefix) format("embedded-opentype"), url(assets/fonts/OpenSans-Regular/OpenSans-Regular.ttf) format('truetype');
 }

@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="container-form">
+        <div class="title">
+            ¡Redime tus ganancias y empieza a disfrutar!
+        </div>
+        <div class="subtitle">
+            ¿Cuánto vas a redimir?
+        </div>
+        <div class="formGroup">
+            <input-text (keyup)="showErrorMount()" [maskType]="maskTypeMoney" [title]="'Escribe el monto'" [control]="f.controls.valueRedeem" [controlName]="'valueRedeem'" [formGroup]="form" [placeHolderText]="'Ej: 100.000'"></input-text>
+        </div>
+        <div class="errorMount" id="errorMount">
+            El valor solicitado sobrepasa el monto permitido, por favor cambia el valor e intenta nuevamente.
+        </div>
+        <div class="button">
+            <button>Redimir</button>
+        </div>
+    </div>
+    <div class="containerQr">
+        <div class="titleQr">
+            ¡Tu código ha sido generado!
+        </div>
+        <div class="form">
+            <div class="qr">
+                <div class="img">
+                    <img src="./assets/img/qrcode.png" alt="">
+                </div>
+            </div>
+            <div class="steps">
+                <ul>
+                    <span class="number">1.</span>
+                    <li>Escanea el QR para obtener un<b> código de verificación</b></li>
+                </ul>
+                <ul>
+                    <span class="number">2.</span>
+                    <li>Acércate a<b> VIA Baloto</b> con tu código y los datos de tu cédula o número de identificación.</li>
+                </ul>
+                <ul>
+                    <span class="number">3.</span>
+                    <li>Realiza el retiro con tu corresponsal de confianza. Ten presente que<b> el valor debe ser el mismo que solicitaste.</b></li>
+                </ul>
+                <ul>
+                    <span class="number">4.</span>
+                    <li>Recibe y verifica el soporte de la transacción.</li>
+                </ul>
+                <ul>
+                    <span class="number">5.</span>
+                    <li>Puedes<b class="underline"> Descargar aquí</b> tu código QR.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

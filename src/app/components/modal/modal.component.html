@@ -43,31 +43,38 @@
         <!-- _---SIGN-UP---_ -->
         <div class="form-sign-up" id="form-sign-up">
             <div class="header-sign-up">
-                <h3>Completa los datos</h3>
+                <h3>Registrarme</h3>
             </div>
-            <div class="form">
-                <div class="group">
-                    <input type="text" id="nombre-referido" class="texto" autocomplete="off" pattern="[a-zA-Z]*" (keyup)="validateSignUpFiels(); disabledButton('registrar');onlyLetters($event)" required>
-                    <span class="bar"></span>
-                    <label>Nombre completo</label>
-                    <small class="small">Ingresa un nombre valido</small>
-                </div>
+            <div class="group">
+                <input type="text" id="nombre-referido" class="texto" autocomplete="off" pattern="[a-zA-Z]*" (keyup)="validateSignUpFiels(); disabledButton('registrar')" required>
+                <span class="bar"></span>
+                <label>Nombre completo</label>
+                <small class="small">Ingresa un nombre valido</small>
+            </div>
 
-                <div class="input-middle">
-                    <div class="group">
-                        <input type="text" id="identificacion-referido" class="numero" autocomplete="off" pattern="[0-9]*" maxlength="10" (keyup)="onlyNumbers($event);validateSignUpFiels();saveData();disabledButton('registrar')" required>
-                        <span class="bar"></span>
-                        <label>Número de identificación</label>
-                        <small class="small">Ingresa un número de
-              identificación valido</small>
-                    </div>
-                    <div class="group">
-                        <input type="text" id="celular-referido" class="numero" autocomplete="off" pattern="[0-9]*" maxlength="12" (keyup)="onlyNumbers($event);validateSignUpFiels(); saveData();disabledButton('registrar')" required>
-                        <span class="bar"></span>
-                        <label>Celular</label>
-                        <small class="small">Ingresa un celular valido</small>
-                    </div>
+            <div class="input-middle">
+                <div class="group">
+                    <input type="text" id="identificacion-referido" class="numero" autocomplete="off" pattern="[0-9]*" maxlength="10" (keyup)="validateSignUpFiels();saveData();disabledButton('registrar')" required>
+                    <span class="bar"></span>
+                    <label>Número de identificación</label>
+                    <small class="small">Ingresa un número de
+            identificación valido</small>
                 </div>
+                <div class="group">
+                    <input type="text" id="celular-referido" class="numero" autocomplete="off" pattern="[0-9]*" maxlength="12" (keyup)="validateSignUpFiels(); saveData();disabledButton('registrar')" required>
+                    <span class="bar"></span>
+                    <label>Celular</label>
+                    <small class="small">Ingresa un celular valido</small>
+                </div>
+            </div>
+            <div class="group">
+                <input type="text" id="email-register" class="email" autocomplete="off" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" maxlength="40" (keyup)="validateSignUpFiels(); saveData();disabledButton('registrar')"
+                    required>
+                <span class="bar"></span>
+                <label>Correo electrónico</label>
+                <small class="small">Ingresa un correo electrónico valido</small>
+            </div>
+            <div class="input-middle">
                 <div class="group">
                     <input type="password" class="contraseña" id="password-referido-new" (input)="validatePassword()" (keyup)="validatePassword();validateSignUpFiels(); saveData();disabledButton('registrar')" autocomplete="off" required>
                     <span class="bar"></span>
@@ -83,7 +90,7 @@
             </div>
 
             <div class="group">
-                <label class="container">Soy funcionario del Banco Pichincha y doy autorización con el fin de participar en la campaña de amigos pichincha.
+                <label class="container">Soy funcionario del Banco Pichincha y doy mi autorización con el fin de participar en la campaña Amigos Pichincha
           <input type="checkbox">
           <span class="checkmark"></span>
         </label>

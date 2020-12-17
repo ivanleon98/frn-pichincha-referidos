@@ -1,0 +1,104 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    margin: 45px auto 55px auto;
+    font-size: 20px;
+    font-family: 'OpenSans-Bold';
+    color: #0F265C;
+    width: 59%;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 18px;
+    font-family: 'OpenSans-Regular';
+    color: #0F265C;
+}
+
+.errorMount {
+    display: none;
+    background-color: #FFD1D1;
+    border: 1px solid #F39797;
+    color: #666666;
+    font-family: 'OpenSans-Regular';
+    font-size: 14px;
+    width: 83.5%;
+    margin-top: 50px;
+    padding: 26px 42px 20px 27px;
+    border-radius: 10px;
+}
+
+.button button {
+    width: 207px;
+    height: 48px;
+    border-radius: 25px;
+    padding: 15px 70px;
+    font-size: 16px;
+    color: #fff;
+    font-family: 'Montserrat-Bold';
+    background-color: #10133F;
+    border: none;
+    margin: 50px 0;
+    &:disabled {
+        background-color: #E0E0E0;
+    }
+}
+
+.containerQr {
+    height: 440px;
+    width: 862px;
+    background: #F5F5F5 0% 0% no-repeat padding-box;
+    .titleQr {
+        padding: 45px;
+        font-family: 'OpenSans-Bold';
+        color: #0F265C;
+        text-align: center;
+    }
+    .form {
+        display: flex;
+        width: 100%;
+        .qr {
+            width: 40%;
+            display: flex;
+            justify-content: center;
+        }
+        .steps {
+            width: 60%;
+            ul {
+                display: flex;
+                list-style: none;
+                width: 90%;
+                margin-bottom: 20px;
+            }
+            .number {
+                font-size: 18px;
+                margin-right: 16px;
+                color: #0F265C;
+                font-family: 'OpenSans-Bold';
+            }
+            li {
+                font-size: 18px;
+                line-height: 23.1px;
+                text-align: left;
+                color: #1C2565;
+                font-family: 'OpenSans-Regular';
+                .underline {
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

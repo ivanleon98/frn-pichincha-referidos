@@ -83,10 +83,6 @@
     }
 }
 
-.button {
-    text-align: center;
-}
-
 button {
     width: 207px;
     height: 48px;
@@ -336,23 +332,22 @@ embed {
     opacity: 0.5;
 }
 
-
-/* The Modal (background) */
-
 .modal {
-    display: none;
+    display: block;
     /* Hidden by default */
     position: fixed;
     /* Stay in place */
     z-index: 1;
     /* Sit on top */
+    // padding-top: 100px;
+    /* Location of the box */
     left: 0;
     top: 0;
     width: 100%;
     /* Full width */
     height: 100%;
     /* Full height */
-    overflow: auto;
+    overflow: hidden;
     /* Enable scroll if needed */
     background-color: rgb(0, 0, 0);
     /* Fallback color */
@@ -361,44 +356,84 @@ embed {
 }
 
 
-/* Modal Content/Box */
+/* Modal Content */
 
 .modal-content {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    // padding-left: 100px;
+    border: 1px solid transparent;
+    width: 50%;
+    height: 100%;
+    border-radius: 0px 0px 10px 10px;
     position: relative;
-    background-color: #fefefe;
-    margin: 5% auto;
-    /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 60%;
-    /* Could be more or less, depending on screen size */
-    // height: 100%;
-    border-radius: 8px;
 }
 
-.cont-close {
-    width: min-content;
-    position: absolute;
-    right: 10px;
-    top: 1px;
+.box {
+    height: 100%;
 }
 
-
-/* The Close Button */
-
-.close {
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    display: flex;
-    justify-content: flex-end;
+.background-blue {
+    height: 33%;
+    background-color: #10133F;
+    padding-top: 85px;
+    margin-bottom: 45px;
 }
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+.container-title {
+    padding-left: 100px;
+}
+
+.titleModal {
+    font-size: 50px;
+    color: #fff;
+    font-family: 'OpenSans-Bold';
+}
+
+.subtitle {
+    font-family: 'OpenSans-Regular';
+    text-align: left;
+    font-size: 16px;
+    color: #E0E0E0;
+}
+
+.container-body {
+    padding-left: 100px;
+    line-height: 26.1px;
+    width: 55%;
+    .prox {
+        font-family: 'OpenSans-Bold';
+        font-size: 18px;
+        color: #0f265c;
+    }
+    .textProx {
+        font-family: 'OpenSans-Regular';
+        color: #0F265C;
+    }
+    .titleCdt {
+        font-family: 'OpenSans-Bold';
+        font-size: 40px;
+        line-height: 46.1px;
+        color: #0F265C;
+    }
+    .button button {
+        margin: 50px 0;
+        cursor: pointer;
+    }
+}
+
+.background-yellow {
+    height: 170px;
+    background-color: #FFDD00;
+}
+
+.image {
+    width: 100%;
+    position: relative;
+    img {
+        position: absolute;
+        bottom: 30px;
+        right: 40px;
+    }
 }
 
 h2 {

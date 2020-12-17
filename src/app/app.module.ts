@@ -44,6 +44,8 @@ import { MyReferralsComponent } from './components/refer2.0/myReferrals/myReferr
 import { MyIncreaseComponent } from './components/refer2.0/myIncrease/myIncrease.component';
 import { FormTcdComponent } from './components/refer2.0/form-tcd/form-tcd.component';
 import { ReferralsTableComponent } from './components/referrals-table/referrals-table.component';
+import { CarouselComponent } from './components/control/carousel/carousel.component';
+import { RedeemComponent } from './components/refer2.0/redeem/redeem.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +78,9 @@ import { ReferralsTableComponent } from './components/referrals-table/referrals-
     InputDatalistComponent,
     MyReferralsComponent,
     MyIncreaseComponent,
-    FormTcdComponent
+    FormTcdComponent,
+    CarouselComponent,
+    RedeemComponent
   ],
   imports: [
     BrowserModule,

@@ -15,8 +15,8 @@
                     <th class="head">Avance</th>
                 </tr>
             </thead>
-            <tbody *ngFor="let item of data">
-                <tr>
+            <tbody *ngFor="let item of data; let i=index">
+                <tr *ngIf="i == 1 || i == 2 || i == 3 || i ==  4">
                     <td>{{item.product.referral.name}}</td>
                     <!-- <td>{{item.email}}</td> -->
                     <td>{{item.product.referral.document}}</td>
@@ -43,6 +43,11 @@
                 </tr>
             </tbody>
         </table>
+        <tbody class="treport">
+            <div class="report">
+                Ver reporte completo
+            </div>
+        </tbody>
         <br>
         <!-- <input type="button" value="Ver reporte completo" (click)="downloadPdfReferrals()" class="input-button button-view-complete-report"> -->
     </div>

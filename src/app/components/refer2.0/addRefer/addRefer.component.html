@@ -5,55 +5,74 @@
         </div>
         <div class="products">
             <div class="img">
-                <img id="im1" (click)="selectProduct($event)" src="./assets/img/cdt.png" width="43px" alt="">
+                <img id="im1" (click)="selectProduct($event)" src="./assets/img/cdt-ball.png" alt="CDT">
                 <p id="p1" class="smallImg">CDT</p>
             </div>
 
             <div class="img">
-                <img id="im2" (click)="selectProduct($event)" src="./assets/img/tarjeta-de-credito.png" width="53px" alt="">
+                <img id="im2" (click)="selectProduct($event)" src="./assets/img/tc-ball.png" alt="Tarjeta de Crédito">
                 <p id="p2" class="smallImg">Tarjeta de Crédito</p>
             </div>
-            <div class="img imageDisabled">
-                <img id="im3" src="./assets/img/libranza.png" alt="">
-                <p id="p3" class="smallImg">Libranza</p>
+            <div class="img">
+                <img (click)="selectProduct($event)" alt="Crédito Educativo" id="im3" src="./assets/img/educativo-ball.png">
+                <p id="p3" class="smallImg">Educativo</p>
+            </div>
+            <!-- <div class="img imageDisabled">
+                <img id="im4" src="./assets/img/libranza.png" alt="">
+                <p id="p4" class="smallImg">Libranza</p>
+            </div> -->
+        </div>
+        <div class="container-message" *ngIf="enabledForm == false">
+            <div class="message">
+                ¡Contigo, con tus amigos y familiares seremos más!
             </div>
         </div>
-        <div class="form">
-            <div class="row" id="formcdt">
-                <div class="form-group">
-                    <input-text [id]="'documentPerson'" [isValid]="isValid" [title]="'Número de documento del referido'" [details]="'CC'" [errorText]="'Tu número de documento parece no estar bien'" [control]="f.controls.documentPerson" [controlName]="'documentPerson'" [formGroup]="formRefer"
-                        [maxLength]="11" [minLength]="10" [placeHolderText]="'Ej. 1014624713'" (keyup)="validateForm()">
+
+        <section *ngIf="enabledForm">
+            <div class="imageIzq">
+                <img *ngIf="selectCdt" src="./assets/img/ilustracion-cdt.png" alt="">
+                <img *ngIf="selectTcd" src="./assets/img/ilustracion-tc.png" alt="">
+                <img *ngIf="selectCe" src="./assets/img/ilustracion-educativo.png" alt="">
+            </div>
+            <div class="formDer">
+                <div id="formcdt" *ngIf="selectCdt">
+                    <div class="form-group">
+                        <input-text [id]="'documentPerson'" [isValid]="isValid" [title]="'Número de documento del referido'" [details]="'CC'" [errorText]="'Tu número de documento parece no estar bien'" [control]="f.controls.documentPerson" [controlName]="'documentPerson'" [formGroup]="formRefer"
+                            [maxLength]="11" [minLength]="10" [placeHolderText]="'Ej. 1014624713'" (keyup)="validateForm()">
+                        </input-text>
+                    </div>
+                    <div class="form-group" [formGroup]="formRefer">
+                        <label class="label" for="listOffice">Elige la oficina</label>
+                        <select id="selectOffice" formControlName="office" control="f.controls.office" placeholder="Armenia" (click)="validateForm()">
+                                <option class="placeholder" value="" disabled>Seleccione...</option>
+                            </select>
+                    </div>
+                    <div class="profit">
+                        Calcula tus ganancias
+                    </div>
+                </div>
+                <div id="formtcd" *ngIf="selectTcd">
+                    <div class="form-group">
+                        <input-text [id]="'documentPersonTcd'" [isValid]="isValid" [title]="'Número de documento del referido'" [details]="'CC'" [errorText]="'Tu número de documento parece no estar bien'" [control]="f.controls.documentPersonTcd" [controlName]="'documentPersonTcd'"
+                            [formGroup]="formRefer" [maxLength]="10" [minLength]="10" [placeHolderText]="'Ej. 1014624713'" (keyup)="validateForm()">
+                        </input-text>
+                    </div>
+                    <div class="profit">
+                        Calcula tus ganancias
+                    </div>
+                </div>
+                <div id="formCe" *ngIf="selectCe">
+                    <input-text [id]="'documentPersonCe'" [isValid]="isValid" [title]="'Número de documento del referido'" [details]="'CC'" [errorText]="'Tu número de documento parece no estar bien'" [control]="f.controls.documentPersonCe" [controlName]="'documentPersonCe'"
+                        [formGroup]="formRefer" [maxLength]="10" [minLength]="10" [placeHolderText]="'Ej. 1014624713'" (keyup)="validateForm()">
                     </input-text>
                 </div>
-                <div class="form-group" [formGroup]="formRefer">
-                    <label class="label" for="listOffice">Elige la oficina</label>
-                    <select id="selectOffice" formControlName="office" control="f.controls.office" placeholder="Armeniaa" (click)="validateForm()">
-                        <option class="placeholder" value="" disabled>Seleccione...</option>
-                    </select>
+                <div class="buttons">
+                    <button id="buttonReffer" (click)="consumeService();">Referir</button>
                 </div>
-            </div>
-            <div class="row-full" id="formtcd">
-                <div class="form-group">
-                    <input-text [id]="'documentPersonTcd'" [isValid]="isValid" [title]="'Número de documento del referido'" [details]="'CC'" [errorText]="'Tu número de documento parece no estar bien'" [control]="f.controls.documentPersonTcd" [controlName]="'documentPersonTcd'"
-                        [formGroup]="formRefer" [maxLength]="11" [minLength]="10" [placeHolderText]="'Ej. 1014624713'" (keyup)="validateForm()">
-                    </input-text>
-                </div>
-            </div>
-            <!-- <div class="check">
-                <input type="checkbox" id="newRefer">
-                <label class="labelChk" for="newRefer">¿Es la primera vez que refieres este usuario para el producto?</label>
-            </div> -->
-            <div class="check">
-                <label class="container">¿Es la primera vez que refieres este usuario para el producto?
-                    <input type="checkbox" id="newRefer">
-                    <span class="checkmark"></span>
-                  </label>
             </div>
 
-        </div>
-        <div class="buttons">
-            <button>Calcula tu CDT</button>
-            <button id="buttonReffer" (click)="consumeService();">Referir</button>
-        </div>
+
+        </section>
+
     </div>
 </div>

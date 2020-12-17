@@ -10,6 +10,7 @@ export const environment = {
   endpointAddPerson: 'http://localhost:9010/amigos-pichincha/add/person/',
   endPointAddReferCdt: 'http://localhost:9010/amigos-pichincha/refer/cdt/',
   endPointAddReferTdc: 'http://localhost:9010/amigos-pichincha/refer/tcd/',
+  endPointAddReferCe: 'http://localhost:9010/amigos-pichincha/refer/ce/',
   endPointReferAccept: 'http://localhost:9010/amigos-pichincha/refer/accept/cdt/',
   endPointReferTdc: 'http://localhost:9010/amigos-pichincha/refer/accept/tcd/',
   endPointValidateTokenForm: 'http://localhost:9010/amigos-pichincha/validate/link/',

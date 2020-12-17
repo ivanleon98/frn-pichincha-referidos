@@ -12,16 +12,5 @@ export class ImReferComponent implements OnInit {
 
   ngOnInit() {
   }
-  public onSubmit(event){
-    const element: HTMLElement = event.currentTarget as HTMLElement;
-    if (element.id == "cdt") {
-      this.containerComponent.isProgressFormRefer = true;
-      this.containerComponent.isProgressImRefer = false;
-    }
-    if (element.id == "tdc") {
-      this.containerComponent.isProgressFormTcd = true;
-      this.containerComponent.isProgressImRefer = false;
-    }{
-    }
-  }
+
 }
