@@ -1,46 +1,57 @@
-<footer>
-  <div class="footer">
-    <div class="col">
-      <div class="row">
-        <img src="./assets/img/logo.svg" alt="logo-pichincha">
-      </div>
-      <img src="./assets/img/logo-superintendencia.svg" alt="">
+<!-- Footer con fondo blanco -->
+<div class="row blank" *ngIf="styleFooter == 1">
+    <div class="column logos">
+        <img src="./assets/img/logo-idealab-azul.png" alt="Idealab">
+        <img src="./assets/img/logo-superintendencia-azul.png" alt="">
     </div>
-    <div class="col">
-      <div class="row">
-        <h4>Navegadores compatibles</h4>
-      </div>
-      <div class="footer-item">
-        <div class="browsers">
-          <img src="./assets/img/edge-flat.svg" alt="">
-          <img src="./assets/img/chrome-flat.svg" alt="">
-          <img src="./assets/img/firefox-flat.svg" alt="">
+    <div class="column date">
+        <p class="info blueDate">Avenida de las Américas # 42-81 <br> Bogotá 650 10 00 o Nacional 01 8000 919 918 <br> <a href="#">Protección de datos personales</a> </p>
+        <div class="icons">
+            <img src="./assets/img/icon-facebook-azul.png" alt="">
+            <img src="./assets/img/icon-instagram-azul.png" alt="">
+            <img src="./assets/img/icon-youtube-azul.png" alt="">
+            <img src="./assets/img/icon-linkedin-azul.png" alt="">
         </div>
-      </div>
+    </div>
+    <div class="column browser">
+        <p class="titleBrowser blue">Navegadores Compatibles</p>
+        <div class="icons">
+            <img src="./assets/img/icono-internet-e-gris.png" alt="">
+            <img src="./assets/img/ic-firefox-gris.png" alt="">
+            <img src="./assets/img/ic-chrome-gris.png" alt="">
+        </div>
+    </div>
+</div>
+<!--Fin footer fondo blanco -->
 
+<!-- Footer con fondo azul -->
+<div class="row blue" *ngIf="styleFooter == 2">
+    <div class="column logos">
+        <img src="./assets/img/logo-idealab-blanco.png" alt="Idealab">
+        <img src="./assets/img/logo-superfinanciera-blanco.png" alt="">
     </div>
-    <div class="col">
-      <div class="row">
-        <h4>Legal</h4>
-      </div>
-      <div class="footer-item"><a href="./assets/pdf/protección-de-datos-personales.pdf" target="_blank">Términos y condiciones</a></div>
+    <div class="column date">
+        <p class="info blankDate">Avenida de las Américas # 42-81 <br> Bogotá 650 10 00 o Nacional 01 8000 919 918 <br> <a href="#">Protección de datos personales</a> </p>
+        <div class="icons">
+            <img src="./assets/img/icon-facebook-blanco.png" alt="">
+            <img src="./assets/img/icon-instagram-blanco.png" alt="">
+            <img src="./assets/img/icon-youtube-blanco.png" alt="">
+            <img src="./assets/img/icon-linkedin-blanco.png" alt="">
+        </div>
     </div>
-    <div class="col">
-      <div class="row">
-        <h4>Contacto</h4>
-      </div>
-      <div class="footer-item">Avenida de las Américas # 42-81</div>
-      <div class="footer-item">PBX: (1) 6501000 | 01 8000 919918</div>
-      <div class="footer-item">
-        <div class="img-networks">
-          <a href="https://www.facebook.com/bancopichinchacol" target="_blank"><img
-                  src="./assets/img/001-facebook.svg" alt="Facebook Pichincha Colombia" width="23px"></a>
-          <a href="https://www.instagram.com/bancopichinchacol/" target="_blank"><img
-                  src="./assets/img/002-instagram.svg" alt="Instagram Pichincha Colombia" width="23px"></a>
-          <a href="https://www.youtube.com/bancopichinchacol" target="_blank"><img
-                  src="./assets/img/004-youtube.svg" alt="Youtube Pichincha Colombia" width="30px"></a>
-      </div>
-      </div> 
+    <div class="column browser">
+        <p class="titleBrowser blank">Navegadores Compatibles</p>
+        <div class="icons">
+            <img src="./assets/img/icono-internet-e-gris.png" alt="">
+            <img src="./assets/img/ic-firefox-gris.png" alt="">
+            <img src="./assets/img/ic-chrome-gris.png" alt="">
+        </div>
     </div>
-  </div>
-</footer>
+</div>
+<!--Fin footer fondo azul -->
+<div class="allright">
+    <div class="text">
+        Todos los derechos reservados © <span id="copyright"> {{paintYear()}}</span> -
+        <div class="nameBank"> Banco Pichincha</div>
+    </div>
+</div>
