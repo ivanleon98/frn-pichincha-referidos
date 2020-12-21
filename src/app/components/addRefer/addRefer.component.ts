@@ -1,12 +1,11 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MaskTypeInterface, MaskTypes } from 'src/app/interface/maskType.interfaces';
 import { PersonRefered } from 'src/app/model/refered.model';
 import { ApiGeneralService } from 'src/app/service/common/api-general.service';
 import { LoggerService } from 'src/app/service/common/logger.service';
-import { ReferidoService } from 'src/app/service/referido.service';
 import { environment } from 'src/environments/environment';
-import { Homev2Component } from '../homev2/homev2.component';
+import { Homev2Component } from '../home/homev2.component';
 
 @Component({
   selector: 'app-addRefer',

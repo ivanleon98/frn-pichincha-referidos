@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { DataService } from 'src/app/service/data.service';
-import { Homev2Component } from '../refer2.0/homev2/homev2.component';
+import { Homev2Component } from '../home/homev2.component';
 
 @Component({
   selector: 'app-timeline',

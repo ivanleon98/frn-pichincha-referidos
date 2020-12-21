@@ -43,6 +43,7 @@ import { FormTcdComponent } from './components/form-tcd/form-tcd.component';
 import { ReferralsTableComponent } from './components/referrals-table/referrals-table.component';
 import { CarouselComponent } from './components/control/carousel/carousel.component';
 import { RedeemComponent } from './components/redeem/redeem.component';
+import { CalcCdtComponent } from './components/control/calc-cdt/calc-cdt.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { RedeemComponent } from './components/redeem/redeem.component';
     MyIncreaseComponent,
     FormTcdComponent,
     CarouselComponent,
-    RedeemComponent
+    RedeemComponent,
+    CalcCdtComponent
   ],
   imports: [
     BrowserModule,

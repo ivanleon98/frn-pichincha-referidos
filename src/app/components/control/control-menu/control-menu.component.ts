@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Homev2Component } from '../../refer2.0/homev2/homev2.component';
+import { Homev2Component } from '../../home/homev2.component';
 
 @Component({
   selector: 'app-control-menu',
