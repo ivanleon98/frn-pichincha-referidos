@@ -1,6 +1,35 @@
-<div class="form">
-    <div class="title">Calcula tu ganancia al referir</div>
-</div>
-<div class="valueInv">
-    <input-text [maskType]="maskTypeMoney" [title]="'Ingresa el valor de la inversión'" [control]="f.controls.valueInv" [controlName]="'valueInv'" [formGroup]="form" [placeHolderText]="'Ej: 100.000'"></input-text>
+<div class="container">
+    <div class="close">
+        <img src="./assets/img/close-icon.svg">
+    </div>
+    <div class="form">
+        <div class="title">Calcula tu ganancia al referir</div>
+        <div class="valueInv">
+            <label for="amount">Ingresa el valor de la inversión</label>
+            <input type="text" id="amount" class="inpMoney" (keyup)="maskAmount('amount', 0, 1000000000, true)">
+        </div>
+        <div class="container-day">
+            <div class="titleCdt">
+                Selecciona el plazo del CDT
+            </div>
+            <div id="myDIV" class="day">
+                <button id="b1" class="box" name="budget" (click)="calcCdtRevenew('1', $event)" value="1">90-119 <br>
+                    días</button>
+                <button id="b2" class="box" name="budget" (click)="calcCdtRevenew('2', $event)" value="2" active> 120-179
+                    días</button>
+                <button id="b3" class="box" name="budget" (click)="calcCdtRevenew('3', $event)" value="3"> 180-359  días </button>
+                <button id="b4" class="box" name="budget" (click)="calcCdtRevenew('4', $event)" value="4"> 360 días o más </button>
+
+            </div>
+        </div>
+        <div class="comition">
+            <div class="titleComition">
+                El valor de tu comisión es:
+            </div>
+            <input type="hidden" id="comition" value="{{moneyPerComition}}">
+            <div id="comitionBox" class="comitionBox">
+                {{maskComition('comition', 0, 1000000000, true)}}
+            </div>
+        </div>
+    </div>
 </div>
