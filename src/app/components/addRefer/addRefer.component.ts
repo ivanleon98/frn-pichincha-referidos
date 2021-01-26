@@ -102,7 +102,19 @@ export class AddReferComponent implements OnInit {
   }
   get f() { return this.formRefer }
 
-
+  public openCalc() {
+    (document.getElementById('containerHome') as HTMLDivElement).style.display = 'none';
+    this.containerComponent.isProgressCalc = true;
+  }
+  public openTable() {
+    (document.getElementById('containerHome') as HTMLDivElement).style.display = 'none';
+    this.containerComponent.isProgressTable = true;
+  }
+  public openCalcCe(){
+    (document.getElementById('containerHome') as HTMLDivElement).style.display = 'none';
+    this.containerComponent.isProgressCalcCe = true;
+  }
+  
   public consumeService() {
     if (this.flagService == 1) {
       this.addReferCdtService();

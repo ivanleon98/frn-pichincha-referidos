@@ -26,6 +26,11 @@
 }
 
 @font-face {
+    font-family: 'OpenSans-Light';
+    src: url(assets/fonts/OpenSans-Light.ttf) format('truetype');
+}
+
+@font-face {
     font-family: 'OpenSans-Regular';
     src: url(assets/fonts/OpenSans-Regular/OpenSans-Regular.eot?#iefix) format("embedded-opentype"), url(assets/fonts/OpenSans-Regular/OpenSans-Regular.ttf) format('truetype');
 }
@@ -41,7 +46,6 @@
 }
 
 * {
-    font-family: "Roboto", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;

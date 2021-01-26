@@ -11,6 +11,9 @@ export class Homev2Component implements OnInit {
   public isProgressMyReferrals: boolean = false;
   public isProgressMyIncrease: boolean = false;
   public isProgressReedem: boolean = false;
+  public isProgressCalc: boolean = false;
+  public isProgressTable: boolean = false;
+  public isProgressCalcCe: boolean  = false;
   constructor() { }
 
   ngOnInit() {

@@ -1,5 +1,5 @@
 <app-nav-bar></app-nav-bar>
-<div class="container" style="display: none;">
+<div class="container" id="containerHome">
     <div class="container-menu">
         <div class="img">
             <img src="./assets/img/img-menu.png" alt="">
@@ -19,6 +19,8 @@
 </div>
 <!-- Full container-->
 <div class="wrapper">
-    <app-calc-cdt></app-calc-cdt>
+    <app-calc-cdt *ngIf="isProgressCalc"></app-calc-cdt>
+    <app-table-tcd *ngIf="isProgressTable"></app-table-tcd>
+    <app-calc-ce *ngIf="isProgressCalcCe"> </app-calc-ce>
 </div>
 <app-footer [styleFooter]="2"></app-footer>

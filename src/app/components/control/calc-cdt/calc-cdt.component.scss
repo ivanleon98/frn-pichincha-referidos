@@ -11,6 +11,7 @@
     position: absolute;
     right: 17px;
     top: 22px;
+    cursor: pointer;
 }
 
 .form {
@@ -90,6 +91,7 @@
         .box.active {
             background-color: #1FFF7F;
             color: #10133F;
+            font-family: 'OpenSans-Bold';
         }
     }
 }

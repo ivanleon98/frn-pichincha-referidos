@@ -47,7 +47,7 @@
                                 <option class="placeholder" value="" disabled>Seleccione...</option>
                             </select>
                     </div>
-                    <div class="profit">
+                    <div class="profit" (click)="openCalc()">
                         Calcula tus ganancias
                     </div>
                 </div>
@@ -57,14 +57,19 @@
                             [formGroup]="formRefer" [maxLength]="10" [minLength]="10" [placeHolderText]="'Ej. 1014624713'" (keyup)="validateForm()">
                         </input-text>
                     </div>
-                    <div class="profit">
+                    <div class="profit" (click)="openTable()">
                         Calcula tus ganancias
                     </div>
                 </div>
                 <div id="formCe" *ngIf="selectCe">
-                    <input-text [id]="'documentPersonCe'" [isValid]="isValid" [title]="'Número de documento del referido'" [details]="'CC'" [errorText]="'Tu número de documento parece no estar bien'" [control]="f.controls.documentPersonCe" [controlName]="'documentPersonCe'"
-                        [formGroup]="formRefer" [maxLength]="10" [minLength]="10" [placeHolderText]="'Ej. 1014624713'" (keyup)="validateForm()">
-                    </input-text>
+                    <div class="form-group">
+                        <input-text [id]="'documentPersonCe'" [isValid]="isValid" [title]="'Número de documento del referido'" [details]="'CC'" [errorText]="'Tu número de documento parece no estar bien'" [control]="f.controls.documentPersonCe" [controlName]="'documentPersonCe'"
+                            [formGroup]="formRefer" [maxLength]="10" [minLength]="10" [placeHolderText]="'Ej. 1014624713'" (keyup)="validateForm()">
+                        </input-text>
+                    </div>
+                    <div class="profit" (click)="openCalcCe()">
+                        Calcula tus ganancias
+                    </div>
                 </div>
                 <div class="buttons">
                     <button id="buttonReffer" (click)="consumeService();">Referir</button>

@@ -44,6 +44,8 @@ import { ReferralsTableComponent } from './components/referrals-table/referrals-
 import { CarouselComponent } from './components/control/carousel/carousel.component';
 import { RedeemComponent } from './components/redeem/redeem.component';
 import { CalcCdtComponent } from './components/control/calc-cdt/calc-cdt.component';
+import { TableTcdComponent } from './components/control/table-tcd/table-tcd.component';
+import { CalcCeComponent } from './components/control/calc-ce/calc-ce.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +78,9 @@ import { CalcCdtComponent } from './components/control/calc-cdt/calc-cdt.compone
     FormTcdComponent,
     CarouselComponent,
     RedeemComponent,
-    CalcCdtComponent
+    CalcCdtComponent,
+    TableTcdComponent,
+    CalcCeComponent
   ],
   imports: [
     BrowserModule,

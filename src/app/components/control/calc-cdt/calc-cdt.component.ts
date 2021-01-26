@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MaskTypeInterface, MaskTypes } from 'src/app/interface/maskType.interfaces';
+import { Homev2Component } from '../../home/homev2.component';
 
 @Component({
   selector: 'app-calc-cdt',
@@ -15,7 +16,7 @@ export class CalcCdtComponent implements OnInit {
   rangeValue: any;
   amount: any = 0;
 
-  constructor() { }
+  constructor(private containerComponent: Homev2Component) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -100,7 +101,7 @@ export class CalcCdtComponent implements OnInit {
     }
     if (this.moneyPerComition.lenght != 0) {
       document.getElementById('comitionBox').classList.add("active")
-    } else{
+    } else {
       document.getElementById('comitionBox').classList.add("remove")
     }
     return this.moneyPerComition;
@@ -112,15 +113,15 @@ export class CalcCdtComponent implements OnInit {
     this.addClass(value, "active");
   }
 
-  public addClass(val1, val2){
-    document.getElementById(''+val1).classList.add(''+val2);
+  public addClass(val1, val2) {
+    document.getElementById('' + val1).classList.add('' + val2);
   }
 
-  public cleanRange(){
-   document.getElementById('b1').classList.remove("active");
-   document.getElementById('b2').classList.remove("active");
-   document.getElementById('b3').classList.remove("active");
-   document.getElementById('b4').classList.remove("active");
+  public cleanRange() {
+    document.getElementById('b1').classList.remove("active");
+    document.getElementById('b2').classList.remove("active");
+    document.getElementById('b3').classList.remove("active");
+    document.getElementById('b4').classList.remove("active");
   }
 
   // public closeModal() {
@@ -189,5 +190,9 @@ export class CalcCdtComponent implements OnInit {
     let obj = (document.getElementById(id) as HTMLInputElement);
     this.moneyPerComition = obj.value.replace(new RegExp('\\.', 'g'), '').replace(new RegExp('\\$', 'g'), '');
     return this.maskNumberAndMoney(id, minValue, maxValue, flagMoney);
+  }
+  public closeCalc() {
+    (document.getElementById('containerHome') as HTMLDivElement).style.display = 'flex';
+    this.containerComponent.isProgressCalc = false;
   }
 }
