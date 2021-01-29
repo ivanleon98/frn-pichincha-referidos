@@ -223,7 +223,7 @@ div.group:nth-child(7) {
 .recaptcha {
     width: auto;
     margin-top: -10px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     margin-left: -30px;
     display: flex;
     justify-content: center;
@@ -266,12 +266,15 @@ div.group:nth-child(7) {
     align-items: center;
 }
 
-#sendemail>p:nth-child(2) {
+.titleSendMail {
     text-align: center;
-    font-size: 22px;
+    font-size: 35px;
     color: #0f265c;
-    padding: 24px 0;
-    font-weight: 700;
+    font-family: 'OpenSans-Bold';
+    p {
+        font-size: 22px;
+        margin: 0px auto 50px;
+    }
 }
 
 #sendemail>button:nth-child(4) {
@@ -336,7 +339,11 @@ div.group:nth-child(7) {
 }
 
 .cont-img img {
-    width: 100%;
+    width: 55%;
+}
+
+#container-password>div:nth-child(3) {
+    text-align: center;
 }
 
 .forgot-pass p {

@@ -16,7 +16,7 @@ export class CarouselComponent implements OnInit {
   @Input() list: any; //Arreglo con el cual se va a pintar el carrusel.
   options = {
     fullWidth: false,
-    indicators: false,
+    indicators: true,
     duration: 150
   };
   public carosuelItems = [
@@ -56,12 +56,12 @@ export class CarouselComponent implements OnInit {
       title: 'Ipad 10,2" Octava generación de 32 GB'
     },
     {
-      src: './assets/img/scooter.png',
+      src: './assets/img/Patinetas--electricas-Scooter-Nineboot-Segway-Es-2.png',
       points: '70.000 mil puntos',
       title: 'Patineta Eléctrica Scooter'
     },
     {
-      src: './assets/img/iphone11.png',
+      src: './assets/img/Iphone-11-de-64-GB-V3.png',
       points: '120.000 mil puntos',
       title: 'Iphone 11 de 64 GB'
     },

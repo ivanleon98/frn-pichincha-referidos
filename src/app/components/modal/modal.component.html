@@ -28,7 +28,7 @@
         <!-- Forward Password -->
         <div class="container-password" id="container-password">
             <div class="group cont-img">
-                <img src="./assets/img/undraw_envelope_n8lc.svg" alt="">
+                <img src="./assets/img/cambiar-contra.png" alt="">
             </div>
             <div class="group">
                 <input type="text" id="forgot-email" (keyup)="validateEmailForPassword();disabledButton('confirm-password-email')" (input)="disabledButton('confirm-password-email');" class="correo" autocomplete="off" required>
@@ -105,11 +105,12 @@
         </div>
         <div class="send-mail" id="sendemail">
             <div>
-                <img src="./assets/img/undraw_message_sent_1030.svg" alt="email">
+                <img src="./assets/img/mail.png" alt="email">
             </div>
-            <p>
-                Hemos enviado un mail a tu correo corporativo para la activación de la cuenta.
-            </p>
+            <div class="titleSendMail">
+                Hemos enviado un mail <br>
+                <p>a tu correo corporativo para la activación de la cuenta.</p>
+            </div>
             <button (click)="clearFields();closeModal();">CONFIRMAR</button>
         </div>
     </div>

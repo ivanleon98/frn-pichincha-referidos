@@ -30,7 +30,7 @@ export class AppComponent {
     this.isProgressImRefer = false;
     this.isProgressImOfficial = false;
     this.isProgressFormRefer = false;
-    this.isProgressHome = false;
+    this.isProgressHome = true;
     this.isProgressFormTcd = false;
   }
 

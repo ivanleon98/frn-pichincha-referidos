@@ -51,6 +51,7 @@
         .containerSteps {
             height: 100%;
             display: flex;
+            margin-bottom: 60px;
             .illustration {
                 width: 50%;
                 padding: 108px 120px 0 120px;
@@ -60,7 +61,6 @@
             }
             .steps {
                 width: 50%;
-                margin-bottom: 72px;
                 ul {
                     display: flex;
                     list-style: none;
@@ -80,6 +80,9 @@
                     text-align: left;
                     color: #1C2565;
                     font-family: 'OpenSans-Regular';
+                }
+                ul:nth-child(6) {
+                    margin: 0;
                 }
             }
         }
@@ -271,6 +274,19 @@
         width: 100%;
     }
     .container .third-section .title {
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .container .third-section .containerSteps .illustration {
+        padding: 0 120px 0 120px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: column;
+    }
+    .container .third-section .title div {
         text-align: center;
     }
 }

@@ -29,17 +29,196 @@ export class ModalComponent {
     route: Location;
     rspGraphical: any;
 
-    constructor(private referidoService: ReferidoService, private log: LoggerService, private apiService: ApiGeneralService, 
+    constructor(private referidoService: ReferidoService, private log: LoggerService, private apiService: ApiGeneralService,
         private generalRequest: GeneralRequest, private PersonRefered: PersonRefered, private DataService: DataService,
-        private GainChart: GainChartComponent, private containerComponent: AppComponent ) {
-         this.storage = window.sessionStorage;
-         this.route = location;
+        private GainChart: GainChartComponent, private containerComponent: AppComponent) {
+        this.storage = window.sessionStorage;
+        this.route = location;
     }
 
     ngOnInit() {
         (document.getElementById('registrar') as HTMLButtonElement).disabled = true;
         (document.getElementById('confirm-password-email') as HTMLButtonElement).disabled = true;
         (document.getElementById('log-in-service') as HTMLButtonElement).disabled = true;
+    }
+
+
+    /* Service Add New Person */
+    private callbackAddNewPerson(): JSON {
+        this.rspAddPerson = this.apiService.response;
+        if (this.rspAddPerson[0].status == true) {
+            this.sendEmailConfirmationService();
+        } else {
+            this.rspAddPerson[0].response
+            alert(this.rspAddPerson[0].response);
+        }
+        return this.rspAddPerson;
+    }
+
+    public addPersonService() {
+        this.generalRequest.name = (document.getElementById('nombre-referido') as HTMLInputElement).value;
+        this.generalRequest.document = (document.getElementById('identificacion-referido') as HTMLInputElement).value;
+        this.generalRequest.cellphone = (document.getElementById('celular-referido') as HTMLInputElement).value;
+        this.generalRequest.password = (document.getElementById('password-referido-new') as HTMLInputElement).value;
+        this.generalRequest.email = (document.getElementById('email-register') as HTMLInputElement).value;
+        try {
+            this.apiService.invokePostRequest<GeneralRequest, any>(
+                environment.endpointAddPerson,
+                this.generalRequest,
+                (rsp: any) => {
+                    this.callbackAddNewPerson();
+                }
+            );
+        } catch (err) {
+            this.log.error(this, "Error consumiendo el servicio agregar/registro persona: " + err);
+        }
+    }
+
+    private callbackSendEmailConfirmation(): any {
+        this.rspSendEmailConfirmation = this.apiService.response;
+        if (this.rspSendEmailConfirmation[0].status == true) {
+            document.getElementById('sendemail').style.display = 'flex';
+            document.getElementById('form-sign-up').style.display = 'none';
+        }
+        return this.rspSendEmailConfirmation;
+    }
+
+    public sendEmailConfirmationService() {
+        this.generalRequest.document = (document.getElementById('identificacion-referido') as HTMLInputElement).value;
+        try {
+            this.apiService.invokePostRequest<GeneralRequest, boolean>(
+                environment.endpointSendConfirmation,
+                this.generalRequest,
+                (rsp: boolean) => {
+                    this.callbackSendEmailConfirmation();
+                }
+            );
+        } catch (err) {
+            this.log.error(this, "Error consumiendo el servicio envio de confirmación de email: " + err);
+        }
+    }
+
+    private callbackLogin() {
+        this.rspLogin = this.apiService.response;
+        if (this.rspLogin[0].status == true) {
+            this.rspToken = this.rspLogin[0].token;
+            this.rspForCc = this.rspLogin[0].document;
+            this.rspTimeLine = this.rspLogin[0].notificationsTimeline;
+            this.storage.setItem('rspToken', this.rspToken);
+            this.storage.setItem('mail', this.generalRequest.email);
+            this.storage.setItem('cc', this.rspForCc);
+            this.storage.setItem('code', this.rspLogin[0].codeRefer);
+            this.graphicalDataService();
+            this.getRefferalService();
+            setTimeout(() => {
+                // this.route.assign(environment.endpointRedirectS3 + 'home');
+                this.containerComponent.isProgressImOfficial = false;
+                this.containerComponent.isProgressHome = true;
+                this.closeModal();
+                //this.route.assign('/home');
+            }, 2000)
+        } else {
+            alert(this.rspLogin[0].response);
+        }
+    }
+
+    public loginService() {
+        this.generalRequest.email = (document.getElementById('correo-referido-log-in') as HTMLInputElement).value.toLocaleLowerCase();
+        this.generalRequest.password = (document.getElementById('password-referido-log-in') as HTMLInputElement).value;
+        try {
+            this.apiService.invokePostRequest<GeneralRequest, boolean>(
+                environment.endpointLogin + "",
+                this.generalRequest,
+                (rsp: boolean) => {
+                    this.callbackLogin();
+                }
+            );
+        } catch (err) {
+            this.log.error(this, "Error consumiendo el servicio login: " + err);
+        }
+    }
+    private callbackGraphicalData(): Array<string> {
+        this.rspGraphical = this.apiService.response;
+
+        sessionStorage.setItem('month', (this.rspGraphical[0].graphicDateIndicator));
+        sessionStorage.setItem('lastEarningsCDT', (this.rspGraphical[0].lastEarningsCDT));
+        sessionStorage.setItem('lastEarningsTCD', (this.rspGraphical[0].lastEarningsTCD));
+        sessionStorage.setItem('lastEarningsCE', (this.rspGraphical[0].lastEarningsCE));
+        sessionStorage.setItem('totalEarningsCOP', (this.rspGraphical[0].totalEarningsCOP));
+        sessionStorage.setItem('totalEarningsPoints', (this.rspGraphical[0].totalEarningsPoints));
+        sessionStorage.setItem('profitGoal', (this.rspGraphical[0].profitGoal));
+        sessionStorage.setItem('acceptedReferrals', (this.rspGraphical[0].acceptedReferrals));
+        sessionStorage.setItem('referralsPending', (this.rspGraphical[0].pendingReferrals));
+        sessionStorage.setItem('deniedReferrals', (this.rspGraphical[0].deniedReferrals))
+        sessionStorage.setItem('revenueExpectation', (this.rspGraphical[0].revenueExpectation));
+        sessionStorage.setItem('outstandingIncome', (this.rspGraphical[0].outstandingIncome));
+        sessionStorage.setItem('notificationsTimeline', this.rspGraphical[0].notificationsTimeline);
+
+        return this.rspGraphical;
+    }
+
+    private graphicalDataService() {
+        this.PersonRefered.token = this.storage.getItem('rspToken');
+        try {
+            this.apiService.invokePostRequest<PersonRefered, boolean>(
+                environment.endPointGraphicalData,
+                this.PersonRefered,
+                (rsp: boolean) => {
+                    this.callbackGraphicalData();
+                }
+            );
+        } catch (err) {
+            this.log.error(this, "Error consumiendo el servicio login: " + err);
+        }
+    }
+
+    private callbackGetReferral(): Array<string> {
+        this.rspGraphical = this.apiService.response;
+        this.storage.setItem('data', JSON.stringify(this.rspGraphical));
+        return this.rspGraphical;
+    }
+
+    private getRefferalService() {
+        this.PersonRefered.token = this.storage.getItem('rspToken');
+        try {
+            this.apiService.invokePostRequest<PersonRefered, boolean>(
+                environment.endPointGetReferrals,
+                this.PersonRefered,
+                (rsp: boolean) => {
+                    this.callbackGetReferral();
+                }
+            );
+        } catch (err) {
+            this.log.error(this, "Error consumiendo el servicio login: " + err);
+        }
+    }
+
+
+    private callbackSendEmailPassword(): any {
+        this.rspEmaimPassword = this.apiService.response;
+        if (this.rspEmaimPassword[0].status == true) {
+            alert(this.rspEmaimPassword[0].response);
+        }
+        if (this.rspEmaimPassword[0].status == false) {
+            alert(this.rspEmaimPassword[0].response);
+        }
+        return this.rspEmaimPassword;
+    }
+
+    public sendEmailforgotPasswordService() {
+        let request = new GeneralRequest();
+        request.email = (document.getElementById('forgot-email') as HTMLInputElement).value.toLocaleLowerCase();
+        try {
+            this.apiService.invokePostRequest<GeneralRequest, boolean>(
+                environment.endPointSendEmailPassword,
+                request,
+                (rsp: boolean) => {
+                    this.callbackSendEmailPassword();
+                }
+            );
+        } catch (err) {
+            this.log.error(this, "Error consumiendo el servicio login: " + err);
+        }
     }
 
     public getReferidoService(): ReferidoService {
@@ -149,188 +328,11 @@ export class ModalComponent {
     public onlyNumbers(event: KeyboardEvent) {
         const input = event.target as HTMLInputElement;
         input.value = input.value.replace(/[^0-9]/g, '');
-    
-      }
-    
-      public onlyLetters(event: KeyboardEvent) {
+
+    }
+
+    public onlyLetters(event: KeyboardEvent) {
         const input = event.target as HTMLInputElement;
         input.value = input.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚ ]/g, '');
-      }
-
-    /* Service Add New Person */
-    private callbackAddNewPerson(): JSON {
-        this.rspAddPerson = this.apiService.response;
-        if (this.rspAddPerson[0].status == true) {
-            this.sendEmailConfirmationService();
-        } else{
-            this.rspAddPerson[0].response
-            alert(this.rspAddPerson[0].response);
-        }
-        return this.rspAddPerson;
     }
-
-    public addPersonService() {
-        this.generalRequest.name = (document.getElementById('nombre-referido') as HTMLInputElement).value;
-        this.generalRequest.document = (document.getElementById('identificacion-referido') as HTMLInputElement).value;
-        this.generalRequest.cellphone = (document.getElementById('celular-referido') as HTMLInputElement).value;
-        this.generalRequest.password = (document.getElementById('password-referido-new') as HTMLInputElement).value;
-        this.generalRequest.email = (document.getElementById('email-register') as HTMLInputElement).value;
-        try {
-            this.apiService.invokePostRequest<GeneralRequest, any>(
-                environment.endpointAddPerson,
-                this.generalRequest,
-                (rsp: any) => {
-                    this.callbackAddNewPerson();
-                }
-            );
-        } catch (err) {
-            this.log.error(this, "Error consumiendo el servicio agregar/registro persona: " + err);
-        }
-    }
-
-    private callbackSendEmailConfirmation(): any {
-        this.rspSendEmailConfirmation = this.apiService.response;
-        if (this.rspSendEmailConfirmation) {
-        }
-        return this.rspSendEmailConfirmation;
-    }
-
-    public sendEmailConfirmationService() {
-        this.generalRequest.document = (document.getElementById('identificacion-referido') as HTMLInputElement).value;
-        try {
-            this.apiService.invokePostRequest<GeneralRequest, boolean>(
-                environment.endpointSendConfirmation,
-                this.generalRequest,
-                (rsp: boolean) => {
-                    this.callbackSendEmailConfirmation();
-                }
-            );
-        } catch (err) {
-            this.log.error(this, "Error consumiendo el servicio envio de confirmación de email: " + err);
-        }
-    }
-
-    private callbackLogin() {
-        this.rspLogin = this.apiService.response;
-        if (this.rspLogin[0].status == true) {
-            this.rspToken = this.rspLogin[0].token;
-            this.rspForCc = this.rspLogin[0].document;
-            this.rspTimeLine = this.rspLogin[0].notificationsTimeline;
-            this.storage.setItem('rspToken', this.rspToken);
-            this.storage.setItem('mail', this.generalRequest.email);
-            this.storage.setItem('cc', this.rspForCc);
-            this.storage.setItem('code', this.rspLogin[0].codeRefer);
-            this.graphicalDataService();
-            this.getRefferalService();
-            setTimeout(()=>{
-                // this.route.assign(environment.endpointRedirectS3 + 'home');
-                this.containerComponent.isProgressImOfficial = false;
-                this.containerComponent.isProgressHome = true;
-                this.closeModal();
-                //this.route.assign('/home');
-            }, 2000)
-        } else{
-            alert(this.rspLogin[0].response);
-        }
-    }
-
-    public loginService() {
-        this.generalRequest.email = (document.getElementById('correo-referido-log-in') as HTMLInputElement).value.toLocaleLowerCase();
-        this.generalRequest.password = (document.getElementById('password-referido-log-in') as HTMLInputElement).value;
-        try {
-            this.apiService.invokePostRequest<GeneralRequest, boolean>(
-                environment.endpointLogin + "",
-                this.generalRequest,
-                (rsp: boolean) => {
-                    this.callbackLogin();
-                }
-            );
-        } catch (err) {
-            this.log.error(this, "Error consumiendo el servicio login: " + err);
-        }
-    }
-    private callbackGraphicalData(): Array<string> {
-        this.rspGraphical = this.apiService.response;
-            
-        sessionStorage.setItem('month', (this.rspGraphical[0].graphicDateIndicator));
-        sessionStorage.setItem('lastEarningsCDT', (this.rspGraphical[0].lastEarningsCDT));
-        sessionStorage.setItem('lastEarningsTCD', (this.rspGraphical[0].lastEarningsTCD));
-        sessionStorage.setItem('lastEarningsCE', (this.rspGraphical[0].lastEarningsCE));
-        sessionStorage.setItem('totalEarningsCOP', (this.rspGraphical[0].totalEarningsCOP));
-        sessionStorage.setItem('totalEarningsPoints', (this.rspGraphical[0].totalEarningsPoints));
-        sessionStorage.setItem('profitGoal', (this.rspGraphical[0].profitGoal));
-        sessionStorage.setItem('acceptedReferrals', (this.rspGraphical[0].acceptedReferrals));
-        sessionStorage.setItem('referralsPending', (this.rspGraphical[0].pendingReferrals));
-        sessionStorage.setItem('deniedReferrals',  (this.rspGraphical[0].deniedReferrals))
-        sessionStorage.setItem('revenueExpectation', (this.rspGraphical[0].revenueExpectation));
-        sessionStorage.setItem('outstandingIncome', (this.rspGraphical[0].outstandingIncome));
-        sessionStorage.setItem('notificationsTimeline', this.rspGraphical[0].notificationsTimeline);
-
-        return this.rspGraphical;
-      } 
-    
-      private graphicalDataService() {
-        this.PersonRefered.token = this.storage.getItem('rspToken');
-        try {
-          this.apiService.invokePostRequest<PersonRefered, boolean>(
-            environment.endPointGraphicalData,
-            this.PersonRefered,
-            (rsp: boolean) => {
-              this.callbackGraphicalData();
-            }
-          );
-        } catch (err) {
-          this.log.error(this, "Error consumiendo el servicio login: " + err);
-        }
-      }
-
-      private callbackGetReferral(): Array<string> {
-        this.rspGraphical = this.apiService.response;
-        this.storage.setItem('data', JSON.stringify(this.rspGraphical));
-        return this.rspGraphical;
-      } 
-    
-      private getRefferalService() {
-        this.PersonRefered.token = this.storage.getItem('rspToken');
-        try {
-          this.apiService.invokePostRequest<PersonRefered, boolean>(
-            environment.endPointGetReferrals,
-            this.PersonRefered,
-            (rsp: boolean) => {
-              this.callbackGetReferral();
-            }
-          );
-        } catch (err) {
-          this.log.error(this, "Error consumiendo el servicio login: " + err);
-        }
-      }
-
-
-    private callbackSendEmailPassword(): any {
-        this.rspEmaimPassword = this.apiService.response;
-        if (this.rspEmaimPassword[0].status == true) {
-            alert(this.rspEmaimPassword[0].response);
-        }
-        if(this.rspEmaimPassword[0].status == false){
-            alert(this.rspEmaimPassword[0].response);
-        }
-        return this.rspEmaimPassword;
-    }
-
-    public sendEmailforgotPasswordService() {
-        let request = new GeneralRequest();
-        request.email = (document.getElementById('forgot-email') as HTMLInputElement).value.toLocaleLowerCase();
-        try {
-            this.apiService.invokePostRequest<GeneralRequest, boolean>(
-                environment.endPointSendEmailPassword,
-                request,
-                (rsp: boolean) => {
-                    this.callbackSendEmailPassword();
-                }
-            );
-        } catch (err) {
-            this.log.error(this, "Error consumiendo el servicio login: " + err);
-        }
-    }
-
 }

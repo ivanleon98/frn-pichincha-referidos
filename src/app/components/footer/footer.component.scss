@@ -71,6 +71,7 @@
 }
 
 .column.browser {
+    font-family: Arial;
     .titleBrowser {
         font-size: 13px;
         margin: 55px auto 15px auto;
@@ -109,5 +110,26 @@
             font-family: 'Montserrat-Bold';
             margin-left: 3px;
         }
+    }
+}
+
+@media screen and (max-width: 964px) {
+    .row.blank {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .row.blue {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .column {
+        width: 100%;
+    }
+    .icons {
+        margin-bottom: 50px;
     }
 }

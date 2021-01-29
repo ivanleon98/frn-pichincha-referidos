@@ -105,3 +105,34 @@ body {
     width: 600px;
     height: 271px;
 }
+
+.carousel .indicators {
+    position: absolute;
+    text-align: center;
+    right: 0;
+    margin: 0;
+    display: block ruby !important;
+    white-space: nowrap !important;
+    top: 95% !important;
+    left: -120px !important;
+}
+
+.indicators .indicator-item {
+    height: 10px !important;
+    width: 10px !important;
+    margin: 24px 7px !important;
+    /* background-color: rgba(100, 92, 92, 0.5); */
+    border: 1px solid #707070 !important;
+    -webkit-transition: background-color .3s !important;
+    transition: background-color .3s !important;
+    border-radius: 50% !important;
+}
+
+.indicators .indicator-item.active {
+    background-color: #0f265c !important;
+    border: none !important;
+}
+
+label {
+    font-family: 'OpenSans-Regular';
+}

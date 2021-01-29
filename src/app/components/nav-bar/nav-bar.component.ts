@@ -65,18 +65,7 @@ export class NavBarComponent implements OnChanges {
     this.code = this.storage.getItem('code');
     console.log('code: ' + this.code);
   }
-  public openRedimid() {
-    // document.getElementById('myModal').style.display = 'flex';
-    // document.getElementById('myModal').style.justifyContent = 'center';
-    // document.getElementById('myModal').style.background = '#ffdd00db';
-    // document.getElementById('modal-content').style.padding = '12px'; 
-    // document.getElementById('modal-content').style.height = '90%'; 
-    // document.getElementById('modal-content').style.marginTop = '32px'; 
-    // document.getElementById('modal-content').style.borderRadius = '4px'; 
-    // document.getElementById('modal-redimir').style.display = 'block';
-    // document.getElementById('form-log-in').style.display = 'none';
-    // document.getElementById('form-sign-up').style.display = 'none';
-  }
+
 
   public openCalculator() {
     document.getElementById('calculatorCDT').style.display = 'block';

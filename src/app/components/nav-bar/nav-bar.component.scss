@@ -128,6 +128,10 @@
             border: 2px solid #fff;
         }
         
+        .log-out.query {
+            display: none !important;
+        }
+        
         nav ul {
             display: flex;
             justify-content: center;
@@ -148,10 +152,10 @@
         
         @media screen and (min-width: 0px) and (max-width: 768px) {
             .brand-image-query {
-                display: block;
+                display: none;
                 width: 45px;
             }
-            .brand_image {
+            .brand-image {
                 display: none;
             }
             .titleNavbar {
@@ -160,5 +164,24 @@
             }
             nav {
                 padding: 16px 20px;
+            }
+            .circle {
+                display: none !important;
+            }
+            .container-text {
+                width: 100%;
+                flex-direction: column;
+                .text-code {
+                    width: 100%;
+                    text-align: center;
+                }
+                .log-out {
+                    display: none !important;
+                }
+                .log-out.query {
+                    width: 100%;
+                    margin-left: 0;
+                    display: block !important;
+                }
             }
         }
