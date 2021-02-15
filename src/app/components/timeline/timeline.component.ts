@@ -16,31 +16,31 @@ export class TimelineComponent implements OnInit {
   public notify;
   public refferal = new Array();
   public storage; 
-//   public listNotifications = [
-//   'Felicitaciones Martha Cecilia Gómez adquirió CDT',
-//   'Has invitado a 51897452', 
-//   'Felicitaciones Juan Pablo Rodríguez adquirió TC', 
-//   'Angélica María Gómez ya es uno de tus referidos',
-//   'Felicitaciones Cindy López adquirió TC',
-//   'Felicitaciones Cindy López adquirió TC222',
-// ];
-  public notifications = [];
+  public listNotifications = [
+  'Felicitaciones Martha Cecilia Gómez adquirió CDT',
+  'Has invitado a 51897452', 
+  'Felicitaciones Juan Pablo Rodríguez adquirió TC', 
+  'Angélica María Gómez ya es uno de tus referidos',
+  'Felicitaciones Cindy López adquirió TC',
+  'Felicitaciones Cindy López adquirió TC222',
+];
+  // public notifications = [];
   public isEmpty: boolean;
-  public listNotifications = new Array<string>();
+  // public listNotifications = new Array<string>();
   constructor(private infoData: DataService, private containerComponent: AppComponent, private homeComponent: Homev2Component) {
     this.titleTimeLine = "Notificaciones";
     this.storage = window.sessionStorage;
    }
 
-   ngOnInit() {
-     this.listNotifications = JSON.parse(this.storage.getItem("notificationsTimeline"));
-     let msg = (document.getElementById('messageWelcome') as HTMLDivElement);
-     if(this.listNotifications.length == 0){
-       msg.style.display = 'block';
-     }
-     if (this.listNotifications.length != 0) {
-      msg.style.display = 'none';
-     }
+    ngOnInit() {
+  //    this.listNotifications = JSON.parse(this.storage.getItem("notificationsTimeline"));
+  //    let msg = (document.getElementById('messageWelcome') as HTMLDivElement);
+  //    if(this.listNotifications.length == 0){
+  //      msg.style.display = 'block';
+  //    }
+  //    if (this.listNotifications.length != 0) {
+  //     msg.style.display = 'none';
+  //    }
   } 
 
   public viewAddRefer(){

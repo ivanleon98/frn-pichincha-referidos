@@ -26,7 +26,7 @@ export class AppComponent {
 
   constructor(private referedModel: ReferidoService){
     this.viewId = this.showComponents();
-    this.isProgressLanding = true;
+    this.isProgressLanding = false;
     this.isProgressImRefer = false;
     this.isProgressImOfficial = false;
     this.isProgressFormRefer = false;

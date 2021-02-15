@@ -9,14 +9,14 @@
     align-items: center;
     .title {
         font-size: 40px;
-        font-family: 'Montserrat-Bold';
-        color: #0F265C;
+        font-family: "Montserrat-Bold";
+        color: #0f265c;
         margin-top: 45px;
         margin-bottom: 20px;
     }
     .subtitle {
         font-size: 16px;
-        font-family: 'OpenSans-Regular';
+        font-family: "OpenSans-Regular";
         color: #666666;
         margin-bottom: 20px;
     }
@@ -28,14 +28,14 @@
         position: relative;
         .titleBox {
             font-size: 16px;
-            font-family: 'OpenSans-Bold';
-            color: #0F265C;
+            font-family: "OpenSans-Bold";
+            color: #0f265c;
         }
         .accept {
             .number {
                 font-size: 40px;
-                font-family: 'OpenSans-Bold';
-                color: #00FF43;
+                font-family: "OpenSans-Bold";
+                color: #00ff43;
                 text-align: center;
                 margin-top: 5px;
             }
@@ -44,8 +44,8 @@
             .number {
                 margin-top: 5px;
                 font-size: 40px;
-                font-family: 'OpenSans-Bold';
-                color: #DA0D0D;
+                font-family: "OpenSans-Bold";
+                color: #da0d0d;
                 text-align: center;
             }
         }
@@ -56,5 +56,10 @@
             top: 0;
             right: 47%;
         }
+    }
+}
+@media screen and (max-width: 1120px) {
+    .timeLine {
+        height: 100%;
     }
 }

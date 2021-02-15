@@ -21,18 +21,21 @@
         </div>
     </div>
 </div>
-<div class="container-query">
-    <div class="group-div" id="groupDiv">
-
-        <a class="item active" id="s1" (click)="onSubmit('s1', $event)">Inicio</a>
+<div class="container-query" >
+    <div class="group-div" id="groupDiv" (click)="onSubmit('s1', $event)">
+        <img class="imgMenu" src="./assets/img/home.png" alt="">
+        <a class="item active" id="s1" >Inicio</a>
     </div>
-    <div class="group-div">
-        <a class="item" id="s2" (click)="onSubmit('s2', $event)">Agregar referido</a>
+    <div class="group-div" (click)="onSubmit('s2', $event)">
+        <img class="imgMenu" src="./assets/img/referido.png" alt="">
+        <a class="item" id="s2" >Agregar referido</a>
     </div>
-    <div class="group-div">
-        <a class="item" id="s3" (click)="onSubmit('s3', $event)">Mis referidos</a>
+    <div class="group-div" (click)="onSubmit('s3', $event)">
+        <img class="imgMenu" src="./assets/img/mis-referidos.png" alt="">
+        <a class="item" id="s3" >Mis referidos</a>
     </div>
-    <div class="group-div">
-        <a class="item" id="s4" (click)="onSubmit('s4', $event)">Mis ganancias</a>
+    <div class="group-div" (click)="onSubmit('s4', $event)">
+        <img class="imgMenu" src="./assets/img/mis-ganancias.png" alt="">
+        <a class="item" id="s4" >Mis ganancias</a>
     </div>
 </div>
