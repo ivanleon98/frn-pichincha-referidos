@@ -22,6 +22,7 @@ export class ControlMenuComponent implements OnInit {
       this.containerComponent.isProgressMyReferrals = false;
       this.containerComponent.isProgressMyIncrease = false
       this.containerComponent.isProgressReedem = false;
+
     }
     if (element.id == "s2") {
       this.containerComponent.isProgressAddRefer = true;

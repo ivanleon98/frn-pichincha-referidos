@@ -224,3 +224,18 @@
 //     -ms-transform: rotate(45deg);
 //     transform: rotate(45deg);
 // }
+@media screen and (max-width:768px){
+    .container-form .products{
+        width: 100%;
+    }
+    section{
+        columns: 1 !important;
+    }
+    .imageIzq{
+        display: none;
+    }
+    .container-form   section   .formDer {
+        width: 100%;
+        padding: 0 20px;
+      }
+}
