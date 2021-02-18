@@ -1,4 +1,4 @@
-<div class="card-extensive">
+<div class="container">
     <h2 class="card-title">
         {{titleCard}}
     </h2>
@@ -7,7 +7,6 @@
             <thead>
                 <tr>
                     <th class="head">Nombre</th>
-                    <!-- <th class="head">Correo</th> -->
                     <th class="head">Identificación</th>
                     <th class="head">Fecha de inscripción</th>
                     <th class="head">Campaña</th>
@@ -18,7 +17,6 @@
             <tbody *ngFor="let item of data; let i=index">
                 <tr *ngIf="i == 1 || i == 2 || i == 3 || i ==  4">
                     <td>{{item.product.referral.name}}</td>
-                    <!-- <td>{{item.email}}</td> -->
                     <td>{{item.product.referral.document}}</td>
                     <td>{{item.product.referral.dateCompletedForm}} </td>
                     <td>{{item.product.name}}</td>
@@ -33,13 +31,11 @@
                         </div>
                         <div class="container-progress-bar">
                             <div class="progress-background">
-                                <div [class]="barPercentageStyle()" [style.width]="barPercentage(item.product.confirmationState)"></div>
+                                <div [class]="barPercentageStyle()"
+                                    [style.width]="barPercentage(item.product.confirmationState)"></div>
                             </div>
                         </div>
                     </td>
-                    <!-- <td class="text-center">
-                        <input type="button" value="Eliminar" class="input-button button-delete-table">
-                    </td> -->
                 </tr>
             </tbody>
         </table>
@@ -49,6 +45,53 @@
             </div>
         </tbody>
         <br>
-        <!-- <input type="button" value="Ver reporte completo" (click)="downloadPdfReferrals()" class="input-button button-view-complete-report"> -->
     </div>
+    <div class="table" id="tableQuery">
+        <div class="header-table">
+            <th class="head">Nombre</th>
+            <th class="head">Cédula</th>
+            <th class="head">Estado</th>
+        </div>
+        <div class="body">
+            <ul class="collapsible" *ngFor="let item of dateP">
+                <li>
+                    <div class="collapsible-header">
+                        <div class="item-header"> <span class="arrow"><img src="./assets/img/angle-arrow-down.png" alt=""></span> {{item.nombre}}</div>
+                        <div class="item-header">{{item.cedula}}</div>
+                        <div class="item-header">{{item.confirmationState}}</div>
+                    </div>
+                    <div class="collapsible-body"><span>
+                            <div class="item-body">
+                                <label for="">Fecha de inscripción</label>
+                                <div class="issueBody">{{item.fecha}}</div>
+                            </div>
+                            <div class="item-body">
+                                <label for="">Campaña</label>
+                                <div class="issueBody">{{item.campania}}</div>
+                            </div>
+                            <div class="item-body">
+                                <label for="">Avance:</label>
+                                <div class="advance">
+                                    <div class="container-progress-bar">
+                                        <div class="progress-background">
+                                            <div [style.width]="barPercentage(item.confirmationState)"
+                                                [class]="barPercentageStyle()"></div>
+                                        </div>
+                                    </div>
+                                    <div class="widget-content p-0">
+                                        <div class="percent-text">{{barPercentage(item.confirmationState)}}</div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </span></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
 </div>

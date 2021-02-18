@@ -1,5 +1,14 @@
 <app-nav-bar></app-nav-bar>
 <div class="container" id="containerHome">
+    <div class="container-circle">
+        <div class="circle">
+            <p>
+                {{getCode()}}
+            </p>
+        </div>
+    </div>
+
+
     <div class="container-menu">
         <div class="img">
             <img src="./assets/img/img-menu.png" alt="">
@@ -19,6 +28,14 @@
 </div>
 <!-- Full container-->
 <div class="wrapper">
+    <div class="container-circle" *ngIf="isProgressCalc || isProgressTable || isProgressCalcCe">
+        <div class="circle">
+            <p>
+                {{getCode()}}
+            </p>
+        </div>
+    </div>
+
     <app-calc-cdt *ngIf="isProgressCalc"></app-calc-cdt>
     <app-table-tcd *ngIf="isProgressTable"></app-table-tcd>
     <app-calc-ce *ngIf="isProgressCalcCe"> </app-calc-ce>

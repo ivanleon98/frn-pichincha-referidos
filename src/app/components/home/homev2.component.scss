@@ -3,8 +3,24 @@
     height: 100%;
     display: flex;
     border-bottom: none;
+    position: relative;
 }
-
+.circle {
+    height: 111px;
+    width: 190px;
+    border-radius: 500px 500px 0 0;
+    background-color: #10133f;
+    transform: rotate(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+        font-family: "OpenSans-Bold";
+        font-size: 30px;
+        color: #fd0;
+        transform: rotate(180deg);
+    }
+}
 .container-menu {
     display: flex;
     flex-direction: column;
@@ -30,6 +46,12 @@
 .components {
     width: 100%;
 }
+.container-circle {
+    display: none;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
 
 @media screen and (max-width: 1120px) {
     .img {
@@ -41,5 +63,12 @@
     }
     .container-menu {
         margin-left: 0 !important;
+        display: block;
+    }
+    .container {
+        flex-direction: column;
+    }
+    .container-circle {
+        display: flex;
     }
 }

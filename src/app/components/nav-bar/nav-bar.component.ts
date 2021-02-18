@@ -11,15 +11,14 @@ export class NavBarComponent implements OnChanges {
   @Input() path: string;
   showView: number;
   storage: any;
-  code: any;
+  code: any = "1ivh3"
   constructor() {
     this.storage = window.sessionStorage;
   }
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    this.getCode();
-
+    this.setCode();
   }
   ngOnChanges(changes: SimpleChanges): void {
     if (this.path == 'home') {
@@ -61,11 +60,13 @@ export class NavBarComponent implements OnChanges {
     }
   }
 
-  private getCode() {
-    this.code = this.storage.getItem('code');
-    console.log('code: ' + this.code);
+  private setCode() {
+    this.code = sessionStorage.setItem('code', this.code);
   }
 
+  public getCode(){
+    return sessionStorage.getItem("code");
+  }
 
   public openCalculator() {
     document.getElementById('calculatorCDT').style.display = 'block';

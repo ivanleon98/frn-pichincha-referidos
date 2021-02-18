@@ -71,7 +71,6 @@ body {
     color: #0F265C;
     margin-top: 42px;
     padding: 0 225px;
-    /* border-bottom: 1px solid #c5c5c5; */
 }
 
 .card {
@@ -87,14 +86,11 @@ body {
     padding: 10px;
 }
 
-*/ .card-transparent {
+ .card-transparent {
     background-color: transparent;
 }
 
 
-/* input[type="button"]:focus {
-    outline: 0;
-} */
 
 .group {
     position: relative;
@@ -121,7 +117,6 @@ body {
     height: 10px !important;
     width: 10px !important;
     margin: 24px 7px !important;
-    /* background-color: rgba(100, 92, 92, 0.5); */
     border: 1px solid #707070 !important;
     -webkit-transition: background-color .3s !important;
     transition: background-color .3s !important;

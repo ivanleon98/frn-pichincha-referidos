@@ -14,13 +14,14 @@
                 <p id="p2" class="smallImg">Tarjeta de Crédito</p>
             </div>
             <div class="img">
-                <img (click)="selectProduct($event)" alt="Crédito Educativo" id="im3" src="./assets/img/educativo-ball.png">
+                <img (click)="selectProduct($event)" alt="Crédito Educativo" id="im3"
+                    src="./assets/img/educativo-ball.png">
                 <p id="p3" class="smallImg">Educativo</p>
             </div>
-            <!-- <div class="img imageDisabled">
-                <img id="im4" src="./assets/img/libranza.png" alt="">
+            <div class="img imageDisabled">
+                <img id="im4" src="./assets/img/libranza-ball.png" alt="">
                 <p id="p4" class="smallImg">Libranza</p>
-            </div> -->
+            </div>
         </div>
         <div class="container-message" *ngIf="enabledForm == false">
             <div class="message">
@@ -37,15 +38,20 @@
             <div class="formDer">
                 <div id="formcdt" *ngIf="selectCdt">
                     <div class="form-group">
-                        <input-text [id]="'documentPerson'" [isValid]="isValid" [title]="'Número de documento del referido'" [details]="'CC'" [errorText]="'Tu número de documento parece no estar bien'" [control]="f.controls.documentPerson" [controlName]="'documentPerson'" [formGroup]="formRefer"
-                            [maxLength]="11" [minLength]="10" [placeHolderText]="'Ej. 1014624713'" (keyup)="validateForm()">
+                        <input-text [id]="'documentPerson'" [isValid]="isValid"
+                            [title]="'Número de documento del referido'" [details]="'CC'"
+                            [errorText]="'Tu número de documento parece no estar bien'"
+                            [control]="f.controls.documentPerson" [controlName]="'documentPerson'"
+                            [formGroup]="formRefer" [maxLength]="11" [minLength]="10"
+                            [placeHolderText]="'Ej. 1014624713'" (keyup)="validateForm()">
                         </input-text>
                     </div>
                     <div class="form-group" [formGroup]="formRefer">
                         <label class="label" for="listOffice">Elige la oficina</label>
-                        <select id="selectOffice" formControlName="office" control="f.controls.office" placeholder="Armenia" (click)="validateForm()">
-                                <option class="placeholder" value="" disabled>Seleccione...</option>
-                            </select>
+                        <select id="selectOffice" formControlName="office" control="f.controls.office"
+                            placeholder="Armenia" (click)="validateForm()">
+                            <option class="placeholder" value="" disabled>Seleccione...</option>
+                        </select>
                     </div>
                     <div class="profit" (click)="openCalc()">
                         Calcula tus ganancias
@@ -53,8 +59,12 @@
                 </div>
                 <div id="formtcd" *ngIf="selectTcd">
                     <div class="form-group">
-                        <input-text [id]="'documentPersonTcd'" [isValid]="isValid" [title]="'Número de documento del referido'" [details]="'CC'" [errorText]="'Tu número de documento parece no estar bien'" [control]="f.controls.documentPersonTcd" [controlName]="'documentPersonTcd'"
-                            [formGroup]="formRefer" [maxLength]="10" [minLength]="10" [placeHolderText]="'Ej. 1014624713'" (keyup)="validateForm()">
+                        <input-text [id]="'documentPersonTcd'" [isValid]="isValid"
+                            [title]="'Número de documento del referido'" [details]="'CC'"
+                            [errorText]="'Tu número de documento parece no estar bien'"
+                            [control]="f.controls.documentPersonTcd" [controlName]="'documentPersonTcd'"
+                            [formGroup]="formRefer" [maxLength]="10" [minLength]="10"
+                            [placeHolderText]="'Ej. 1014624713'" (keyup)="validateForm()">
                         </input-text>
                     </div>
                     <div class="profit" (click)="openTable()">
@@ -63,8 +73,12 @@
                 </div>
                 <div id="formCe" *ngIf="selectCe">
                     <div class="form-group">
-                        <input-text [id]="'documentPersonCe'" [isValid]="isValid" [title]="'Número de documento del referido'" [details]="'CC'" [errorText]="'Tu número de documento parece no estar bien'" [control]="f.controls.documentPersonCe" [controlName]="'documentPersonCe'"
-                            [formGroup]="formRefer" [maxLength]="10" [minLength]="10" [placeHolderText]="'Ej. 1014624713'" (keyup)="validateForm()">
+                        <input-text [id]="'documentPersonCe'" [isValid]="isValid"
+                            [title]="'Número de documento del referido'" [details]="'CC'"
+                            [errorText]="'Tu número de documento parece no estar bien'"
+                            [control]="f.controls.documentPersonCe" [controlName]="'documentPersonCe'"
+                            [formGroup]="formRefer" [maxLength]="10" [minLength]="10"
+                            [placeHolderText]="'Ej. 1014624713'" (keyup)="validateForm()">
                         </input-text>
                     </div>
                     <div class="profit" (click)="openCalcCe()">

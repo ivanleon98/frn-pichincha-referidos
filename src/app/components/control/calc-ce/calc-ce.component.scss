@@ -22,26 +22,27 @@
 
 .title {
     margin: 50px 0;
-    font-family: 'OpenSans-Bold';
+    font-family: "OpenSans-Bold";
     font-size: 20px;
     text-align: center;
-    color: #0F265C;
+    color: #0f265c;
     p {
         width: 260px;
     }
 }
 
 .boxGift {
-    background-color: #EAEAEA;
+    background-color: #eaeaea;
     padding: 20px;
     margin-bottom: 35px;
     text-align: center;
+    width: 75%;
     .text {
         font-size: 18px;
-        font-family: 'OpenSans-Regular';
-        color: #0F265C;
+        font-family: "OpenSans-Regular";
+        color: #0f265c;
         line-height: 26.1px;
-        width: 325px;
+        width: 100%;
     }
 }
 
@@ -52,7 +53,7 @@
 }
 
 .question {
-    font-family: 'OpenSans-Regular';
+    font-family: "OpenSans-Regular";
     font-size: 20px;
     color: #666666;
     letter-spacing: 0.2px;
@@ -60,4 +61,14 @@
 
 .carrusel {
     margin-bottom: 50px;
+}
+@media screen and (max-width: 768px) {
+
+    .title.gift {
+        width: 100%;
+    }
+
+    .title {
+        font-size: 16px;
+    }
 }

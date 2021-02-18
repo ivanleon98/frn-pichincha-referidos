@@ -14,9 +14,13 @@ export class Homev2Component implements OnInit {
   public isProgressCalc: boolean = false;
   public isProgressTable: boolean = false;
   public isProgressCalcCe: boolean  = false;
+  public code: any;
   constructor() { }
 
   ngOnInit() {
   }
-
+  public getCode(){
+    this.code = sessionStorage.getItem("code");
+    return this.code;
+  }
 }

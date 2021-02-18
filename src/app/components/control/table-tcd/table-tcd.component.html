@@ -87,10 +87,43 @@
             </div>
 
         </div>
+    </div>
+    <div class="tableMobile">
+        <app-input-datalist [id]="'documentPersonTcd'" [title]="'Escoje la tarjeta a referir'"
+            [errorText]="'Tu número de documento parece no estar bien'" [control]="f.controls.selectCard"
+            [controlName]="'selectCard'" [formGroup]="formCard" [list]="list" [placeHolderText]="'Tarjeta Clásica'">
+        </app-input-datalist>
+        <div class="cards">
+            <div class="cardMobile">
+                <div class="imgCard">
+                    <img src="./assets/img/card.png" alt="">
+                </div>
+                <div class="titleCard">
+                    Tarjeta Clásica
+                </div>
+            </div>
+            <div class="cardMobile"></div>
+            <div class="cardMobile"></div>
+        </div>
+        <div class="form">
+            <div class="numCards">
+                <div class="boxGreen">1 a 5</div>
+                <div class="boxGreen">6 a 10</div>
+                <div class="boxGreen">+ de 10</div>
+            </div>
+
+            <div class="values">
+                <div class="valueCard">7.000</div>
+                <div class="valueCard">8.000</div>
+                <div class="valueCard">9.000</div>
+            </div>
+        </div>
 
     </div>
-    <div class="text">
-        <p> Si tu referido <b>activa y utiliza la tarjeta</b>, ganaras <b>2.000 pesos</b> adicionales por tarjeta activa.
-        </p>
-    </div>
+
+<div class="text">
+    <p> Si tu referido <b>activa y utiliza la tarjeta</b>, ganaras <b>2.000 pesos</b> adicionales por tarjeta
+        activa.
+    </p>
+</div>
 </div>
