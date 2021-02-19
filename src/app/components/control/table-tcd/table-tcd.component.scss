@@ -147,6 +147,9 @@
     background-color: #10133f;
     border: none;
 }
+.container-button.marginTopClean {
+    margin: 0 auto 50px auto;
+}
 @media screen and (max-width: 1120px) {
     .container {
         width: 100%;
@@ -155,10 +158,10 @@
         flex-direction: column;
         padding: 0 30px;
     }
-    .container-button{
+    .container-button {
         display: block;
     }
-    .text{
+    .text {
         margin-bottom: 0;
     }
     .tableMobile {

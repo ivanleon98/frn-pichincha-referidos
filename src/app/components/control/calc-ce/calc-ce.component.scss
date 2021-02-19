@@ -53,6 +53,7 @@
 }
 
 .question {
+    display: block;
     font-family: "OpenSans-Regular";
     font-size: 20px;
     color: #666666;
@@ -62,13 +63,46 @@
 .carrusel {
     margin-bottom: 50px;
 }
+.container-button {
+    display: none;
+}
+.button {
+    width: 207px;
+    height: 48px;
+    margin: 0px auto 50px auto;
+    border-radius: 25px;
+    color: #fff;
+    font-family: "Montserrat-Bold";
+    background-color: #10133f;
+    border: none;
+}
 @media screen and (max-width: 768px) {
-
+    .container {
+        width: 100%;
+        margin: auto;
+        border: none;
+    }
+    .container-button {
+        display: block;
+    }
+    .boxGift {
+        width: 100%;
+        padding: 20px 50px 20px 65px;
+        .text {
+            font-size: 16px;
+        }
+    }
+    .question {
+        display: none;
+    }
+    .close {
+        display: none;
+    }
     .title.gift {
         width: 100%;
     }
 
     .title {
-        font-size: 16px;
+        font-size: 20px;
     }
 }

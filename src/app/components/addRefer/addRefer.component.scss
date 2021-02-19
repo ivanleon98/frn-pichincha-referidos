@@ -170,6 +170,11 @@
         align-content: space-between;
         padding: 0 26px;
     }
+    .container-form .products.flex{
+        display: flex;
+        width: 100%;
+        height: auto;
+    }
     .container-form .products .smallImg {
         margin-top: 10px;
     }

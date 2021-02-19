@@ -16,6 +16,7 @@ export class TableTcdComponent implements OnInit {
     { id: '4', value: 'Tarjeta Infinite'}
 ]
 public enabledValue: number = 0;
+public cleanMarginLeft
   constructor(private containerComponent: Homev2Component) { }
 
   ngOnInit() {

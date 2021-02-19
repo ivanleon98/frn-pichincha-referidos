@@ -129,7 +129,7 @@
             </div>
         </div>
 
-        <div class="form">
+        <div class="form" *ngIf="enabledValue != 0">
             <div class="numCards">
                 <label for="">Si refieres entre:</label>
                 <div class="boxGreen">1 a 5 <br><span>Tarjetas</span> </div>
@@ -139,23 +139,40 @@
 
             <div class="values">
                 <label for="">ganas</label>
-                <div class="box">
+                <div class="box" *ngIf="enabledValue == 1">
                     <div class="valueCard">$ 7.000</div>
                     <div class="valueCard">$ 8.000</div>
                     <div class="valueCard">$ 9.000</div>
                 </div>
+                 <div class="box" *ngIf="enabledValue == 2">
+                    <div class="valueCard">$ 10.000</div>
+                    <div class="valueCard">$ 11.000</div>
+                    <div class="valueCard">$ 12.000</div>
+                </div>
+                <div class="box" *ngIf="enabledValue == 3">
+                    <div class="valueCard">$ 13.000</div>
+                    <div class="valueCard">$ 14.000</div>
+                    <div class="valueCard">$ 15.000</div>
+                </div>
+                <div class="box" *ngIf="enabledValue == 4">
+                    <div class="valueCard">$ 16.000</div>
+                    <div class="valueCard">$ 17.000</div>
+                    <div class="valueCard">$ 18.000</div>
+                </div>
 
             </div>
+
         </div>
-
+        <div class="text" *ngIf="enabledValue != 0">
+            <p> Si tu referido <b>activa y utiliza la tarjeta</b>, ganaras <b>2.000 pesos</b> adicionales por
+                tarjeta
+                activa.
+            </p>
+        </div>
     </div>
 
-    <div class="text">
-        <p> Si tu referido <b>activa y utiliza la tarjeta</b>, ganaras <b>2.000 pesos</b> adicionales por tarjeta
-            activa.
-        </p>
-    </div>
-    <div class="container-button">
+
+    <div [class]="'container-button ' + (enabledValue==0?'marginTopClean':'')">
         <button class="button" (click)="closeCalc()">Regresar</button>
     </div>
 </div>

@@ -3,7 +3,7 @@
         <div class="title">
             Elige el producto a referir
         </div>
-        <div class="products">
+        <div [class]="'products ' + (enabledForm==true?'flex':'')">
             <div class="img">
                 <img id="im1" (click)="selectProduct($event)" src="./assets/img/cdt-ball.png" alt="CDT">
                 <p id="p1" class="smallImg">CDT</p>
