@@ -91,39 +91,71 @@
     <div class="tableMobile">
         <app-input-datalist [id]="'documentPersonTcd'" [title]="'Escoje la tarjeta a referir'"
             [errorText]="'Tu número de documento parece no estar bien'" [control]="f.controls.selectCard"
-            [controlName]="'selectCard'" [formGroup]="formCard" [list]="list" [placeHolderText]="'Tarjeta Clásica'">
+            [controlName]="'selectCard'" [formGroup]="formCard" [list]="list" [placeHolderText]="'Tarjeta Clásica'"
+            (click)="getValue()">
         </app-input-datalist>
         <div class="cards">
-            <div class="cardMobile">
+            <div class="cardMobile" *ngIf="enabledValue == 1">
                 <div class="imgCard">
-                    <img src="./assets/img/card.png" alt="">
+                    <img src="./assets/img/svg-card-yellow-01.svg" alt="">
                 </div>
                 <div class="titleCard">
                     Tarjeta Clásica
                 </div>
             </div>
-            <div class="cardMobile"></div>
-            <div class="cardMobile"></div>
+            <div class="cardMobile" *ngIf="enabledValue == 2">
+                <div class="imgCard">
+                    <img src="./assets/img/svg-card-dorada-01.svg" alt="">
+                </div>
+                <div class="titleCard">
+                    Tarjeta Gold
+                </div>
+            </div>
+            <div class="cardMobile" *ngIf="enabledValue == 3">
+                <div class="imgCard">
+                    <img src="./assets/img/svg-card-platinum-01.svg" alt="">
+                </div>
+                <div class="titleCard">
+                    Tarjeta Platinum
+                </div>
+            </div>
+            <div class="cardMobile" *ngIf="enabledValue == 4">
+                <div class="imgCard">
+                    <img src="./assets/img/svg-black-02.svg" alt="">
+                </div>
+                <div class="titleCard">
+                    Tarjeta Infinite
+                </div>
+            </div>
         </div>
+
         <div class="form">
             <div class="numCards">
-                <div class="boxGreen">1 a 5</div>
-                <div class="boxGreen">6 a 10</div>
-                <div class="boxGreen">+ de 10</div>
+                <label for="">Si refieres entre:</label>
+                <div class="boxGreen">1 a 5 <br><span>Tarjetas</span> </div>
+                <div class="boxGreen">6 a 10 <br><span>Tarjetas</span> </div>
+                <div class="boxGreen">+ de 10 <br><span>Tarjetas</span> </div>
             </div>
 
             <div class="values">
-                <div class="valueCard">7.000</div>
-                <div class="valueCard">8.000</div>
-                <div class="valueCard">9.000</div>
+                <label for="">ganas</label>
+                <div class="box">
+                    <div class="valueCard">$ 7.000</div>
+                    <div class="valueCard">$ 8.000</div>
+                    <div class="valueCard">$ 9.000</div>
+                </div>
+
             </div>
         </div>
 
     </div>
 
-<div class="text">
-    <p> Si tu referido <b>activa y utiliza la tarjeta</b>, ganaras <b>2.000 pesos</b> adicionales por tarjeta
-        activa.
-    </p>
-</div>
+    <div class="text">
+        <p> Si tu referido <b>activa y utiliza la tarjeta</b>, ganaras <b>2.000 pesos</b> adicionales por tarjeta
+            activa.
+        </p>
+    </div>
+    <div class="container-button">
+        <button class="button" (click)="closeCalc()">Regresar</button>
+    </div>
 </div>

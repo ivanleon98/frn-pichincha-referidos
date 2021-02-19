@@ -3,7 +3,7 @@
     position: relative;
     font: 13px OpenSans-Regular;
     letter-spacing: 0px;
-    color: #8C8C8C;
+    color: #8c8c8c;
     padding-left: 10px;
     text-align: left;
     padding-top: 20px;
@@ -13,7 +13,7 @@
 }
 
 .title-input-datalist.invalid {
-    color: #FB2E2E !important;
+    color: #fb2e2e !important;
 }
 
 .triangle-error {
@@ -21,7 +21,7 @@
     height: 0;
     border-style: solid;
     border-width: 0 4.5px 7px 4.5px;
-    border-color: transparent transparent #FB2E2E transparent;
+    border-color: transparent transparent #fb2e2e transparent;
     position: absolute;
     z-index: 3;
     top: 34px;
@@ -29,12 +29,12 @@
 }
 
 .validation-error {
-    background: #FB2E2E 0% 0% no-repeat padding-box;
+    background: #fb2e2e 0% 0% no-repeat padding-box;
     border-radius: 5px;
     text-align: left;
     font: 10px OpenSans-Regular;
     letter-spacing: 0px;
-    color: #FFFFFF;
+    color: #ffffff;
     line-height: 16px;
     position: absolute;
     z-index: 4;
@@ -47,8 +47,8 @@
 // Estilo bordes azules y fondo blanco
 .box-input-datalist-style {
     box-sizing: border-box;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    border: 1.5px solid #0F265C;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border: 1.5px solid #0f265c;
     border-radius: 10px;
     width: 99%;
     height: 48px;
@@ -57,7 +57,7 @@
 }
 
 .box-input-datalist-style.invalid {
-    border: 1.5px solid #FB2E2E;
+    border: 1.5px solid #fb2e2e;
 }
 
 .datalist-input-style {
@@ -70,23 +70,23 @@
     height: 40px;
     width: 80%;
     text-overflow: ellipsis;
-    margin-left: 20PX;
+    margin-left: 20px;
     margin-top: 1px;
     border-radius: 8px;
     position: relative;
-    right: 6%;
+    right: 2%;
 }
 
 .datalist-input-style::placeholder {
-    color: #E0E0E0;
+    color: #e0e0e0;
 }
 
 .datalist-input-style:-ms-input-placeholder {
-    color: #E0E0E0 !important;
+    color: #e0e0e0 !important;
 }
 
 .datalist-input-style:-moz-placeholder {
-    color: #E0E0E0 !important;
+    color: #e0e0e0 !important;
 }
 
 .icon-arrow {
@@ -128,9 +128,9 @@
     overflow: hidden;
     overflow-y: auto;
     z-index: 5;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
+    background: #ffffff 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 10px #74747429;
-    border: 1px solid #E8E8E8;
+    border: 1px solid #e8e8e8;
     border-radius: 10px;
     opacity: 1;
 }
@@ -147,13 +147,12 @@
 
 .datalist-ul li:hover {
     background: #0f265c 0% 0% no-repeat padding-box;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 //estilos tooltip
 
 /*tooltip*/
-
 
 /* Tooltip container */
 
@@ -162,7 +161,6 @@
     display: inline-block;
     margin-left: 10px;
 }
-
 
 /* Tooltip text */
 
@@ -182,7 +180,6 @@
     transition: opacity 0.3s;
 }
 
-
 /* Tooltip text */
 
 .tooltipclient .tooltiptext p {
@@ -191,14 +188,13 @@
     text-align: left;
     padding: 5px 5px 5px 5px;
     margin-left: 5px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-weight: normal;
     font-style: normal;
     font-size: 10px;
     line-height: normal;
     height: 100%;
 }
-
 
 /* Tooltip arrow */
 
@@ -209,19 +205,17 @@
     right: 100%;
     border-width: 5px;
     border-style: solid;
-    border-color: transparent #0F265C transparent transparent;
+    border-color: transparent #0f265c transparent transparent;
 }
-
 
 /* Show the tooltip text when you mouse over the tooltip container */
 
 .tooltipclient:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
-    background: #0F265C no-repeat;
+    background: #0f265c no-repeat;
     box-shadow: 0px 3px 6px #00000033;
 }
-
 
 /*fin tooltip*/
 

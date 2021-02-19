@@ -15,6 +15,7 @@ export class TableTcdComponent implements OnInit {
     { id: '3', value: 'Tarjeta Platinum' },
     { id: '4', value: 'Tarjeta Infinite'}
 ]
+public enabledValue: number = 0;
   constructor(private containerComponent: Homev2Component) { }
 
   ngOnInit() {
@@ -31,5 +32,12 @@ export class TableTcdComponent implements OnInit {
   public closeCalc() {
     (document.getElementById('containerHome') as HTMLDivElement).style.display = 'flex';
     this.containerComponent.isProgressTable = false;
+  }
+  public getValue(){
+    const value = this.selectCard.value.trim();
+    value == "Tarjeta clásica" ?  this.enabledValue = 1 :  
+      value == "Tarjeta gold" ? this.enabledValue = 2 :
+        value == "Tarjeta platinum" ? this.enabledValue = 3 :
+          value == "Tarjeta infinite" ? this.enabledValue = 4 : this.enabledValue = 0;
   }
 }
