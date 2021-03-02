@@ -26,11 +26,11 @@ export class AppComponent {
 
   constructor(private referedModel: ReferidoService){
     this.viewId = this.showComponents();
-    this.isProgressLanding = false;
+    this.isProgressLanding = true;
     this.isProgressImRefer = false;
     this.isProgressImOfficial = false;
     this.isProgressFormRefer = false;
-    this.isProgressHome = true;
+    this.isProgressHome = false;
     this.isProgressFormTcd = false;
   }
 

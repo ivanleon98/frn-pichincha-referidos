@@ -100,6 +100,9 @@ export class ModalComponent {
 
     private callbackLogin() {
         this.rspLogin = this.apiService.response;
+        this.containerComponent.isProgressImOfficial = false;
+        this.containerComponent.isProgressHome = true;
+
         if (this.rspLogin[0].status == true) {
             this.rspToken = this.rspLogin[0].token;
             this.rspForCc = this.rspLogin[0].document;
@@ -125,6 +128,7 @@ export class ModalComponent {
     public loginService() {
         this.generalRequest.email = (document.getElementById('correo-referido-log-in') as HTMLInputElement).value.toLocaleLowerCase();
         this.generalRequest.password = (document.getElementById('password-referido-log-in') as HTMLInputElement).value;
+
         try {
             this.apiService.invokePostRequest<GeneralRequest, boolean>(
                 environment.endpointLogin + "",
