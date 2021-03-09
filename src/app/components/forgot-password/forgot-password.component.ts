@@ -51,8 +51,6 @@ export class ForgotPasswordComponent implements OnInit {
       this.apiService.invokePostRequest<GeneralRequest, any>(
         environment.endPointChangePassword + this.token,
         request,
-        any,
-        0,
         (rsp: boolean) => {
           this.callbackChangePassword();
         }
