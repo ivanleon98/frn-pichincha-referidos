@@ -30,14 +30,18 @@
             <div class="group cont-img">
                 <img src="./assets/img/cambiar-contra.png" alt="">
             </div>
-            <div class="group">
+            <div class="group" *ngIf="msgSuccess.length==0">
                 <input type="text" id="forgot-email" (keyup)="validateEmailForPassword();disabledButton('confirm-password-email')" (input)="disabledButton('confirm-password-email');" class="correo" autocomplete="off" required>
                 <span class="bar"></span>
                 <label>Correo electrónico</label>
                 <small class="small">Ingresa un correo valido</small>
             </div>
-            <div class="group">
+            <div class="group" *ngIf="msgSuccess.length==0">
                 <button id="confirm-password-email" (click)="sendEmailforgotPasswordService()">Restaurar contraseña</button>
+            </div>
+            <div class="message-success" *ngIf="msgSuccess.length!=0">
+                <!-- {{msgSuccess}} -->
+                Revisa tu bandeja de entrada y accede al link para recuperar tu contraseña. 
             </div>
         </div>
         <!-- _---SIGN-UP---_ -->
@@ -46,7 +50,7 @@
                 <h3>Registrarme</h3>
             </div>
             <div class="group">
-                <input type="text" id="nombre-referido" class="texto" autocomplete="off" pattern="[a-zA-Z]*" (keyup)="validateSignUpFiels(); disabledButton('registrar')" required>
+                <input type="text" id="nombre-referido" class="texto" autocomplete="off" maxlength="60" (keyup)="validateSignUpFiels(); disabledButton('registrar');onlyLetters($event)" required>
                 <span class="bar"></span>
                 <label>Nombre completo</label>
                 <small class="small">Ingresa un nombre valido</small>
@@ -54,14 +58,14 @@
 
             <div class="input-middle">
                 <div class="group">
-                    <input type="text" id="identificacion-referido" class="numero" autocomplete="off" pattern="[0-9]*" maxlength="10" (keyup)="validateSignUpFiels();saveData();disabledButton('registrar')" required>
+                    <input type="text" id="identificacion-referido" class="numero" autocomplete="off" pattern="[0-9]*" maxlength="10" (keyup)="validateSignUpFiels();saveData();disabledButton('registrar');onlyNumbers($event)" required>
                     <span class="bar"></span>
                     <label>Número de identificación</label>
                     <small class="small">Ingresa un número de
             identificación valido</small>
                 </div>
                 <div class="group">
-                    <input type="text" id="celular-referido" class="numero" autocomplete="off" pattern="[0-9]*" maxlength="12" (keyup)="validateSignUpFiels(); saveData();disabledButton('registrar')" required>
+                    <input type="text" id="celular-referido" class="numero" autocomplete="off" pattern="[0-9]*" maxlength="12" (keyup)="validateSignUpFiels(); saveData();disabledButton('registrar');onlyNumbers($event)" required>
                     <span class="bar"></span>
                     <label>Celular</label>
                     <small class="small">Ingresa un celular valido</small>
@@ -72,7 +76,7 @@
                     required>
                 <span class="bar"></span>
                 <label>Correo electrónico</label>
-                <small class="small">Ingresa un correo electrónico valido</small>
+                <small class="small" id="smallemail" >Ingresa un correo electrónico valido, ej: prueba@prueba.com</small>
             </div>
             <div class="input-middle">
                 <div class="group">
@@ -100,7 +104,7 @@
                 </re-captcha>
             </div>
             <div class="container-button">
-                <button id="registrar" (click)="saveData();addPersonService();">REGISTRARME</button>
+                <button   id="registrar" (click)="saveData();addPersonService();">REGISTRARME</button>
             </div>
         </div>
         <div class="send-mail" id="sendemail">
@@ -109,7 +113,7 @@
             </div>
             <div class="titleSendMail">
                 Hemos enviado un mail <br>
-                <p>a tu correo corporativo para la activación de la cuenta.</p>
+                <p>a tu correo  para la activación de la cuenta.</p>
             </div>
             <button (click)="clearFields();closeModal();">CONFIRMAR</button>
         </div>

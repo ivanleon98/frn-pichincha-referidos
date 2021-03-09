@@ -37,14 +37,14 @@ export class ReferralsTableComponent implements OnInit, AfterViewInit {
     {
       nombre: "Juan Pablo Arias",
       cedula: "1024721895",
-      confirmationState: "neg",
+      confirmationState: "ace",
       fecha: "2020-05-05 16:19:02.0",
       campania: "TCD"
     },
     {
       nombre: "Maria Fernanda Suarez",
       cedula: "1027851795",
-      confirmationState: "ges",
+      confirmationState: "ace",
       fecha: "2020-05-05 16:19:02.0",
       campania: "CE"
     }

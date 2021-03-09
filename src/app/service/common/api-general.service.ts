@@ -13,6 +13,7 @@ import { map, catchError, tap, retry } from 'rxjs/operators';
             'Accept': '*',
             'Access-Control-Allow-Origin': '*',
             'X-Frame-Options': 'sameorigin',
+            'Access-Control-Allow-Credentials': 'true'
         })
     };
 

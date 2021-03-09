@@ -14,25 +14,25 @@
                     <th class="head">Avance</th>
                 </tr>
             </thead>
-            <tbody *ngFor="let item of data; let i=index">
+            <tbody *ngFor="let item of dateP; let i=index">
                 <tr *ngIf="i == 1 || i == 2 || i == 3 || i ==  4">
-                    <td>{{item.product.referral.name}}</td>
-                    <td>{{item.product.referral.document}}</td>
-                    <td>{{item.product.referral.dateCompletedForm}} </td>
-                    <td>{{item.product.name}}</td>
+                    <td>{{item.nombre}}</td>
+                    <td>{{item.cedula}}</td>
+                    <td>{{item.fecha}} </td>
+                    <td>{{item.campania}}</td>
                     <td>
                         <div [class]="statusStyle()" class="badge badge-pill">
-                            {{item.product.confirmationState}}
+                            {{item.confirmationState}}
                         </div>
                     </td>
                     <td class="text-center">
                         <div class="widget-content p-0">
-                            <div class="percent-text">{{barPercentage(item.product.confirmationState)}}</div>
+                            <div class="percent-text">{{barPercentage(item.confirmationState)}}</div>
                         </div>
                         <div class="container-progress-bar">
                             <div class="progress-background">
                                 <div [class]="barPercentageStyle()"
-                                    [style.width]="barPercentage(item.product.confirmationState)"></div>
+                                    [style.width]="barPercentage(item.confirmationState)"></div>
                             </div>
                         </div>
                     </td>
@@ -46,7 +46,7 @@
         </tbody>
         <br>
     </div>
-    <div class="table" id="tableQuery">
+    <div class="table" id="tableQuery" style="display: none;">
         <div class="header-table">
             <th class="head">Nombre</th>
             <th class="head">Cédula</th>

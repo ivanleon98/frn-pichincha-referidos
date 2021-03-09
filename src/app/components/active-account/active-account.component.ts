@@ -5,44 +5,42 @@ import { ApiGeneralService } from 'src/app/service/common/api-general.service';
 import { GeneralRequest } from 'src/app/model/general.request';
 import { environment } from 'src/environments/environment';
 import { AppComponent } from 'src/app/app.component';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-active-account',
   templateUrl: './active-account.component.html',
   styleUrls: ['./active-account.component.scss']
 })
-export class ActiveAccountComponent implements OnChanges {
-  @Input() token: string;
-  generatedToken: boolean;
-  rspSendEmailConfirmation;
-  route: Location;
+export class ActiveAccountComponent implements OnInit {
+  public token: any;
+  public generatedToken: any;
+  public rspSendEmailConfirmation;
+  public ruta: Location;
 
-  constructor(private referidoService: ReferidoService,
-    private log: LoggerService, private apiService:
-      ApiGeneralService, private generalRequest: GeneralRequest,
-    private containerComponenent: AppComponent) {
-      this.route = location;
+  constructor(private log:LoggerService,private apiService:ApiGeneralService,private route:ActivatedRoute) {
+    this.ruta = location;
   }
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    (document.getElementById('resend') as HTMLButtonElement).disabled = true;
+   this.route.paramMap
+     .pipe(map(params => params.get('token')), tap(token => (this.token = +token)))
+     .subscribe(token => {
+       this.token = token;
+       return this.token;
+      });
+      this.sendTokenConfirmationService();
   }
 
-
-  ngOnChanges(changes: SimpleChanges): void {
-    this.sendTokenConfirmationService();
-  }
   public redirectHome() {
-    this.route.reload();
+    this.ruta.reload();
   }
   public sendTokenConfirmationService() {
-    let request = new GeneralRequest();
     try {
       this.apiService.invokePostRequest<GeneralRequest, boolean>(
-        environment.endpointConfirmationToken + this.token,
-        request,
+        environment.endPointActiveAccount + this.token,
+        null,
         (rsp: boolean) => {
           this.callbackSendTokenConfirmation();
         }
@@ -52,40 +50,16 @@ export class ActiveAccountComponent implements OnChanges {
     }
   }
 
-  private callbackSendTokenConfirmation(): Boolean {
+  private callbackSendTokenConfirmation(): any {
     this.generatedToken = this.apiService.response;
-    if (this.generatedToken == true) {
-      document.getElementById('cont-true').style.display = 'flex';
+    if (this.generatedToken.status == true) {
+      document.getElementById('account-true').style.display = 'flex';
     } else {
       document.getElementById('account-false').style.display = 'flex';
     }
     return this.generatedToken;
   }
 
-
-  public sendEmailConfirmationService() {
-    this.generalRequest.document = (document.getElementById('documentUser') as HTMLInputElement).value;
-    try {
-      this.apiService.invokePostRequest<GeneralRequest, boolean>(
-        environment.endpointSendConfirmation,
-        this.generalRequest,
-        (rsp: boolean) => {
-          this.callbackSendEmailConfirmation();
-        }
-      );
-    } catch (err) {
-      this.log.error(this, "Error consumiendo el servicio envio de confirmación de email: " + err);
-    }
-  }
-
-  private callbackSendEmailConfirmation(): String {
-    this.rspSendEmailConfirmation = this.apiService.response;
-    if (this.rspSendEmailConfirmation[0].status == true) {
-      document.location.href = environment.endPointHome;
-    }
-    //TO DO: Si el servicio falla, se queda en la última pantalla.
-    return this.rspSendEmailConfirmation;
-  }
 
   public validateInputText(myId, event) {
     this.onlyNumbers(event);

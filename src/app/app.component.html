@@ -1,18 +1,7 @@
-<div id="account" *ngIf="viewId == 1" class="component">
-    <app-active-account [token]="token"></app-active-account>
-</div>
-
-<div id="password" *ngIf="viewId == 2" class="component">
-    <app-forgot-password [token]="token"></app-forgot-password>
-</div>
-
-<app-landingTwo *ngIf="isProgressLanding"></app-landingTwo>
+<app-landingTwo *ngIf="isProgressLanding && (enableForRoute == false)"></app-landingTwo>
 <app-im-refer *ngIf="isProgressImRefer"></app-im-refer>
 <app-im-official *ngIf="isProgressImOfficial"></app-im-official>
 <app-homev2 *ngIf="isProgressHome"></app-homev2>
 <app-form-refer *ngIf="isProgressFormRefer" [token]="token"></app-form-refer>
 <app-form-tcd *ngIf="isProgressFormTcd"></app-form-tcd>
-<!-- <div id="calculatorCDT">
-    <app-calc-cdt></app-calc-cdt>
-</div> -->
-<!-- <router-outlet></router-outlet> -->
+<router-outlet></router-outlet> <!-- Se usa router outlet para capturar token a través de paramMap. -->

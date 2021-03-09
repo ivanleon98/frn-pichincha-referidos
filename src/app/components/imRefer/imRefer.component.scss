@@ -57,9 +57,9 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                &:hover {
-                    border: 1px solid #FFDD00;
-                }
+                // &:hover {
+                //     border: 1px solid #FFDD00;
+                // }
                 span {
                     margin-top: 12px;
                     font-size: 18px;
@@ -76,7 +76,7 @@
 }
 
 #cdt>img:nth-child(1) {
-    width: 65px;
+    width: 75px;
 }
 
 #tdc>img:nth-child(1) {

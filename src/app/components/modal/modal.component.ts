@@ -28,7 +28,7 @@ export class ModalComponent {
     storage: any;
     route: Location;
     rspGraphical: any;
-
+    msgSuccess: string = ""; //Variable para guardar mensaje de éxito que devuelve back cuando se envía correo de cambio de contraseña.
     constructor(private referidoService: ReferidoService, private log: LoggerService, private apiService: ApiGeneralService,
         private generalRequest: GeneralRequest, private PersonRefered: PersonRefered, private DataService: DataService,
         private GainChart: GainChartComponent, private containerComponent: AppComponent) {
@@ -46,11 +46,12 @@ export class ModalComponent {
     /* Service Add New Person */
     private callbackAddNewPerson(): JSON {
         this.rspAddPerson = this.apiService.response;
-        if (this.rspAddPerson[0].status == true) {
-            this.sendEmailConfirmationService();
+        if (this.rspAddPerson.status == true) {
+            document.getElementById('sendemail').style.display = 'flex';
+            document.getElementById('form-sign-up').style.display = 'none';
         } else {
-            this.rspAddPerson[0].response
-            alert(this.rspAddPerson[0].response);
+            this.rspAddPerson.response
+            alert(this.rspAddPerson.response);
         }
         return this.rspAddPerson;
     }
@@ -61,9 +62,10 @@ export class ModalComponent {
         this.generalRequest.cellphone = (document.getElementById('celular-referido') as HTMLInputElement).value;
         this.generalRequest.password = (document.getElementById('password-referido-new') as HTMLInputElement).value;
         this.generalRequest.email = (document.getElementById('email-register') as HTMLInputElement).value;
+        
         try {
             this.apiService.invokePostRequest<GeneralRequest, any>(
-                environment.endpointAddPerson,
+                environment.endPointSignUp,
                 this.generalRequest,
                 (rsp: any) => {
                     this.callbackAddNewPerson();
@@ -74,34 +76,10 @@ export class ModalComponent {
         }
     }
 
-    private callbackSendEmailConfirmation(): any {
-        this.rspSendEmailConfirmation = this.apiService.response;
-        if (this.rspSendEmailConfirmation[0].status == true) {
-            document.getElementById('sendemail').style.display = 'flex';
-            document.getElementById('form-sign-up').style.display = 'none';
-        }
-        return this.rspSendEmailConfirmation;
-    }
 
-    public sendEmailConfirmationService() {
-        this.generalRequest.document = (document.getElementById('identificacion-referido') as HTMLInputElement).value;
-        try {
-            this.apiService.invokePostRequest<GeneralRequest, boolean>(
-                environment.endpointSendConfirmation,
-                this.generalRequest,
-                (rsp: boolean) => {
-                    this.callbackSendEmailConfirmation();
-                }
-            );
-        } catch (err) {
-            this.log.error(this, "Error consumiendo el servicio envio de confirmación de email: " + err);
-        }
-    }
 
     private callbackLogin() {
         this.rspLogin = this.apiService.response;
-        this.containerComponent.isProgressImOfficial = false;
-        this.containerComponent.isProgressHome = true;
 
         if (this.rspLogin[0].status == true) {
             this.rspToken = this.rspLogin[0].token;
@@ -128,6 +106,9 @@ export class ModalComponent {
     public loginService() {
         this.generalRequest.email = (document.getElementById('correo-referido-log-in') as HTMLInputElement).value.toLocaleLowerCase();
         this.generalRequest.password = (document.getElementById('password-referido-log-in') as HTMLInputElement).value;
+        this.containerComponent.isProgressImOfficial = false;
+        this.containerComponent.isProgressHome = true;
+        this.closeModal()
 
         try {
             this.apiService.invokePostRequest<GeneralRequest, boolean>(
@@ -200,11 +181,11 @@ export class ModalComponent {
 
     private callbackSendEmailPassword(): any {
         this.rspEmaimPassword = this.apiService.response;
-        if (this.rspEmaimPassword[0].status == true) {
-            alert(this.rspEmaimPassword[0].response);
+        if (this.rspEmaimPassword.status == true) {
+            this.msgSuccess = this.rspEmaimPassword.response;
         }
-        if (this.rspEmaimPassword[0].status == false) {
-            alert(this.rspEmaimPassword[0].response);
+        if (this.rspEmaimPassword.status == false) {
+            alert(this.rspEmaimPassword.response);
         }
         return this.rspEmaimPassword;
     }
@@ -214,7 +195,7 @@ export class ModalComponent {
         request.email = (document.getElementById('forgot-email') as HTMLInputElement).value.toLocaleLowerCase();
         try {
             this.apiService.invokePostRequest<GeneralRequest, boolean>(
-                environment.endPointSendEmailPassword,
+                environment.endPointEmailPassword,
                 request,
                 (rsp: boolean) => {
                     this.callbackSendEmailPassword();
@@ -248,13 +229,20 @@ export class ModalComponent {
         let numCelfull = (document.getElementById('celular-referido') as HTMLInputElement).value;
         let pass = (document.getElementById('password-referido-new') as HTMLInputElement).value;
         let confirmPass = (document.getElementById('confirm-password-referido-new-confirmation') as HTMLInputElement).value;
+        let email = (document.getElementById('email-register') as HTMLInputElement);
         let btn = (document.getElementById('registrar') as HTMLButtonElement);
         let captcha = grecaptcha.getResponse().length;
-        if (nom != "" && numidfull != "" && numCelfull != "" && pass != "" && confirmPass != "" && captcha !== 0) {
+        if (nom!=""&&numidfull!= ""&&numCelfull!=""&&email.value!=""&&email.validity.patternMismatch==false&&pass!=""&&confirmPass!=""&&captcha!==0&&(confirmPass===pass)) {
             btn.disabled = false;
         } else {
             btn.disabled = true;
         }
+        if (email.validity.patternMismatch==true) {
+            document.getElementById('smallemail').style.display = 'block';
+        } else{
+            document.getElementById('smallemail').style.display = 'none';
+        }
+
     }
     public validateLogInFields() {
         let mail = (document.getElementById('correo-referido-log-in') as HTMLInputElement).value;

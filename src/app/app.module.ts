@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ChartsModule } from 'ng2-charts';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module'; // CLI imports AppRoutingModule 
 
 /* import { AppRoutingModule } from './app-routing.module'; */
 import { AppComponent } from './app.component';
@@ -84,7 +85,7 @@ import { CalcCeComponent } from './components/control/calc-ce/calc-ce.component'
   ],
   imports: [
     BrowserModule,
-   /*  AppRoutingModule, */
+    AppRoutingModule,
     ChartsModule,
     FormsModule,
     ReactiveFormsModule,

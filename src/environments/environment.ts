@@ -14,12 +14,10 @@ export const environment = {
   endPointReferAccept: 'http://localhost:9010/amigos-pichincha/refer/accept/cdt/',
   endPointReferTdc: 'http://localhost:9010/amigos-pichincha/refer/accept/tcd/',
   endPointValidateTokenForm: 'http://localhost:9010/amigos-pichincha/validate/link/',
-  endpointSendConfirmation: 'http://localhost:9010/amigos-pichincha/confirmacion/',
   endPointForwardEmail: 'http://localhost:9010/amigos-pichincha/refer/forward/mail/',
   endpointConfirmationToken: 'http://localhost:9010/amigos-pichincha/activacion/',
   endpointLogin: 'http://localhost:9010/amigos-pichincha/login/',
   endPointForwardToken: 'http://localhost:9010/amigos-pichincha/forward/confirmation/',
-  endPointSendEmailPassword: 'http://localhost:9010/amigos-pichincha/recover/account/',
   endPointResetPassword: 'http://localhost:9010/amigos-pichincha/reset/password/now/',
   endPointGraphicalData: 'http://localhost:9010/amigos-pichincha/get/graphical/data/',
   endPointGetReferrals: 'http://localhost:9010/amigos-pichincha/get/referrals/',
@@ -28,6 +26,12 @@ export const environment = {
   endPointRedirectFormTdc: 'http://localhost:9010/amigos-pichincha/vincular-tcd',
   endPointRedirectTcd: 'https://digital.bancopichincha.com.co/tarjeta-de-credito',
   endpointHealth: 'http://localhost:9010/amigos-pichincha/health',
+
+
+  endPointSignUp: 'http://localhost:9027/referidos-multinivel/sign-up/',
+  endPointActiveAccount: 'http://localhost:9027/referidos-multinivel/activacion/',
+  endPointEmailPassword: 'http://localhost:9027/referidos-multinivel/recover/account/',
+  endPointChangePassword: 'http://localhost:9027/referidos-multinivel/reset/password/'
 };
 
 /*

@@ -370,7 +370,12 @@ div.group:nth-child(5) {
     text-align: center;
     margin-top: 30px;
 }
+.message-success{
+    color: #06BE4A;
+    font-size: 15px;
+    font-family: 'OpenSans-Light';
 
+}
 @-webkit-keyframes bounceInRight {
     from,
     60%,
@@ -574,7 +579,6 @@ input:invalid {
 input:valid~label {
     top: -14px;
     font-size: 15px;
-    // color: rgb(76, 175, 80);
     color: #0000f3;
     transition: 300ms ease all !important;
 }
@@ -595,6 +599,7 @@ input:focus~label {
 .small {
     color: #f44336;
     display: none;
+    font-family: 'OpenSans-Light';
 }
 
 input:focus~.bar:before {
@@ -749,6 +754,7 @@ label {
 @media screen and (min-width:1200px) {
     .form-sign-up {
         justify-content: space-between;
+        height: 100%;
     }
     .inputs-log-in {
         height: 100%;

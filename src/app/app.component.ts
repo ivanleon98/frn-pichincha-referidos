@@ -1,4 +1,5 @@
 import { Component, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { ReferidoService } from './service/referido.service';
 
 
@@ -18,6 +19,8 @@ export class AppComponent {
   public isProgressFormRefer: boolean;
   public isProgressHome: boolean;
   public isProgressFormTcd: boolean;
+  public enableForRoute: boolean = false;
+  public route: Location;
   title = 'referrals-pichincha';
   dataAppCardProfitLoss = [10, 5, 17, 23, 22, 31, 31, 35, 32, 25, 22, 21.5];
   dataAppCardProfitLossRed = [12, 12, 10, 8, 11, 15, 12, 13, 18, 17, 15, 10];
@@ -32,11 +35,18 @@ export class AppComponent {
     this.isProgressFormRefer = false;
     this.isProgressHome = false;
     this.isProgressFormTcd = false;
+    this.route = location;
+    this.enableForRoute = false;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
   }
 
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    (location.pathname.includes('/referidos-multinivel')===true?this.enableForRoute=true:this.enableForRoute=false)
+  }
 
   private showComponents(){
     try {

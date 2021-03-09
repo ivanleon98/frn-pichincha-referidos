@@ -48,7 +48,6 @@ export const environment = {
   endPointReferAccept: 'http://localhost:9010/amigos-pichincha/refer/accept/cdt/',
   endPointReferTdc: 'http://localhost:9010/amigos-pichincha/refer/accept/tcd/',
   endPointValidateTokenForm: 'http://localhost:9010/amigos-pichincha/validate/link/',
-  endpointSendConfirmation: 'http://localhost:9010/amigos-pichincha/confirmacion/',
   endPointForwardEmail: 'http://localhost:9010/amigos-pichincha/refer/forward/mail/',
   endpointConfirmationToken: 'http://localhost:9010/amigos-pichincha/activacion/',
   endpointLogin: 'http://localhost:9010/amigos-pichincha/login/',
